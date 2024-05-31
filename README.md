@@ -21,6 +21,7 @@ Wire wrapped SBC based on WDC W65C816SXB (i.e. 16-bit version of 6502):
     - Port A status is displayed on LED bar graph
     - Port B is connected to a 16 chars by 2 lines LCD display in 4-bit mode 
 - Possible future enhancements:
+  - Convert wirewrap version to real printed circuit board 
   - Add Teletext-based VDU
   - Add a TMS9918-based video graphics adaptor
   - Add a Real Time Clock for date/time 
