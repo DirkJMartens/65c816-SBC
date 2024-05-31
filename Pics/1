@@ -1,8 +1,0 @@
-The SBC consists of: 
-- 65c816 CPU (max 14 MHz clock) 
-- 62256 : 32KB SRAM 
-- 28C256 : 32KB EEPROM 
-- TL7705 voltage supervisor and reset 
-- UART/ACIA with 1.8432 MHz crystal 
-- RS232-to-USB converter 
-- 
