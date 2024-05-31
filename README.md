@@ -1,2 +1,31 @@
 # 65c816-SBC
-Wire wrapped SBC based on WDC W65C816SXB 
+Wire wrapped SBC based on WDC W65C816SXB (i.e. 16-bit version of 6502): 
+
+- Use WDC W65C816SBX as a basic schematic
+- See "https://github.com/DirkJMartens/65c816-SBC"
+- Specifications:
+  - CPU printed circuit board: 
+    - 65C816 CPU, max 14 MHz clock frequency
+    - TL7705: reset circuit and voltage supervisor for uC/uP systems
+    - 32K RAM, 62256
+    - 32K EEPROM, 28c256
+    - 65C51 ACIA, 115.2KBaud serial connection
+    - TTL-RS232 serial to USB convertor
+  - DISPLAY/IO printed circuit board:
+    - 8 hex-to-seven-segment display convertors to display content in HEX format 
+    - Databus content shown in hex format on 2 seven-segment displays 
+    - Memory address shown in hex format on 4 seven-segment displays 
+    - Bank address shown in hex format on 2 seven-segment displays
+    - Show the same in binary format on 4 LED bargraphs 
+    - 65C22 VIA with 2 eight-bit I/O ports A and B 
+    - Port A status is displayed on LED bar graph
+    - Port B is connected to a 16 chars by 2 lines LCD display in 4-bit mode 
+- Possible future enhancements:
+  - Add Teletext-based VDU
+  - Add a TMS9918-based video graphics adaptor
+  - Add a Real Time Clock for date/time 
+  - Build in 19-inch Euro-rack
+- Based on / similar projects:
+  - Adrian Kohlbecker (https://www.youtube.com/playlist?list=PLdGm_pyUmoII9D16mzw-XsJjHKi3f1kqT)
+  - Dan Grise (https://www.youtube.com/watch?v=jgMxO3W5qBE)
+  - TrackZero (https://www.youtube.com/watch?v=1spMekg8GM8&t=796s)
