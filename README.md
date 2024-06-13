@@ -1,7 +1,7 @@
 # 65c816-SBC
 Wire wrapped SBC based on WDC W65C816SXB (i.e. 16-bit version of 6502): 
 
-- Use WDC W65C816SBX as a basic schematic
+- Uses WDC W65C816SBX as a basic schematic
 - See "https://github.com/DirkJMartens/65c816-SBC"
 - Specifications:
   - CPU printed circuit board: 
@@ -19,10 +19,15 @@ Wire wrapped SBC based on WDC W65C816SXB (i.e. 16-bit version of 6502):
     - Show the same in binary format on 4 LED bargraphs 
     - 65C22 VIA with 2 eight-bit I/O ports A and B 
     - Port A status is displayed on LED bar graph
-    - Port B is connected to a 16 chars by 2 lines LCD display in 4-bit mode 
+    - Port B is connected to a 16 chars by 2 lines LCD display in 4-bit mode
+- Initial build was a wire-wrapped version on 2 PCBs, fully tested and working. 
+- Converted to a 4 layer PCB, consisting of 3 Eurocard-sized PCBs (100x160mm or 4"x6.25")
+  - Most of the original CPU board was retained. Additions include NMI button, power light ...
+  - The Display/IO board was split into 2 separate ones
+  - The Display board could potentially be used for other 8-bit projects (6502, Z80?, 8086? ...)
+  - The I/O board has an "experiment" area for future use with e.g. VDU chips, RTC chip ... 
 - Possible future enhancements:
-  - Convert wirewrap version to real printed circuit board 
-  - Add Teletext-based VDU
+  - Add Teletext-based VDU based on SAA5020 and SAA5050 
   - Add a TMS9918-based video graphics adaptor
   - Add a Real Time Clock for date/time 
   - Build in 19-inch Euro-rack
