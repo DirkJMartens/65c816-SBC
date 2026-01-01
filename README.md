@@ -41,9 +41,9 @@ Wire wrapped SBC based on WDC W65C816SXB (i.e. 16-bit version of 6502):
     - Changed all THT design to mixed THT/SMD (e.g. pull-ups, decoupling caps, LEDs ...) 
     - Various other minor changes 
 - Possible future enhancements:
-  - Add Teletext-based VDU based on SAA5020 and SAA5050 
-  - Add a TMS9918-based video graphics adaptor
-  - Add a Real Time Clock for date/time 
+  - Add Teletext-based VDU based on SAA5020 and SAA5050 (24 lines of 40 chars or 80x96 pixels) 
+  - Add a TMS9918-based video graphics adaptor (24 lines of 40 chars or 256x192 pixels) 
+  - Add a Real Time Clock for date/time (e.g. ICM7170) 
   - Build in 19-inch Euro-rack
 - Based on / similar projects:
   - Adrian Kohlbecker (https://www.youtube.com/playlist?list=PLdGm_pyUmoII9D16mzw-XsJjHKi3f1kqT)
