@@ -43,7 +43,8 @@ Wire wrapped SBC based on WDC W65C816SXB (i.e. 16-bit version of 6502):
 - Possible future enhancements:
   - Add Teletext-based VDU based on SAA5020 and SAA5050 (24 lines of 40 chars or 80x96 pixels) 
   - Add a TMS9918-based video graphics adaptor (24 lines of 40 chars or 256x192 pixels) 
-  - Add a Real Time Clock for date/time (ICM7170, bcoz I have 2, and bcoz they are non-I2C) 
+  - Add a Real Time Clock for date/time (ICM7170, bcoz I have 2, and bcoz they are non-I2C)
+  - Adding additional memory, both (E)(EP)ROM and RAM to use bank switching and extended addressing 
   - Build in 19-inch Euro-rack
 - Based on / similar projects:
   - Adrian Kohlbecker (https://www.youtube.com/playlist?list=PLdGm_pyUmoII9D16mzw-XsJjHKi3f1kqT)
