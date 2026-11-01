@@ -1,0 +1,1556 @@
+3620 bytes in string table
+
+13 file entries
+	0: nlines=621 <WDC_CStartup_816.ASM>
+	1: nlines=186 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\C_TEMPLATE_816.c>
+	2: nlines=106 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\mystrings.h>
+	3: nlines=110 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\lcd.c>
+	4: nlines=94 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\LCD.h>
+	5: nlines=121 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\ACIA.c>
+	6: nlines=177 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\ACIA.h>
+	7: nlines=126 <C:\WDC\Tools\INCLUDE\string.h>
+	8: nlines=845 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\cmdmon.c>
+	9: nlines=64 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\cmdmon.h>
+	10: nlines=103 <C:\WDC\Tools\INCLUDE\ctype.h>
+	11: nlines=140 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\RTC.c>
+	12: nlines=90 <C:\Users\DM\Documents\Datasheets\Microcontroller\65816\C_programs\RTC.h>
+
+11 sections - 20 modules
+
+module 0: output_files\WDC_CStartup_816.obj
+	snum = 5 start=1000 size=256
+	snum = 8 start=FE00 size=61
+	snum = 9 start=FF00 size=15
+	snum = 7 start=F800 size=195
+	snum = 10 start=FFE0 size=32
+	nlinrecs = 65
+		file 0 line 166 @ 1000 ps=00 len=256
+		file 0 line 185 @ FE00 ps=00 len=1
+		file 0 line 187 @ FE01 ps=00 len=1
+		file 0 line 188 @ FE02 ps=00 len=1
+		file 0 line 189 @ FE03 ps=00 len=1
+		file 0 line 199 @ FE04 ps=00 len=2
+		file 0 line 203 @ FE06 ps=00 len=3
+		file 0 line 204 @ FE09 ps=00 len=1
+		file 0 line 208 @ FE0A ps=00 len=2
+		file 0 line 210 @ FE0C ps=20 len=2
+		file 0 line 211 @ FE0E ps=20 len=1
+		file 0 line 212 @ FE0F ps=20 len=1
+		file 0 line 213 @ FE10 ps=20 len=2
+		file 0 line 236 @ FE12 ps=00 len=3
+		file 0 line 238 @ FE15 ps=00 len=2
+		file 0 line 239 @ FE17 ps=00 len=1
+		file 0 line 240 @ FE18 ps=00 len=3
+		file 0 line 241 @ FE1B ps=00 len=3
+		file 0 line 242 @ FE1E ps=00 len=3
+		file 0 line 249 @ FE21 ps=00 len=3
+		file 0 line 251 @ FE24 ps=00 len=2
+		file 0 line 252 @ FE26 ps=00 len=3
+		file 0 line 253 @ FE29 ps=00 len=2
+		file 0 line 254 @ FE2B ps=00 len=3
+		file 0 line 256 @ FE2E ps=00 len=3
+		file 0 line 257 @ FE31 ps=00 len=1
+		file 0 line 258 @ FE32 ps=00 len=1
+		file 0 line 259 @ FE33 ps=00 len=2
+		file 0 line 260 @ FE35 ps=00 len=2
+		file 0 line 272 @ FE37 ps=00 len=4
+		file 0 line 273 @ FE3B ps=00 len=2
+		file 0 line 293 @ FF00 ps=00 len=1
+		file 0 line 294 @ FF01 ps=00 len=2
+		file 0 line 298 @ FF03 ps=00 len=1
+		file 0 line 299 @ FF04 ps=00 len=2
+		file 0 line 304 @ FF06 ps=00 len=1
+		file 0 line 305 @ FF07 ps=00 len=2
+		file 0 line 310 @ FF09 ps=00 len=1
+		file 0 line 311 @ FF0A ps=00 len=2
+		file 0 line 315 @ FF0C ps=00 len=1
+		file 0 line 316 @ FF0D ps=00 len=2
+		file 0 line 328 @ F800 ps=00 len=5
+		file 0 line 329 @ F805 ps=00 len=4
+		file 0 line 331 @ F809 ps=00 len=12
+		file 0 line 332 @ F815 ps=00 len=42
+		file 0 line 333 @ F83F ps=00 len=40
+		file 0 line 334 @ F867 ps=00 len=28
+		file 0 line 335 @ F883 ps=00 len=3
+		file 0 line 337 @ F886 ps=00 len=20
+		file 0 line 338 @ F89A ps=00 len=20
+		file 0 line 339 @ F8AE ps=00 len=21
+		file 0 line 386 @ FFE0 ps=00 len=4
+		file 0 line 388 @ FFE4 ps=00 len=2
+		file 0 line 389 @ FFE6 ps=00 len=2
+		file 0 line 390 @ FFE8 ps=00 len=2
+		file 0 line 391 @ FFEA ps=00 len=2
+		file 0 line 392 @ FFEC ps=00 len=2
+		file 0 line 393 @ FFEE ps=00 len=2
+		file 0 line 397 @ FFF0 ps=00 len=4
+		file 0 line 399 @ FFF4 ps=00 len=2
+		file 0 line 400 @ FFF6 ps=00 len=2
+		file 0 line 401 @ FFF8 ps=00 len=2
+		file 0 line 402 @ FFFA ps=00 len=2
+		file 0 line 403 @ FFFC ps=00 len=2
+		file 0 line 404 @ FFFE ps=00 len=2
+	1 symbol records
+		  0:WDC_CStart val=00000000 class=   file flg=0 aux=0
+
+module 1: output_files\C_TEMPLATE_816.obj
+	snum = 1 start=8000 size=8047
+	snum = 2 start=F000 size=1805
+	snum = 3 start=2000 size=476
+	nlinrecs = 652
+		file 3 line 3 @ 8000 ps=00 len=8
+		file 3 line 12 @ 8008 ps=00 len=9
+		file 3 line 14 @ 8011 ps=00 len=9
+		file 3 line 15 @ 801A ps=00 len=9
+		file 3 line 16 @ 8023 ps=00 len=9
+		file 3 line 17 @ 802C ps=00 len=9
+		file 3 line 18 @ 8035 ps=00 len=9
+		file 3 line 19 @ 803E ps=00 len=9
+		file 3 line 20 @ 8047 ps=00 len=9
+		file 3 line 21 @ 8050 ps=00 len=13
+		file 3 line 23 @ 805D ps=00 len=9
+		file 3 line 24 @ 8066 ps=00 len=8
+		file 3 line 26 @ 806E ps=00 len=8
+		file 3 line 34 @ 8076 ps=00 len=9
+		file 3 line 35 @ 807F ps=00 len=24
+		file 3 line 36 @ 8097 ps=00 len=24
+		file 3 line 37 @ 80AF ps=00 len=24
+		file 3 line 38 @ 80C7 ps=00 len=36
+		file 3 line 39 @ 80EB ps=00 len=36
+		file 3 line 40 @ 810F ps=00 len=36
+		file 3 line 41 @ 8133 ps=00 len=3
+		file 3 line 42 @ 8136 ps=00 len=12
+		file 3 line 44 @ 8142 ps=00 len=8
+		file 3 line 51 @ 814A ps=00 len=9
+		file 3 line 52 @ 8153 ps=00 len=13
+		file 3 line 53 @ 8160 ps=00 len=24
+		file 3 line 54 @ 8178 ps=00 len=13
+		file 3 line 55 @ 8185 ps=00 len=25
+		file 3 line 56 @ 819E ps=00 len=36
+		file 3 line 57 @ 81C2 ps=00 len=25
+		file 3 line 58 @ 81DB ps=00 len=3
+		file 3 line 59 @ 81DE ps=00 len=12
+		file 3 line 61 @ 81EA ps=00 len=8
+		file 3 line 73 @ 81F2 ps=00 len=9
+		file 3 line 74 @ 81FB ps=00 len=9
+		file 3 line 75 @ 8204 ps=00 len=9
+		file 3 line 76 @ 820D ps=00 len=9
+		file 3 line 79 @ 8216 ps=00 len=6
+		file 3 line 81 @ 821C ps=00 len=6
+		file 3 line 83 @ 8222 ps=00 len=6
+		file 3 line 84 @ 8228 ps=00 len=6
+		file 3 line 85 @ 822E ps=00 len=6
+		file 3 line 86 @ 8234 ps=00 len=8
+		file 3 line 88 @ 823C ps=00 len=8
+		file 3 line 93 @ 8244 ps=00 len=10
+		file 3 line 94 @ 824E ps=00 len=20
+		file 3 line 96 @ 8262 ps=00 len=17
+		file 3 line 97 @ 8273 ps=00 len=12
+		file 3 line 99 @ 827F ps=00 len=14
+		file 3 line 103 @ 828D ps=00 len=9
+		file 3 line 104 @ 8296 ps=00 len=20
+		file 3 line 105 @ 82AA ps=00 len=33
+		file 3 line 106 @ 82CB ps=00 len=9
+		file 3 line 107 @ 82D4 ps=00 len=6
+		file 3 line 108 @ 82DA ps=00 len=20
+		file 3 line 109 @ 82EE ps=00 len=33
+		file 3 line 110 @ 830F ps=00 len=8
+		file 5 line 7 @ 8317 ps=00 len=8
+		file 5 line 8 @ 831F ps=00 len=9
+		file 5 line 10 @ 8328 ps=00 len=9
+		file 5 line 12 @ 8331 ps=00 len=9
+		file 5 line 13 @ 833A ps=00 len=8
+		file 5 line 17 @ 8342 ps=00 len=8
+		file 5 line 22 @ 834A ps=00 len=9
+		file 5 line 23 @ 8353 ps=00 len=14
+		file 5 line 23 @ 8361 ps=00 len=3
+		file 5 line 26 @ 8364 ps=00 len=14
+		file 5 line 27 @ 8372 ps=00 len=9
+		file 5 line 28 @ 837B ps=00 len=3
+		file 5 line 30 @ 837E ps=00 len=9
+		file 5 line 32 @ 8387 ps=00 len=12
+		file 5 line 36 @ 8393 ps=00 len=10
+		file 5 line 38 @ 839D ps=00 len=6
+		file 5 line 39 @ 83A3 ps=00 len=6
+		file 5 line 40 @ 83A9 ps=00 len=6
+		file 5 line 41 @ 83AF ps=00 len=6
+		file 5 line 42 @ 83B5 ps=00 len=6
+		file 5 line 43 @ 83BB ps=00 len=6
+		file 5 line 44 @ 83C1 ps=00 len=6
+		file 5 line 45 @ 83C7 ps=00 len=13
+		file 5 line 46 @ 83D4 ps=00 len=18
+		file 5 line 47 @ 83E6 ps=00 len=8
+		file 5 line 51 @ 83EE ps=00 len=8
+		file 5 line 52 @ 83F6 ps=00 len=6
+		file 5 line 53 @ 83FC ps=00 len=6
+		file 5 line 54 @ 8402 ps=00 len=6
+		file 5 line 55 @ 8408 ps=00 len=8
+		file 5 line 60 @ 8410 ps=00 len=8
+		file 5 line 64 @ 8418 ps=00 len=15
+		file 5 line 65 @ 8427 ps=00 len=49
+		file 5 line 67 @ 8458 ps=00 len=6
+		file 5 line 72 @ 845E ps=00 len=8
+		file 5 line 73 @ 8466 ps=00 len=5
+		file 5 line 74 @ 846B ps=00 len=17
+		file 5 line 79 @ 847C ps=00 len=8
+		file 5 line 82 @ 8484 ps=00 len=10
+		file 5 line 84 @ 848E ps=00 len=11
+		file 5 line 85 @ 8499 ps=00 len=14
+		file 5 line 85 @ 84A7 ps=00 len=3
+		file 5 line 86 @ 84AA ps=00 len=3
+		file 5 line 87 @ 84AD ps=00 len=6
+		file 5 line 88 @ 84B3 ps=00 len=6
+		file 5 line 89 @ 84B9 ps=00 len=12
+		file 5 line 91 @ 84C5 ps=00 len=8
+		file 5 line 92 @ 84CD ps=00 len=10
+		file 5 line 93 @ 84D7 ps=00 len=15
+		file 5 line 94 @ 84E6 ps=00 len=12
+		file 8 line 6 @ 84F2 ps=00 len=8
+		file 8 line 16 @ 84FA ps=00 len=33
+		file 8 line 17 @ 851B ps=00 len=7
+		file 8 line 18 @ 8522 ps=00 len=7
+		file 8 line 20 @ 8529 ps=00 len=13
+		file 8 line 21 @ 8536 ps=00 len=7
+		file 8 line 22 @ 853D ps=00 len=11
+		file 8 line 28 @ 8548 ps=00 len=8
+		file 8 line 30 @ 8550 ps=00 len=14
+		file 8 line 31 @ 855E ps=00 len=7
+		file 8 line 32 @ 8565 ps=00 len=8
+		file 8 line 35 @ 856D ps=00 len=14
+		file 8 line 36 @ 857B ps=00 len=7
+		file 8 line 37 @ 8582 ps=00 len=8
+		file 8 line 40 @ 858A ps=00 len=14
+		file 8 line 41 @ 8598 ps=00 len=7
+		file 8 line 42 @ 859F ps=00 len=8
+		file 8 line 45 @ 85A7 ps=00 len=6
+		file 8 line 46 @ 85AD ps=00 len=6
+		file 8 line 48 @ 85B3 ps=00 len=8
+		file 8 line 51 @ 85BB ps=00 len=3
+		file 8 line 52 @ 85BE ps=00 len=3
+		file 8 line 55 @ 85C1 ps=00 len=3
+		file 8 line 56 @ 85C4 ps=00 len=3
+		file 8 line 59 @ 85C7 ps=00 len=3
+		file 8 line 60 @ 85CA ps=00 len=3
+		file 8 line 63 @ 85CD ps=00 len=3
+		file 8 line 64 @ 85D0 ps=00 len=3
+		file 8 line 67 @ 85D3 ps=00 len=3
+		file 8 line 68 @ 85D6 ps=00 len=3
+		file 8 line 71 @ 85D9 ps=00 len=3
+		file 8 line 72 @ 85DC ps=00 len=3
+		file 8 line 75 @ 85DF ps=00 len=3
+		file 8 line 76 @ 85E2 ps=00 len=3
+		file 8 line 79 @ 85E5 ps=00 len=3
+		file 8 line 80 @ 85E8 ps=00 len=3
+		file 8 line 83 @ 85EB ps=00 len=3
+		file 8 line 84 @ 85EE ps=00 len=3
+		file 8 line 87 @ 85F1 ps=00 len=3
+		file 8 line 88 @ 85F4 ps=00 len=3
+		file 8 line 91 @ 85F7 ps=00 len=5
+		file 8 line 92 @ 85FC ps=00 len=3
+		file 8 line 95 @ 85FF ps=00 len=3
+		file 8 line 96 @ 8602 ps=00 len=3
+		file 8 line 99 @ 8605 ps=00 len=3
+		file 8 line 100 @ 8608 ps=00 len=3
+		file 8 line 103 @ 860B ps=00 len=3
+		file 8 line 104 @ 860E ps=00 len=3
+		file 8 line 107 @ 8611 ps=00 len=3
+		file 8 line 108 @ 8614 ps=00 len=3
+		file 8 line 111 @ 8617 ps=00 len=3
+		file 8 line 112 @ 861A ps=00 len=3
+		file 8 line 114 @ 861D ps=00 len=3
+		file 8 line 115 @ 8620 ps=00 len=3
+		file 8 line 117 @ 8623 ps=00 len=3
+		file 8 line 118 @ 8626 ps=00 len=3
+		file 8 line 120 @ 8629 ps=00 len=5
+		file 8 line 121 @ 862E ps=00 len=3
+		file 8 line 123 @ 8631 ps=00 len=3
+		file 8 line 125 @ 8634 ps=00 len=6
+		file 8 line 126 @ 863A ps=00 len=3
+		file 8 line 127 @ 863D ps=00 len=147
+		file 8 line 128 @ 86D0 ps=00 len=12
+		file 8 line 130 @ 86DC ps=00 len=8
+		file 8 line 133 @ 86E4 ps=00 len=8
+		file 8 line 135 @ 86EC ps=00 len=8
+		file 8 line 142 @ 86F4 ps=00 len=8
+		file 8 line 144 @ 86FC ps=00 len=8
+		file 8 line 146 @ 8704 ps=00 len=6
+		file 8 line 147 @ 870A ps=00 len=8
+		file 8 line 149 @ 8712 ps=00 len=8
+		file 8 line 151 @ 871A ps=00 len=6
+		file 8 line 152 @ 8720 ps=00 len=8
+		file 8 line 154 @ 8728 ps=00 len=8
+		file 8 line 166 @ 8730 ps=00 len=98
+		file 8 line 167 @ 8792 ps=00 len=12
+		file 8 line 168 @ 879E ps=00 len=12
+		file 8 line 170 @ 87AA ps=00 len=8
+		file 8 line 171 @ 87B2 ps=00 len=8
+		file 8 line 172 @ 87BA ps=00 len=12
+		file 8 line 174 @ 87C6 ps=00 len=18
+		file 8 line 175 @ 87D8 ps=00 len=4
+		file 8 line 176 @ 87DC ps=00 len=8
+		file 8 line 177 @ 87E4 ps=00 len=3
+		file 8 line 179 @ 87E7 ps=00 len=12
+		file 8 line 180 @ 87F3 ps=00 len=12
+		file 8 line 181 @ 87FF ps=00 len=12
+		file 8 line 182 @ 880B ps=00 len=12
+		file 8 line 183 @ 8817 ps=00 len=12
+		file 8 line 184 @ 8823 ps=00 len=18
+		file 8 line 185 @ 8835 ps=00 len=6
+		file 8 line 186 @ 883B ps=00 len=12
+		file 8 line 187 @ 8847 ps=00 len=12
+		file 8 line 188 @ 8853 ps=00 len=9
+		file 8 line 190 @ 885C ps=00 len=3
+		file 8 line 192 @ 885F ps=00 len=12
+		file 8 line 193 @ 886B ps=00 len=12
+		file 8 line 194 @ 8877 ps=00 len=12
+		file 8 line 195 @ 8883 ps=00 len=8
+		file 8 line 197 @ 888B ps=00 len=8
+		file 8 line 201 @ 8893 ps=00 len=8
+		file 8 line 203 @ 889B ps=00 len=8
+		file 8 line 205 @ 88A3 ps=00 len=6
+		file 8 line 206 @ 88A9 ps=00 len=8
+		file 8 line 208 @ 88B1 ps=00 len=8
+		file 8 line 210 @ 88B9 ps=00 len=6
+		file 8 line 211 @ 88BF ps=00 len=8
+		file 8 line 213 @ 88C7 ps=00 len=18
+		file 8 line 281 @ 88D9 ps=00 len=6
+		file 8 line 282 @ 88DF ps=00 len=6
+		file 8 line 290 @ 88E5 ps=00 len=5
+		file 8 line 316 @ 88EA ps=00 len=6
+		file 8 line 317 @ 88F0 ps=00 len=8
+		file 8 line 319 @ 88F8 ps=00 len=34
+		file 8 line 334 @ 891A ps=00 len=12
+		file 8 line 335 @ 8926 ps=00 len=6
+		file 8 line 336 @ 892C ps=00 len=3
+		file 8 line 338 @ 892F ps=00 len=12
+		file 8 line 340 @ 893B ps=00 len=12
+		file 8 line 341 @ 8947 ps=00 len=9
+		file 8 line 342 @ 8950 ps=00 len=3
+		file 8 line 344 @ 8953 ps=00 len=12
+		file 8 line 347 @ 895F ps=00 len=20
+		file 8 line 348 @ 8973 ps=00 len=6
+		file 8 line 349 @ 8979 ps=00 len=3
+		file 8 line 351 @ 897C ps=00 len=8
+		file 8 line 352 @ 8984 ps=00 len=8
+		file 8 line 354 @ 898C ps=00 len=9
+		file 8 line 354 @ 8995 ps=00 len=2
+		file 8 line 356 @ 8997 ps=00 len=4
+		file 8 line 357 @ 899B ps=00 len=4
+		file 8 line 358 @ 899F ps=00 len=4
+		file 8 line 359 @ 89A3 ps=00 len=8
+		file 8 line 362 @ 89AB ps=00 len=5
+		file 8 line 363 @ 89B0 ps=00 len=5
+		file 8 line 365 @ 89B5 ps=00 len=17
+		file 8 line 366 @ 89C6 ps=00 len=17
+		file 8 line 367 @ 89D7 ps=00 len=17
+		file 8 line 368 @ 89E8 ps=00 len=9
+		file 8 line 369 @ 89F1 ps=00 len=17
+		file 8 line 370 @ 8A02 ps=00 len=17
+		file 8 line 371 @ 8A13 ps=00 len=17
+		file 8 line 372 @ 8A24 ps=00 len=9
+		file 8 line 374 @ 8A2D ps=00 len=6
+		file 8 line 375 @ 8A33 ps=00 len=12
+		file 8 line 377 @ 8A3F ps=00 len=10
+		file 8 line 378 @ 8A49 ps=00 len=15
+		file 8 line 380 @ 8A58 ps=00 len=12
+		file 8 line 382 @ 8A64 ps=00 len=12
+		file 8 line 383 @ 8A70 ps=00 len=10
+		file 8 line 384 @ 8A7A ps=00 len=15
+		file 8 line 386 @ 8A89 ps=00 len=12
+		file 8 line 388 @ 8A95 ps=00 len=9
+		file 8 line 390 @ 8A9E ps=00 len=15
+		file 8 line 391 @ 8AAD ps=00 len=16
+		file 8 line 392 @ 8ABD ps=00 len=10
+		file 8 line 393 @ 8AC7 ps=00 len=6
+		file 8 line 394 @ 8ACD ps=00 len=6
+		file 8 line 395 @ 8AD3 ps=00 len=6
+		file 8 line 396 @ 8AD9 ps=00 len=6
+		file 8 line 398 @ 8ADF ps=00 len=17
+		file 8 line 399 @ 8AF0 ps=00 len=3
+		file 8 line 402 @ 8AF3 ps=00 len=7
+		file 8 line 403 @ 8AFA ps=00 len=7
+		file 8 line 404 @ 8B01 ps=00 len=7
+		file 8 line 405 @ 8B08 ps=00 len=8
+		file 8 line 407 @ 8B10 ps=00 len=8
+		file 8 line 409 @ 8B18 ps=00 len=6
+		file 8 line 410 @ 8B1E ps=00 len=16
+		file 8 line 418 @ 8B2E ps=00 len=3
+		file 8 line 420 @ 8B31 ps=00 len=6
+		file 8 line 421 @ 8B37 ps=00 len=12
+		file 8 line 423 @ 8B43 ps=00 len=8
+		file 8 line 428 @ 8B4B ps=00 len=6
+		file 8 line 429 @ 8B51 ps=00 len=6
+		file 8 line 430 @ 8B57 ps=00 len=6
+		file 8 line 431 @ 8B5D ps=00 len=6
+		file 8 line 432 @ 8B63 ps=00 len=6
+		file 8 line 433 @ 8B69 ps=00 len=6
+		file 8 line 443 @ 8B6F ps=00 len=7
+		file 8 line 444 @ 8B76 ps=00 len=6
+		file 8 line 454 @ 8B7C ps=00 len=7
+		file 8 line 455 @ 8B83 ps=00 len=6
+		file 8 line 456 @ 8B89 ps=00 len=6
+		file 8 line 466 @ 8B8F ps=00 len=7
+		file 8 line 467 @ 8B96 ps=00 len=6
+		file 8 line 475 @ 8B9C ps=00 len=7
+		file 8 line 476 @ 8BA3 ps=00 len=6
+		file 8 line 484 @ 8BA9 ps=00 len=7
+		file 8 line 485 @ 8BB0 ps=00 len=6
+		file 8 line 493 @ 8BB6 ps=00 len=7
+		file 8 line 494 @ 8BBD ps=00 len=6
+		file 8 line 503 @ 8BC3 ps=00 len=7
+		file 8 line 504 @ 8BCA ps=00 len=6
+		file 8 line 513 @ 8BD0 ps=00 len=7
+		file 8 line 514 @ 8BD7 ps=00 len=6
+		file 8 line 524 @ 8BDD ps=00 len=7
+		file 8 line 525 @ 8BE4 ps=00 len=6
+		file 8 line 526 @ 8BEA ps=00 len=8
+		file 8 line 528 @ 8BF2 ps=00 len=8
+		file 8 line 532 @ 8BFA ps=00 len=6
+		file 8 line 533 @ 8C00 ps=00 len=8
+		file 8 line 535 @ 8C08 ps=00 len=8
+		file 8 line 537 @ 8C10 ps=00 len=6
+		file 8 line 538 @ 8C16 ps=00 len=8
+		file 8 line 540 @ 8C1E ps=00 len=8
+		file 8 line 541 @ 8C26 ps=00 len=3
+		file 8 line 542 @ 8C29 ps=00 len=8
+		file 8 line 544 @ 8C31 ps=00 len=8
+		file 8 line 546 @ 8C39 ps=00 len=6
+		file 8 line 547 @ 8C3F ps=00 len=8
+		file 8 line 549 @ 8C47 ps=00 len=18
+		file 8 line 605 @ 8C59 ps=00 len=8
+		file 8 line 606 @ 8C61 ps=00 len=12
+		file 8 line 607 @ 8C6D ps=00 len=4
+		file 8 line 608 @ 8C71 ps=00 len=8
+		file 8 line 612 @ 8C79 ps=00 len=8
+		file 8 line 614 @ 8C81 ps=00 len=8
+		file 8 line 616 @ 8C89 ps=00 len=6
+		file 8 line 617 @ 8C8F ps=00 len=8
+		file 8 line 619 @ 8C97 ps=00 len=8
+		file 8 line 621 @ 8C9F ps=00 len=13
+		file 8 line 622 @ 8CAC ps=00 len=9
+		file 8 line 624 @ 8CB5 ps=00 len=6
+		file 8 line 625 @ 8CBB ps=00 len=12
+		file 8 line 627 @ 8CC7 ps=00 len=14
+		file 8 line 634 @ 8CD5 ps=00 len=17
+		file 8 line 635 @ 8CE6 ps=00 len=6
+		file 8 line 638 @ 8CEC ps=00 len=17
+		file 8 line 639 @ 8CFD ps=00 len=14
+		file 8 line 640 @ 8D0B ps=00 len=14
+		file 8 line 641 @ 8D19 ps=00 len=11
+		file 8 line 642 @ 8D24 ps=00 len=8
+		file 8 line 643 @ 8D2C ps=00 len=3
+		file 8 line 644 @ 8D2F ps=00 len=17
+		file 8 line 645 @ 8D40 ps=00 len=14
+		file 8 line 646 @ 8D4E ps=00 len=11
+		file 8 line 647 @ 8D59 ps=00 len=11
+		file 8 line 648 @ 8D64 ps=00 len=8
+		file 8 line 649 @ 8D6C ps=00 len=3
+		file 8 line 650 @ 8D6F ps=00 len=17
+		file 8 line 651 @ 8D80 ps=00 len=11
+		file 8 line 652 @ 8D8B ps=00 len=11
+		file 8 line 653 @ 8D96 ps=00 len=11
+		file 8 line 654 @ 8DA1 ps=00 len=8
+		file 8 line 656 @ 8DA9 ps=00 len=11
+		file 8 line 658 @ 8DB4 ps=00 len=65
+		file 8 line 662 @ 8DF5 ps=00 len=6
+		file 8 line 663 @ 8DFB ps=00 len=8
+		file 8 line 666 @ 8E03 ps=00 len=19
+		file 8 line 669 @ 8E16 ps=00 len=14
+		file 8 line 675 @ 8E24 ps=00 len=17
+		file 8 line 676 @ 8E35 ps=00 len=6
+		file 8 line 679 @ 8E3B ps=00 len=17
+		file 8 line 680 @ 8E4C ps=00 len=11
+		file 8 line 681 @ 8E57 ps=00 len=8
+		file 8 line 683 @ 8E5F ps=00 len=11
+		file 8 line 685 @ 8E6A ps=00 len=31
+		file 8 line 687 @ 8E89 ps=00 len=6
+		file 8 line 688 @ 8E8F ps=00 len=8
+		file 8 line 691 @ 8E97 ps=00 len=19
+		file 8 line 694 @ 8EAA ps=00 len=8
+		file 8 line 695 @ 8EB2 ps=00 len=12
+		file 8 line 697 @ 8EBE ps=00 len=8
+		file 8 line 698 @ 8EC6 ps=00 len=12
+		file 8 line 700 @ 8ED2 ps=00 len=8
+		file 8 line 701 @ 8EDA ps=00 len=12
+		file 8 line 703 @ 8EE6 ps=00 len=8
+		file 8 line 709 @ 8EEE ps=00 len=12
+		file 8 line 710 @ 8EFA ps=00 len=53
+		file 8 line 711 @ 8F2F ps=00 len=10
+		file 8 line 712 @ 8F39 ps=00 len=53
+		file 8 line 713 @ 8F6E ps=00 len=12
+		file 8 line 715 @ 8F7A ps=00 len=8
+		file 8 line 721 @ 8F82 ps=00 len=18
+		file 8 line 722 @ 8F94 ps=00 len=53
+		file 8 line 723 @ 8FC9 ps=00 len=23
+		file 8 line 724 @ 8FE0 ps=00 len=53
+		file 8 line 725 @ 9015 ps=00 len=23
+		file 8 line 726 @ 902C ps=00 len=53
+		file 8 line 727 @ 9061 ps=00 len=15
+		file 8 line 728 @ 9070 ps=00 len=53
+		file 8 line 729 @ 90A5 ps=00 len=12
+		file 8 line 731 @ 90B1 ps=00 len=22
+		file 8 line 735 @ 90C7 ps=00 len=28
+		file 8 line 736 @ 90E3 ps=00 len=31
+		file 8 line 737 @ 9102 ps=00 len=6
+		file 8 line 738 @ 9108 ps=00 len=3
+		file 8 line 739 @ 910B ps=00 len=12
+		file 8 line 741 @ 9117 ps=00 len=19
+		file 8 line 745 @ 912A ps=00 len=28
+		file 8 line 746 @ 9146 ps=00 len=27
+		file 8 line 747 @ 9161 ps=00 len=2
+		file 8 line 748 @ 9163 ps=00 len=3
+		file 8 line 749 @ 9166 ps=00 len=12
+		file 8 line 751 @ 9172 ps=00 len=14
+		file 8 line 755 @ 9180 ps=00 len=17
+		file 8 line 756 @ 9191 ps=00 len=11
+		file 8 line 757 @ 919C ps=00 len=8
+		file 8 line 758 @ 91A4 ps=00 len=11
+		file 8 line 764 @ 91AF ps=00 len=26
+		file 8 line 764 @ 91C9 ps=00 len=45
+		file 8 line 765 @ 91F6 ps=00 len=26
+		file 8 line 765 @ 9210 ps=00 len=45
+		file 8 line 766 @ 923D ps=00 len=26
+		file 8 line 766 @ 9257 ps=00 len=45
+		file 8 line 768 @ 9284 ps=00 len=32
+		file 8 line 768 @ 92A4 ps=00 len=40
+		file 8 line 769 @ 92CC ps=00 len=32
+		file 8 line 769 @ 92EC ps=00 len=40
+		file 8 line 770 @ 9314 ps=00 len=32
+		file 8 line 770 @ 9334 ps=00 len=40
+		file 8 line 772 @ 935C ps=00 len=19
+		file 8 line 775 @ 936F ps=00 len=10
+		file 8 line 782 @ 9379 ps=00 len=26
+		file 8 line 782 @ 9393 ps=00 len=20
+		file 8 line 783 @ 93A7 ps=00 len=26
+		file 8 line 783 @ 93C1 ps=00 len=28
+		file 8 line 784 @ 93DD ps=00 len=26
+		file 8 line 784 @ 93F7 ps=00 len=28
+		file 8 line 786 @ 9413 ps=00 len=32
+		file 8 line 786 @ 9433 ps=00 len=33
+		file 8 line 787 @ 9454 ps=00 len=32
+		file 8 line 787 @ 9474 ps=00 len=33
+		file 8 line 788 @ 9495 ps=00 len=32
+		file 8 line 788 @ 94B5 ps=00 len=33
+		file 8 line 790 @ 94D6 ps=00 len=32
+		file 8 line 790 @ 94F6 ps=00 len=33
+		file 8 line 791 @ 9517 ps=00 len=32
+		file 8 line 791 @ 9537 ps=00 len=33
+		file 8 line 792 @ 9558 ps=00 len=32
+		file 8 line 792 @ 9578 ps=00 len=33
+		file 8 line 794 @ 9599 ps=00 len=32
+		file 8 line 794 @ 95B9 ps=00 len=25
+		file 8 line 795 @ 95D2 ps=00 len=32
+		file 8 line 795 @ 95F2 ps=00 len=25
+		file 8 line 796 @ 960B ps=00 len=32
+		file 8 line 796 @ 962B ps=00 len=25
+		file 8 line 798 @ 9644 ps=00 len=16
+		file 8 line 801 @ 9654 ps=00 len=22
+		file 8 line 809 @ 966A ps=00 len=6
+		file 8 line 810 @ 9670 ps=00 len=6
+		file 8 line 811 @ 9676 ps=00 len=6
+		file 8 line 812 @ 967C ps=00 len=5
+		file 8 line 813 @ 9681 ps=00 len=6
+		file 8 line 814 @ 9687 ps=00 len=6
+		file 8 line 815 @ 968D ps=00 len=6
+		file 8 line 816 @ 9693 ps=00 len=17
+		file 8 line 818 @ 96A4 ps=00 len=15
+		file 8 line 819 @ 96B3 ps=00 len=5
+		file 8 line 820 @ 96B8 ps=00 len=6
+		file 8 line 821 @ 96BE ps=00 len=10
+		file 8 line 823 @ 96C8 ps=00 len=6
+		file 8 line 824 @ 96CE ps=00 len=6
+		file 8 line 826 @ 96D4 ps=00 len=3
+		file 8 line 827 @ 96D7 ps=00 len=6
+		file 8 line 828 @ 96DD ps=00 len=6
+		file 8 line 829 @ 96E3 ps=00 len=17
+		file 8 line 831 @ 96F4 ps=00 len=15
+		file 8 line 832 @ 9703 ps=00 len=26
+		file 8 line 833 @ 971D ps=00 len=8
+		file 8 line 835 @ 9725 ps=00 len=6
+		file 8 line 836 @ 972B ps=00 len=3
+		file 8 line 837 @ 972E ps=00 len=6
+		file 8 line 838 @ 9734 ps=00 len=6
+		file 8 line 839 @ 973A ps=00 len=12
+		file 8 line 841 @ 9746 ps=00 len=8
+		file 8 line 842 @ 974E ps=00 len=101
+		file 11 line 3 @ 97B3 ps=00 len=8
+		file 11 line 5 @ 97BB ps=00 len=9
+		file 11 line 6 @ 97C4 ps=00 len=9
+		file 11 line 7 @ 97CD ps=00 len=9
+		file 11 line 8 @ 97D6 ps=00 len=9
+		file 11 line 9 @ 97DF ps=00 len=9
+		file 11 line 10 @ 97E8 ps=00 len=9
+		file 11 line 11 @ 97F1 ps=00 len=9
+		file 11 line 12 @ 97FA ps=00 len=9
+		file 11 line 13 @ 9803 ps=00 len=9
+		file 11 line 14 @ 980C ps=00 len=12
+		file 11 line 16 @ 9818 ps=00 len=8
+		file 11 line 22 @ 9820 ps=00 len=27
+		file 11 line 23 @ 983B ps=00 len=9
+		file 11 line 24 @ 9844 ps=00 len=9
+		file 11 line 25 @ 984D ps=00 len=9
+		file 11 line 26 @ 9856 ps=00 len=9
+		file 11 line 27 @ 985F ps=00 len=9
+		file 11 line 28 @ 9868 ps=00 len=9
+		file 11 line 29 @ 9871 ps=00 len=9
+		file 11 line 34 @ 987A ps=00 len=6
+		file 11 line 35 @ 9880 ps=00 len=9
+		file 11 line 36 @ 9889 ps=00 len=27
+		file 11 line 36 @ 98A4 ps=00 len=27
+		file 11 line 37 @ 98BF ps=00 len=6
+		file 11 line 38 @ 98C5 ps=00 len=27
+		file 11 line 38 @ 98E0 ps=00 len=27
+		file 11 line 39 @ 98FB ps=00 len=6
+		file 11 line 40 @ 9901 ps=00 len=27
+		file 11 line 40 @ 991C ps=00 len=27
+		file 11 line 41 @ 9937 ps=00 len=9
+		file 11 line 42 @ 9940 ps=00 len=27
+		file 11 line 42 @ 995B ps=00 len=27
+		file 11 line 43 @ 9976 ps=00 len=6
+		file 11 line 44 @ 997C ps=00 len=27
+		file 11 line 44 @ 9997 ps=00 len=27
+		file 11 line 45 @ 99B2 ps=00 len=6
+		file 11 line 46 @ 99B8 ps=00 len=6
+		file 11 line 47 @ 99BE ps=00 len=6
+		file 11 line 48 @ 99C4 ps=00 len=27
+		file 11 line 48 @ 99DF ps=00 len=27
+		file 11 line 49 @ 99FA ps=00 len=8
+		file 11 line 51 @ 9A02 ps=00 len=8
+		file 11 line 57 @ 9A0A ps=00 len=27
+		file 11 line 58 @ 9A25 ps=00 len=9
+		file 11 line 59 @ 9A2E ps=00 len=9
+		file 11 line 60 @ 9A37 ps=00 len=9
+		file 11 line 61 @ 9A40 ps=00 len=9
+		file 11 line 62 @ 9A49 ps=00 len=9
+		file 11 line 63 @ 9A52 ps=00 len=9
+		file 11 line 64 @ 9A5B ps=00 len=9
+		file 11 line 69 @ 9A64 ps=00 len=27
+		file 11 line 69 @ 9A7F ps=00 len=27
+		file 11 line 69 @ 9A9A ps=00 len=6
+		file 11 line 70 @ 9AA0 ps=00 len=27
+		file 11 line 70 @ 9ABB ps=00 len=27
+		file 11 line 70 @ 9AD6 ps=00 len=6
+		file 11 line 71 @ 9ADC ps=00 len=27
+		file 11 line 71 @ 9AF7 ps=00 len=27
+		file 11 line 71 @ 9B12 ps=00 len=6
+		file 11 line 72 @ 9B18 ps=00 len=27
+		file 11 line 72 @ 9B33 ps=00 len=27
+		file 11 line 72 @ 9B4E ps=00 len=6
+		file 11 line 73 @ 9B54 ps=00 len=27
+		file 11 line 73 @ 9B6F ps=00 len=27
+		file 11 line 73 @ 9B8A ps=00 len=6
+		file 11 line 74 @ 9B90 ps=00 len=6
+		file 11 line 74 @ 9B96 ps=00 len=6
+		file 11 line 75 @ 9B9C ps=00 len=27
+		file 11 line 75 @ 9BB7 ps=00 len=27
+		file 11 line 76 @ 9BD2 ps=00 len=6
+		file 11 line 76 @ 9BD8 ps=00 len=6
+		file 11 line 77 @ 9BDE ps=00 len=8
+		file 11 line 80 @ 9BE6 ps=00 len=8
+		file 11 line 82 @ 9BEE ps=00 len=9
+		file 11 line 83 @ 9BF7 ps=00 len=8
+		file 11 line 85 @ 9BFF ps=00 len=8
+		file 11 line 87 @ 9C07 ps=00 len=9
+		file 11 line 88 @ 9C10 ps=00 len=9
+		file 11 line 89 @ 9C19 ps=00 len=8
+		file 11 line 91 @ 9C21 ps=00 len=8
+		file 11 line 93 @ 9C29 ps=00 len=9
+		file 11 line 94 @ 9C32 ps=00 len=9
+		file 11 line 95 @ 9C3B ps=00 len=8
+		file 11 line 97 @ 9C43 ps=00 len=8
+		file 11 line 99 @ 9C4B ps=00 len=9
+		file 11 line 100 @ 9C54 ps=00 len=8
+		file 11 line 102 @ 9C5C ps=00 len=8
+		file 11 line 104 @ 9C64 ps=00 len=9
+		file 11 line 105 @ 9C6D ps=00 len=8
+		file 11 line 107 @ 9C75 ps=00 len=8
+		file 11 line 109 @ 9C7D ps=00 len=9
+		file 11 line 110 @ 9C86 ps=00 len=8
+		file 11 line 112 @ 9C8E ps=00 len=8
+		file 11 line 114 @ 9C96 ps=00 len=9
+		file 11 line 115 @ 9C9F ps=00 len=8
+		file 11 line 117 @ 9CA7 ps=00 len=8
+		file 11 line 119 @ 9CAF ps=00 len=9
+		file 11 line 120 @ 9CB8 ps=00 len=8
+		file 11 line 122 @ 9CC0 ps=00 len=8
+		file 11 line 124 @ 9CC8 ps=00 len=9
+		file 11 line 125 @ 9CD1 ps=00 len=8
+		file 11 line 127 @ 9CD9 ps=00 len=8
+		file 11 line 129 @ 9CE1 ps=00 len=9
+		file 11 line 130 @ 9CEA ps=00 len=8
+		file 11 line 132 @ 9CF2 ps=00 len=8
+		file 11 line 134 @ 9CFA ps=00 len=9
+		file 11 line 135 @ 9D03 ps=00 len=8
+		file 11 line 137 @ 9D0B ps=00 len=8
+		file 11 line 139 @ 9D13 ps=00 len=9
+		file 11 line 140 @ 9D1C ps=00 len=8
+		file 1 line 51 @ 9D24 ps=00 len=8
+		file 1 line 52 @ 9D2C ps=00 len=3
+		file 1 line 55 @ 9D2F ps=00 len=6
+		file 1 line 57 @ 9D35 ps=00 len=13
+		file 1 line 64 @ 9D42 ps=00 len=14
+		file 1 line 66 @ 9D50 ps=00 len=1
+		file 1 line 70 @ 9D51 ps=00 len=9
+		file 1 line 71 @ 9D5A ps=00 len=9
+		file 1 line 72 @ 9D63 ps=00 len=9
+		file 1 line 73 @ 9D6C ps=00 len=9
+		file 1 line 74 @ 9D75 ps=00 len=9
+		file 1 line 76 @ 9D7E ps=00 len=3
+		file 1 line 77 @ 9D81 ps=00 len=3
+		file 1 line 78 @ 9D84 ps=00 len=9
+		file 1 line 80 @ 9D8D ps=00 len=9
+		file 1 line 82 @ 9D96 ps=00 len=3
+		file 1 line 84 @ 9D99 ps=00 len=3
+		file 1 line 85 @ 9D9C ps=00 len=3
+		file 1 line 87 @ 9D9F ps=00 len=24
+		file 1 line 90 @ 9DB7 ps=00 len=7
+		file 1 line 91 @ 9DBE ps=00 len=7
+		file 1 line 92 @ 9DC5 ps=00 len=1
+		file 1 line 93 @ 9DC6 ps=00 len=8
+		file 1 line 99 @ 9DCE ps=00 len=8
+		file 1 line 100 @ 9DD6 ps=00 len=10
+		file 1 line 101 @ 9DE0 ps=00 len=11
+		file 1 line 103 @ 9DEB ps=00 len=9
+		file 1 line 106 @ 9DF4 ps=00 len=3
+		file 1 line 107 @ 9DF7 ps=00 len=3
+		file 1 line 108 @ 9DFA ps=00 len=3
+		file 1 line 109 @ 9DFD ps=00 len=3
+		file 1 line 112 @ 9E00 ps=00 len=6
+		file 1 line 113 @ 9E06 ps=00 len=6
+		file 1 line 114 @ 9E0C ps=00 len=6
+		file 1 line 115 @ 9E12 ps=00 len=3
+		file 1 line 116 @ 9E15 ps=00 len=7
+		file 1 line 117 @ 9E1C ps=00 len=7
+		file 1 line 118 @ 9E23 ps=00 len=3
+		file 1 line 121 @ 9E26 ps=00 len=35
+		file 1 line 122 @ 9E49 ps=00 len=9
+		file 1 line 123 @ 9E52 ps=00 len=6
+		file 1 line 124 @ 9E58 ps=00 len=7
+		file 1 line 125 @ 9E5F ps=00 len=7
+		file 1 line 126 @ 9E66 ps=00 len=3
+		file 1 line 127 @ 9E69 ps=00 len=3
+		file 1 line 129 @ 9E6C ps=00 len=7
+		file 1 line 130 @ 9E73 ps=00 len=3
+		file 1 line 131 @ 9E76 ps=00 len=19
+		file 1 line 133 @ 9E89 ps=00 len=8
+		file 1 line 140 @ 9E91 ps=00 len=13
+		file 1 line 141 @ 9E9E ps=00 len=14
+		file 1 line 144 @ 9EAC ps=00 len=9
+		file 1 line 145 @ 9EB5 ps=00 len=28
+		file 1 line 146 @ 9ED1 ps=00 len=7
+		file 1 line 148 @ 9ED8 ps=00 len=11
+		file 1 line 153 @ 9EE3 ps=00 len=16
+		file 1 line 157 @ 9EF3 ps=00 len=23
+		file 1 line 158 @ 9F0A ps=00 len=18
+		file 1 line 159 @ 9F1C ps=00 len=10
+		file 1 line 160 @ 9F26 ps=00 len=9
+		file 1 line 161 @ 9F2F ps=00 len=17
+		file 1 line 165 @ 9F40 ps=00 len=14
+		file 1 line 166 @ 9F4E ps=00 len=2
+		file 1 line 167 @ 9F50 ps=00 len=9
+		file 1 line 169 @ 9F59 ps=00 len=10
+		file 1 line 170 @ 9F63 ps=00 len=12
+	471 symbol records
+		  0:C:\Users\D val=00000000 class=   file flg=0 aux=1
+		  1:C:\Users\D val=00000000 class=   file flg=0 aux=2
+		  2:C:\Users\D val=00000000 class=   file flg=0 aux=3
+		  3:C:\Users\D val=00000000 class=   file flg=0 aux=4
+		  4:C:\Users\D val=00000000 class=   file flg=0 aux=5
+		  5:C:\Users\D val=00000000 class=   file flg=0 aux=6
+		  6:C:\Users\D val=00000000 class=   file flg=0 aux=44
+		  7:idx=3      val=00008000 class=   func flg=0 aux=13
+		  8:idx=1      val=00000002 class=  frame flg=0 aux=0
+		  9:idx=3      val=00008008 class=  block flg=0 aux=12
+		 10:hinib      val=00000000 class=   auto flg=0 aux=0
+		 11:lonib      val=00000001 class=   auto flg=0 aux=0
+		 12:idx=24     val=0000806E class= eblock flg=0 aux=9
+		 13:idx=24     val=0000806E class=  efunc flg=0 aux=14
+		 14:idx=26     val=0000806E class=   func flg=0 aux=19
+		 15:idx=9      val=00000008 class=  frame flg=0 aux=0
+		 16:idx=26     val=00008076 class=  block flg=0 aux=18
+		 17:data       val=00000003 class=    arg flg=0 aux=0
+		 18:idx=42     val=00008142 class= eblock flg=0 aux=16
+		 19:idx=42     val=00008142 class=  efunc flg=0 aux=20
+		 20:idx=44     val=00008142 class=   func flg=0 aux=25
+		 21:idx=9      val=00000008 class=  frame flg=0 aux=0
+		 22:idx=44     val=0000814A class=  block flg=0 aux=24
+		 23:instr      val=00000003 class=    arg flg=0 aux=0
+		 24:idx=59     val=000081EA class= eblock flg=0 aux=22
+		 25:idx=59     val=000081EA class=  efunc flg=0 aux=26
+		 26:idx=61     val=000081EA class=   func flg=0 aux=30
+		 27:idx=1      val=00000000 class=  frame flg=0 aux=0
+		 28:idx=61     val=000081F2 class=  block flg=0 aux=29
+		 29:idx=86     val=0000823C class= eblock flg=0 aux=28
+		 30:idx=86     val=0000823C class=  efunc flg=0 aux=31
+		 31:idx=88     val=0000823C class=   func flg=0 aux=37
+		 32:idx=5      val=00000004 class=  frame flg=0 aux=0
+		 33:idx=88     val=00008244 class=  block flg=0 aux=36
+		 34:row        val=00000003 class=    arg flg=0 aux=0
+		 35:col        val=00000005 class=    arg flg=0 aux=0
+		 36:idx=97     val=0000827F class= eblock flg=0 aux=33
+		 37:idx=97     val=0000827F class=  efunc flg=0 aux=38
+		 38:idx=99     val=0000827F class=   func flg=0 aux=43
+		 39:idx=5      val=00000005 class=  frame flg=0 aux=0
+		 40:idx=99     val=00008287 class=  block flg=0 aux=42
+		 41:cnt        val=00000000 class=   auto flg=0 aux=0
+		 42:idx=110    val=00008317 class= eblock flg=0 aux=40
+		 43:idx=110    val=00008317 class=  efunc flg=0 aux=52
+		 44:C:\Users\D val=00000000 class=   file flg=0 aux=45
+		 45:C:\Users\D val=00000000 class=   file flg=0 aux=46
+		 46:C:\Users\D val=00000000 class=   file flg=0 aux=47
+		 47:C:\Users\D val=00000000 class=   file flg=0 aux=48
+		 48:C:\Users\D val=00000000 class=   file flg=0 aux=49
+		 49:C:\Users\D val=00000000 class=   file flg=0 aux=50
+		 50:C:\WDC\Too val=00000000 class=   file flg=0 aux=51
+		 51:C:\Users\D val=00000000 class=   file flg=0 aux=97
+		 52:idx=7      val=00008317 class=   func flg=0 aux=56
+		 53:idx=1      val=00000000 class=  frame flg=0 aux=0
+		 54:idx=7      val=0000831F class=  block flg=0 aux=55
+		 55:idx=13     val=00008342 class= eblock flg=0 aux=54
+		 56:idx=13     val=00008342 class=  efunc flg=0 aux=57
+		 57:idx=17     val=00008342 class=   func flg=0 aux=62
+		 58:idx=1      val=00000000 class=  frame flg=0 aux=0
+		 59:idx=17     val=0000834A class=  block flg=0 aux=61
+		 60:ascii      val=00000003 class=    arg flg=0 aux=0
+		 61:idx=32     val=00008393 class= eblock flg=0 aux=59
+		 62:idx=32     val=00008393 class=  efunc flg=0 aux=63
+		 63:idx=36     val=00008393 class=   func flg=0 aux=68
+		 64:idx=5      val=00000006 class=  frame flg=0 aux=0
+		 65:idx=36     val=0000839B class=  block flg=0 aux=67
+		 66:cnt        val=00000000 class=   auto flg=0 aux=1
+		 67:idx=47     val=000083EE class= eblock flg=0 aux=65
+		 68:idx=47     val=000083EE class=  efunc flg=0 aux=69
+		 69:idx=51     val=000083EE class=   func flg=0 aux=73
+		 70:idx=1      val=00000000 class=  frame flg=0 aux=0
+		 71:idx=51     val=000083F6 class=  block flg=0 aux=72
+		 72:idx=55     val=00008410 class= eblock flg=0 aux=71
+		 73:idx=55     val=00008410 class=  efunc flg=0 aux=74
+		 74:idx=60     val=00008410 class=   func flg=0 aux=78
+		 75:idx=9      val=00000008 class=  frame flg=0 aux=0
+		 76:idx=60     val=00008418 class=  block flg=0 aux=77
+		 77:idx=68     val=0000845E class= eblock flg=0 aux=76
+		 78:idx=68     val=0000845E class=  efunc flg=0 aux=79
+		 79:idx=72     val=0000845E class=   func flg=0 aux=84
+		 80:idx=1      val=00000000 class=  frame flg=0 aux=0
+		 81:idx=72     val=00008466 class=  block flg=0 aux=83
+		 82:chr        val=00000003 class=    arg flg=0 aux=0
+		 83:idx=75     val=0000847C class= eblock flg=0 aux=81
+		 84:idx=75     val=0000847C class=  efunc flg=0 aux=85
+		 85:idx=79     val=0000847C class=   func flg=0 aux=90
+		 86:idx=1      val=00000000 class=  frame flg=0 aux=0
+		 87:idx=79     val=00008484 class=  block flg=0 aux=89
+		 88:s          val=00000003 class=    arg flg=1 aux=2
+		 89:idx=89     val=000084C5 class= eblock flg=0 aux=87
+		 90:idx=89     val=000084C5 class=  efunc flg=0 aux=91
+		 91:idx=91     val=000084C5 class=   func flg=0 aux=96
+		 92:idx=5      val=00000004 class=  frame flg=0 aux=0
+		 93:idx=91     val=000084CD class=  block flg=0 aux=95
+		 94:s          val=00000003 class=    arg flg=1 aux=2
+		 95:idx=94     val=000084F2 class= eblock flg=0 aux=93
+		 96:idx=94     val=000084F2 class=  efunc flg=0 aux=107
+		 97:C:\Users\D val=00000000 class=   file flg=0 aux=98
+		 98:C:\Users\D val=00000000 class=   file flg=0 aux=99
+		 99:C:\Users\D val=00000000 class=   file flg=0 aux=100
+		100:C:\Users\D val=00000000 class=   file flg=0 aux=101
+		101:C:\Users\D val=00000000 class=   file flg=0 aux=102
+		102:C:\Users\D val=00000000 class=   file flg=0 aux=103
+		103:C:\WDC\Too val=00000000 class=   file flg=0 aux=104
+		104:C:\Users\D val=00000000 class=   file flg=0 aux=105
+		105:C:\WDC\Too val=00000000 class=   file flg=0 aux=106
+		106:C:\Users\D val=00000000 class=   file flg=0 aux=330
+		107:idx=6      val=000084F2 class=   func flg=0 aux=115
+		108:idx=5      val=00000009 class=  frame flg=0 aux=0
+		109:idx=6      val=000084FA class=  block flg=0 aux=114
+		110:token      val=00000000 class=   auto flg=1 aux=2
+		111:cmd        val=00000002 class=   auto flg=0 aux=0
+		112:delim      val=00000003 class=   auto flg=0 aux=3
+		113:s          val=00000003 class=    arg flg=1 aux=2
+		114:idx=128    val=000086DC class= eblock flg=0 aux=109
+		115:idx=128    val=000086DC class=  efunc flg=0 aux=116
+		116:idx=130    val=000086DC class=   func flg=0 aux=120
+		117:idx=1      val=00000000 class=  frame flg=0 aux=0
+		118:idx=130    val=000086E4 class=  block flg=0 aux=119
+		119:idx=133    val=000086EC class= eblock flg=0 aux=118
+		120:idx=133    val=000086EC class=  efunc flg=0 aux=121
+		121:idx=135    val=000086EC class=   func flg=0 aux=125
+		122:idx=1      val=00000000 class=  frame flg=0 aux=0
+		123:idx=135    val=000086F4 class=  block flg=0 aux=124
+		124:idx=142    val=000086FC class= eblock flg=0 aux=123
+		125:idx=142    val=000086FC class=  efunc flg=0 aux=126
+		126:idx=144    val=000086FC class=   func flg=0 aux=130
+		127:idx=1      val=00000000 class=  frame flg=0 aux=0
+		128:idx=144    val=00008704 class=  block flg=0 aux=129
+		129:idx=147    val=00008712 class= eblock flg=0 aux=128
+		130:idx=147    val=00008712 class=  efunc flg=0 aux=131
+		131:idx=149    val=00008712 class=   func flg=0 aux=135
+		132:idx=1      val=00000000 class=  frame flg=0 aux=0
+		133:idx=149    val=0000871A class=  block flg=0 aux=134
+		134:idx=152    val=00008728 class= eblock flg=0 aux=133
+		135:idx=152    val=00008728 class=  efunc flg=0 aux=136
+		136:idx=154    val=00008728 class=   func flg=0 aux=149
+		137:idx=5      val=0000006C class=  frame flg=0 aux=0
+		138:idx=154    val=00008730 class=  block flg=0 aux=148
+		139:cnt        val=00000000 class=   auto flg=0 aux=1
+		140:start      val=00000002 class=   auto flg=0 aux=1
+		141:end        val=00000004 class=   auto flg=0 aux=1
+		142:val        val=00000006 class=   auto flg=0 aux=0
+		143:oper1_save val=00000007 class=   auto flg=0 aux=5
+		144:oper2_save val=0000000C class=   auto flg=0 aux=5
+		145:oper3_save val=00000011 class=   auto flg=0 aux=5
+		146:Loc        val=00000016 class=   auto flg=1 aux=2
+		147:msg        val=00000018 class=   auto flg=0 aux=7
+		148:idx=195    val=0000888B class= eblock flg=0 aux=138
+		149:idx=195    val=0000888B class=  efunc flg=0 aux=150
+		150:idx=197    val=0000888B class=   func flg=0 aux=154
+		151:idx=1      val=00000000 class=  frame flg=0 aux=0
+		152:idx=197    val=00008893 class=  block flg=0 aux=153
+		153:idx=201    val=0000889B class= eblock flg=0 aux=152
+		154:idx=201    val=0000889B class=  efunc flg=0 aux=155
+		155:idx=203    val=0000889B class=   func flg=0 aux=159
+		156:idx=1      val=00000000 class=  frame flg=0 aux=0
+		157:idx=203    val=000088A3 class=  block flg=0 aux=158
+		158:idx=206    val=000088B1 class= eblock flg=0 aux=157
+		159:idx=206    val=000088B1 class=  efunc flg=0 aux=160
+		160:idx=208    val=000088B1 class=   func flg=0 aux=164
+		161:idx=1      val=00000000 class=  frame flg=0 aux=0
+		162:idx=208    val=000088B9 class=  block flg=0 aux=163
+		163:idx=211    val=000088C7 class= eblock flg=0 aux=162
+		164:idx=211    val=000088C7 class=  efunc flg=0 aux=165
+		165:idx=213    val=000088C7 class=   func flg=0 aux=172
+		166:idx=1      val=00000005 class=  frame flg=0 aux=0
+		167:idx=213    val=000088CF class=  block flg=0 aux=171
+		168:IntHexStr  val=00000000 class=   auto flg=1 aux=2
+		169:cnt        val=00000002 class=   auto flg=0 aux=0
+		170:loc        val=00000003 class=   auto flg=1 aux=2
+		171:idx=317    val=000088F8 class= eblock flg=0 aux=167
+		172:idx=317    val=000088F8 class=  efunc flg=0 aux=173
+		173:idx=319    val=000088F8 class=   func flg=0 aux=188
+		174:idx=5      val=00000061 class=  frame flg=0 aux=0
+		175:idx=319    val=00008900 class=  block flg=0 aux=187
+		176:startAddr  val=00000000 class=   auto flg=0 aux=1
+		177:endAddr    val=00000002 class=   auto flg=0 aux=1
+		178:err1       val=00000004 class=   auto flg=0 aux=0
+		179:err2       val=00000005 class=   auto flg=0 aux=0
+		180:NrOfLines  val=00000006 class=   auto flg=0 aux=1
+		181:cnt        val=00000008 class=   auto flg=0 aux=1
+		182:swap       val=0000000A class=   auto flg=0 aux=0
+		183:msg        val=0000000B class=   auto flg=0 aux=7
+		184:idx=356    val=00008995 class=  block flg=0 aux=186
+		185:temp       val=0000005B class=   auto flg=0 aux=1
+		186:idx=360    val=000089AB class= eblock flg=0 aux=184
+		187:idx=405    val=00008B10 class= eblock flg=0 aux=175
+		188:idx=405    val=00008B10 class=  efunc flg=0 aux=189
+		189:idx=407    val=00008B10 class=   func flg=0 aux=194
+		190:idx=1      val=00000000 class=  frame flg=0 aux=0
+		191:idx=407    val=00008B18 class=  block flg=0 aux=193
+		192:s          val=00000003 class=    arg flg=1 aux=2
+		193:idx=421    val=00008B43 class= eblock flg=0 aux=191
+		194:idx=421    val=00008B43 class=  efunc flg=0 aux=195
+		195:idx=423    val=00008B43 class=   func flg=0 aux=199
+		196:idx=1      val=00000000 class=  frame flg=0 aux=0
+		197:idx=423    val=00008B4B class=  block flg=0 aux=198
+		198:idx=526    val=00008BF2 class= eblock flg=0 aux=197
+		199:idx=526    val=00008BF2 class=  efunc flg=0 aux=200
+		200:idx=528    val=00008BF2 class=   func flg=0 aux=204
+		201:idx=1      val=00000000 class=  frame flg=0 aux=0
+		202:idx=528    val=00008BFA class=  block flg=0 aux=203
+		203:idx=533    val=00008C08 class= eblock flg=0 aux=202
+		204:idx=533    val=00008C08 class=  efunc flg=0 aux=205
+		205:idx=535    val=00008C08 class=   func flg=0 aux=209
+		206:idx=1      val=00000000 class=  frame flg=0 aux=0
+		207:idx=535    val=00008C10 class=  block flg=0 aux=208
+		208:idx=538    val=00008C1E class= eblock flg=0 aux=207
+		209:idx=538    val=00008C1E class=  efunc flg=0 aux=210
+		210:idx=540    val=00008C1E class=   func flg=0 aux=214
+		211:idx=1      val=00000000 class=  frame flg=0 aux=0
+		212:idx=540    val=00008C26 class=  block flg=0 aux=213
+		213:idx=542    val=00008C31 class= eblock flg=0 aux=212
+		214:idx=542    val=00008C31 class=  efunc flg=0 aux=215
+		215:idx=544    val=00008C31 class=   func flg=0 aux=219
+		216:idx=1      val=00000000 class=  frame flg=0 aux=0
+		217:idx=544    val=00008C39 class=  block flg=0 aux=218
+		218:idx=547    val=00008C47 class= eblock flg=0 aux=217
+		219:idx=547    val=00008C47 class=  efunc flg=0 aux=220
+		220:idx=549    val=00008C47 class=   func flg=0 aux=227
+		221:idx=1      val=00000005 class=  frame flg=0 aux=0
+		222:idx=549    val=00008C4F class=  block flg=0 aux=226
+		223:Addr       val=00000000 class=   auto flg=0 aux=1
+		224:Value      val=00000002 class=   auto flg=0 aux=0
+		225:Loc        val=00000003 class=   auto flg=1 aux=2
+		226:idx=612    val=00008C81 class= eblock flg=0 aux=222
+		227:idx=612    val=00008C81 class=  efunc flg=0 aux=228
+		228:idx=614    val=00008C81 class=   func flg=0 aux=232
+		229:idx=1      val=00000000 class=  frame flg=0 aux=0
+		230:idx=614    val=00008C89 class=  block flg=0 aux=231
+		231:idx=617    val=00008C97 class= eblock flg=0 aux=230
+		232:idx=617    val=00008C97 class=  efunc flg=0 aux=233
+		233:idx=619    val=00008C97 class=   func flg=0 aux=238
+		234:idx=1      val=00000000 class=  frame flg=0 aux=0
+		235:idx=619    val=00008C9F class=  block flg=0 aux=237
+		236:s          val=00000003 class=    arg flg=1 aux=2
+		237:idx=625    val=00008CC7 class= eblock flg=0 aux=235
+		238:idx=625    val=00008CC7 class=  efunc flg=0 aux=239
+		239:idx=627    val=00008CC7 class=   func flg=0 aux=245
+		240:idx=5      val=00000005 class=  frame flg=0 aux=0
+		241:idx=627    val=00008CCF class=  block flg=0 aux=244
+		242:syntax_err val=00000000 class=   auto flg=0 aux=0
+		243:addr       val=00000003 class=    arg flg=1 aux=2
+		244:idx=667    val=00008E16 class= eblock flg=0 aux=241
+		245:idx=667    val=00008E16 class=  efunc flg=0 aux=246
+		246:idx=669    val=00008E16 class=   func flg=0 aux=252
+		247:idx=5      val=00000005 class=  frame flg=0 aux=0
+		248:idx=669    val=00008E1E class=  block flg=0 aux=251
+		249:syntax_err val=00000000 class=   auto flg=0 aux=0
+		250:val        val=00000003 class=    arg flg=1 aux=2
+		251:idx=692    val=00008EAA class= eblock flg=0 aux=248
+		252:idx=692    val=00008EAA class=  efunc flg=0 aux=253
+		253:idx=694    val=00008EAA class=   func flg=0 aux=258
+		254:idx=1      val=00000000 class=  frame flg=0 aux=0
+		255:idx=694    val=00008EB2 class=  block flg=0 aux=257
+		256:s          val=00000003 class=    arg flg=1 aux=2
+		257:idx=695    val=00008EBE class= eblock flg=0 aux=255
+		258:idx=695    val=00008EBE class=  efunc flg=0 aux=259
+		259:idx=697    val=00008EBE class=   func flg=0 aux=264
+		260:idx=1      val=00000000 class=  frame flg=0 aux=0
+		261:idx=697    val=00008EC6 class=  block flg=0 aux=263
+		262:s          val=00000003 class=    arg flg=1 aux=2
+		263:idx=698    val=00008ED2 class= eblock flg=0 aux=261
+		264:idx=698    val=00008ED2 class=  efunc flg=0 aux=265
+		265:idx=700    val=00008ED2 class=   func flg=0 aux=270
+		266:idx=1      val=00000000 class=  frame flg=0 aux=0
+		267:idx=700    val=00008EDA class=  block flg=0 aux=269
+		268:s          val=00000003 class=    arg flg=1 aux=2
+		269:idx=701    val=00008EE6 class= eblock flg=0 aux=267
+		270:idx=701    val=00008EE6 class=  efunc flg=0 aux=271
+		271:idx=703    val=00008EE6 class=   func flg=0 aux=277
+		272:idx=5      val=00000005 class=  frame flg=0 aux=0
+		273:idx=703    val=00008EEE class=  block flg=0 aux=276
+		274:digit      val=00000000 class=   auto flg=0 aux=0
+		275:value      val=00000003 class=    arg flg=0 aux=0
+		276:idx=713    val=00008F7A class= eblock flg=0 aux=273
+		277:idx=713    val=00008F7A class=  efunc flg=0 aux=278
+		278:idx=715    val=00008F7A class=   func flg=0 aux=284
+		279:idx=9      val=00000009 class=  frame flg=0 aux=0
+		280:idx=715    val=00008F82 class=  block flg=0 aux=283
+		281:digit      val=00000000 class=   auto flg=0 aux=0
+		282:value      val=00000003 class=    arg flg=0 aux=1
+		283:idx=729    val=000090B1 class= eblock flg=0 aux=280
+		284:idx=729    val=000090B1 class=  efunc flg=0 aux=285
+		285:idx=731    val=000090B1 class=   func flg=0 aux=292
+		286:idx=5      val=00000006 class=  frame flg=0 aux=0
+		287:idx=731    val=000090B9 class=  block flg=0 aux=291
+		288:bit        val=00000000 class=   auto flg=0 aux=0
+		289:mask       val=00000001 class=   auto flg=0 aux=0
+		290:value      val=00000003 class=    arg flg=0 aux=0
+		291:idx=739    val=00009117 class= eblock flg=0 aux=287
+		292:idx=739    val=00009117 class=  efunc flg=0 aux=293
+		293:idx=741    val=00009117 class=   func flg=0 aux=300
+		294:idx=5      val=00000007 class=  frame flg=0 aux=0
+		295:idx=741    val=0000911F class=  block flg=0 aux=299
+		296:bit        val=00000000 class=   auto flg=0 aux=0
+		297:mask       val=00000001 class=   auto flg=0 aux=1
+		298:value      val=00000003 class=    arg flg=0 aux=1
+		299:idx=749    val=00009172 class= eblock flg=0 aux=295
+		300:idx=749    val=00009172 class=  efunc flg=0 aux=301
+		301:idx=751    val=00009172 class=   func flg=0 aux=307
+		302:idx=13     val=0000000D class=  frame flg=0 aux=0
+		303:idx=751    val=0000917A class=  block flg=0 aux=306
+		304:value      val=00000000 class=   auto flg=0 aux=0
+		305:s          val=00000003 class=    arg flg=1 aux=2
+		306:idx=773    val=0000936F class= eblock flg=0 aux=303
+		307:idx=773    val=0000936F class=  efunc flg=0 aux=308
+		308:idx=775    val=0000936F class=   func flg=0 aux=314
+		309:idx=9      val=0000000A class=  frame flg=0 aux=0
+		310:idx=775    val=00009377 class=  block flg=0 aux=313
+		311:value      val=00000000 class=   auto flg=0 aux=1
+		312:s          val=00000003 class=    arg flg=1 aux=2
+		313:idx=799    val=00009654 class= eblock flg=0 aux=310
+		314:idx=799    val=00009654 class=  efunc flg=0 aux=315
+		315:idx=801    val=00009654 class=   func flg=0 aux=323
+		316:idx=5      val=00000008 class=  frame flg=0 aux=0
+		317:idx=801    val=0000965C class=  block flg=0 aux=322
+		318:cnt        val=00000000 class=   auto flg=0 aux=1
+		319:cont       val=00000002 class=   auto flg=0 aux=0
+		320:digit      val=00000003 class=   auto flg=0 aux=0
+		321:startAddr  val=00000003 class=    arg flg=0 aux=1
+		322:idx=839    val=00009746 class= eblock flg=0 aux=317
+		323:idx=839    val=00009746 class=  efunc flg=0 aux=324
+		324:idx=841    val=00009746 class=   func flg=0 aux=329
+		325:idx=5      val=00000004 class=  frame flg=0 aux=0
+		326:idx=841    val=0000974E class=  block flg=0 aux=328
+		327:c          val=00000003 class=    arg flg=0 aux=0
+		328:idx=845    val=000097B3 class= eblock flg=0 aux=326
+		329:idx=845    val=000097B3 class=  efunc flg=0 aux=334
+		330:C:\Users\D val=00000000 class=   file flg=0 aux=331
+		331:C:\Users\D val=00000000 class=   file flg=0 aux=332
+		332:C:\Users\D val=00000000 class=   file flg=0 aux=333
+		333:C:\Users\D val=00000000 class=   file flg=0 aux=434
+		334:idx=3      val=000097B3 class=   func flg=0 aux=345
+		335:idx=1      val=00000000 class=  frame flg=0 aux=0
+		336:idx=3      val=000097BB class=  block flg=0 aux=344
+		337:hrs        val=00000003 class=    arg flg=0 aux=0
+		338:mins       val=00000005 class=    arg flg=0 aux=0
+		339:secs       val=00000007 class=    arg flg=0 aux=0
+		340:dom        val=00000009 class=    arg flg=0 aux=0
+		341:mon        val=0000000B class=    arg flg=0 aux=0
+		342:yr         val=0000000D class=    arg flg=0 aux=0
+		343:dow        val=0000000F class=    arg flg=0 aux=0
+		344:idx=14     val=00009818 class= eblock flg=0 aux=336
+		345:idx=14     val=00009818 class=  efunc flg=0 aux=346
+		346:idx=16     val=00009818 class=   func flg=0 aux=359
+		347:idx=5      val=00000021 class=  frame flg=0 aux=0
+		348:idx=16     val=00009820 class=  block flg=0 aux=358
+		349:temp       val=00000000 class=   auto flg=0 aux=0
+		350:hrs        val=00000001 class=   auto flg=0 aux=0
+		351:min        val=00000002 class=   auto flg=0 aux=0
+		352:sec        val=00000003 class=   auto flg=0 aux=0
+		353:mon        val=00000004 class=   auto flg=0 aux=0
+		354:dom        val=00000005 class=   auto flg=0 aux=0
+		355:year       val=00000006 class=   auto flg=0 aux=0
+		356:dow        val=00000007 class=   auto flg=0 aux=0
+		357:DoW        val=00000008 class=   auto flg=0 aux=9
+		358:idx=49     val=00009A02 class= eblock flg=0 aux=348
+		359:idx=49     val=00009A02 class=  efunc flg=0 aux=360
+		360:idx=51     val=00009A02 class=   func flg=0 aux=373
+		361:idx=5      val=00000021 class=  frame flg=0 aux=0
+		362:idx=51     val=00009A0A class=  block flg=0 aux=372
+		363:temp       val=00000000 class=   auto flg=0 aux=0
+		364:hrs        val=00000001 class=   auto flg=0 aux=0
+		365:min        val=00000002 class=   auto flg=0 aux=0
+		366:sec        val=00000003 class=   auto flg=0 aux=0
+		367:mon        val=00000004 class=   auto flg=0 aux=0
+		368:dom        val=00000005 class=   auto flg=0 aux=0
+		369:year       val=00000006 class=   auto flg=0 aux=0
+		370:dow        val=00000007 class=   auto flg=0 aux=0
+		371:DoW        val=00000008 class=   auto flg=0 aux=9
+		372:idx=77     val=00009BE6 class= eblock flg=0 aux=362
+		373:idx=77     val=00009BE6 class=  efunc flg=0 aux=374
+		374:idx=80     val=00009BE6 class=   func flg=0 aux=378
+		375:idx=1      val=00000000 class=  frame flg=0 aux=0
+		376:idx=80     val=00009BEE class=  block flg=0 aux=377
+		377:idx=83     val=00009BFF class= eblock flg=0 aux=376
+		378:idx=83     val=00009BFF class=  efunc flg=0 aux=379
+		379:idx=85     val=00009BFF class=   func flg=0 aux=383
+		380:idx=1      val=00000000 class=  frame flg=0 aux=0
+		381:idx=85     val=00009C07 class=  block flg=0 aux=382
+		382:idx=89     val=00009C21 class= eblock flg=0 aux=381
+		383:idx=89     val=00009C21 class=  efunc flg=0 aux=384
+		384:idx=91     val=00009C21 class=   func flg=0 aux=388
+		385:idx=1      val=00000000 class=  frame flg=0 aux=0
+		386:idx=91     val=00009C29 class=  block flg=0 aux=387
+		387:idx=95     val=00009C43 class= eblock flg=0 aux=386
+		388:idx=95     val=00009C43 class=  efunc flg=0 aux=389
+		389:idx=97     val=00009C43 class=   func flg=0 aux=393
+		390:idx=1      val=00000000 class=  frame flg=0 aux=0
+		391:idx=97     val=00009C4B class=  block flg=0 aux=392
+		392:idx=100    val=00009C5C class= eblock flg=0 aux=391
+		393:idx=100    val=00009C5C class=  efunc flg=0 aux=394
+		394:idx=102    val=00009C5C class=   func flg=0 aux=398
+		395:idx=1      val=00000000 class=  frame flg=0 aux=0
+		396:idx=102    val=00009C64 class=  block flg=0 aux=397
+		397:idx=105    val=00009C75 class= eblock flg=0 aux=396
+		398:idx=105    val=00009C75 class=  efunc flg=0 aux=399
+		399:idx=107    val=00009C75 class=   func flg=0 aux=403
+		400:idx=1      val=00000000 class=  frame flg=0 aux=0
+		401:idx=107    val=00009C7D class=  block flg=0 aux=402
+		402:idx=110    val=00009C8E class= eblock flg=0 aux=401
+		403:idx=110    val=00009C8E class=  efunc flg=0 aux=404
+		404:idx=112    val=00009C8E class=   func flg=0 aux=408
+		405:idx=1      val=00000000 class=  frame flg=0 aux=0
+		406:idx=112    val=00009C96 class=  block flg=0 aux=407
+		407:idx=115    val=00009CA7 class= eblock flg=0 aux=406
+		408:idx=115    val=00009CA7 class=  efunc flg=0 aux=409
+		409:idx=117    val=00009CA7 class=   func flg=0 aux=413
+		410:idx=1      val=00000000 class=  frame flg=0 aux=0
+		411:idx=117    val=00009CAF class=  block flg=0 aux=412
+		412:idx=120    val=00009CC0 class= eblock flg=0 aux=411
+		413:idx=120    val=00009CC0 class=  efunc flg=0 aux=414
+		414:idx=122    val=00009CC0 class=   func flg=0 aux=418
+		415:idx=1      val=00000000 class=  frame flg=0 aux=0
+		416:idx=122    val=00009CC8 class=  block flg=0 aux=417
+		417:idx=125    val=00009CD9 class= eblock flg=0 aux=416
+		418:idx=125    val=00009CD9 class=  efunc flg=0 aux=419
+		419:idx=127    val=00009CD9 class=   func flg=0 aux=423
+		420:idx=1      val=00000000 class=  frame flg=0 aux=0
+		421:idx=127    val=00009CE1 class=  block flg=0 aux=422
+		422:idx=130    val=00009CF2 class= eblock flg=0 aux=421
+		423:idx=130    val=00009CF2 class=  efunc flg=0 aux=424
+		424:idx=132    val=00009CF2 class=   func flg=0 aux=428
+		425:idx=1      val=00000000 class=  frame flg=0 aux=0
+		426:idx=132    val=00009CFA class=  block flg=0 aux=427
+		427:idx=135    val=00009D0B class= eblock flg=0 aux=426
+		428:idx=135    val=00009D0B class=  efunc flg=0 aux=429
+		429:idx=137    val=00009D0B class=   func flg=0 aux=433
+		430:idx=1      val=00000000 class=  frame flg=0 aux=0
+		431:idx=137    val=00009D13 class=  block flg=0 aux=432
+		432:idx=140    val=00009D24 class= eblock flg=0 aux=431
+		433:idx=140    val=00009D24 class=  efunc flg=0 aux=436
+		434:C:\Users\D val=00000000 class=   file flg=0 aux=435
+		435:C:\Users\D val=00000000 class=   file flg=0 aux=0
+		436:idx=51     val=00009D24 class=   func flg=0 aux=440
+		437:idx=1      val=00000000 class=  frame flg=0 aux=0
+		438:idx=51     val=00009D2C class=  block flg=0 aux=439
+		439:idx=58     val=00009D42 class= eblock flg=0 aux=438
+		440:idx=58     val=00009D42 class=  efunc flg=0 aux=441
+		441:idx=64     val=00009D42 class=   func flg=0 aux=446
+		442:idx=1      val=00000001 class=  frame flg=0 aux=0
+		443:idx=64     val=00009D4A class=  block flg=0 aux=445
+		444:cnt        val=00000000 class=   auto flg=0 aux=0
+		445:idx=93     val=00009DCE class= eblock flg=0 aux=443
+		446:idx=93     val=00009DCE class=  efunc flg=0 aux=447
+		447:idx=99     val=00009DCE class=   func flg=0 aux=451
+		448:idx=13     val=0000000C class=  frame flg=0 aux=0
+		449:idx=99     val=00009DD6 class=  block flg=0 aux=450
+		450:idx=133    val=00009E91 class= eblock flg=0 aux=449
+		451:idx=133    val=00009E91 class=  efunc flg=0 aux=452
+		452:idx=140    val=00009E91 class=   func flg=0 aux=459
+		453:idx=9      val=00000009 class=  frame flg=0 aux=0
+		454:idx=140    val=00009E9E class=  block flg=0 aux=458
+		455:idx=144    val=00009EAC class=  block flg=0 aux=457
+		456:x          val=00000000 class=   auto flg=0 aux=0
+		457:idx=147    val=00009ED8 class= eblock flg=0 aux=455
+		458:idx=148    val=00009EE3 class= eblock flg=0 aux=454
+		459:idx=148    val=00009EE3 class=  efunc flg=0 aux=460
+		460:idx=153    val=00009EE3 class=   func flg=0 aux=468
+		461:idx=5      val=0000000C class=  frame flg=0 aux=0
+		462:idx=153    val=00009EEB class=  block flg=0 aux=467
+		463:ticks      val=00000000 class=   auto flg=0 aux=12
+		464:wraps      val=00000004 class=   auto flg=0 aux=13
+		465:rem        val=00000006 class=   auto flg=0 aux=13
+		466:msec       val=00000003 class=    arg flg=0 aux=13
+		467:idx=170    val=00009F6F class= eblock flg=0 aux=462
+		468:idx=170    val=00009F6F class=  efunc flg=0 aux=0
+		469:Boolean_T  val=00000000 class=  tpdef flg=0 aux=21
+		470:size_t     val=00000000 class=  tpdef flg=0 aux=1
+
+module 2: strcat
+	snum = 1 start=9F6F size=51
+	nlinrecs = 1
+		file -1 line 0 @ 9F6F ps=00 len=51
+	0 symbol records
+
+module 3: strcpy
+	snum = 1 start=9FA2 size=29
+	nlinrecs = 1
+		file -1 line 0 @ 9FA2 ps=00 len=29
+	0 symbol records
+
+module 4: strlen
+	snum = 1 start=9FBF size=25
+	nlinrecs = 1
+		file -1 line 0 @ 9FBF ps=00 len=25
+	0 symbol records
+
+module 5: strtok
+	snum = 1 start=9FD8 size=82
+	snum = 4 start=21DC size=2
+	nlinrecs = 1
+		file -1 line 0 @ 9FD8 ps=00 len=82
+	0 symbol records
+
+module 6: toupper
+	snum = 1 start=A02A size=23
+	nlinrecs = 1
+		file -1 line 0 @ A02A ps=00 len=23
+	0 symbol records
+
+module 7: ~asl
+	snum = 1 start=A041 size=8
+	nlinrecs = 1
+		file -1 line 0 @ A041 ps=00 len=8
+	0 symbol records
+
+module 8: ~div
+	snum = 1 start=A049 size=35
+	nlinrecs = 1
+		file -1 line 0 @ A049 ps=00 len=35
+	0 symbol records
+
+module 9: ~fsw
+	snum = 1 start=A06C size=46
+	nlinrecs = 1
+		file -1 line 0 @ A06C ps=00 len=46
+	0 symbol records
+
+module 10: ~llsr
+	snum = 1 start=A09A size=44
+	nlinrecs = 1
+		file -1 line 0 @ A09A ps=00 len=44
+	0 symbol records
+
+module 11: ~lmul
+	snum = 1 start=A0C6 size=71
+	nlinrecs = 1
+		file -1 line 0 @ A0C6 ps=00 len=71
+	0 symbol records
+
+module 12: ~lsr
+	snum = 1 start=A10D size=8
+	nlinrecs = 1
+		file -1 line 0 @ A10D ps=00 len=8
+	0 symbol records
+
+module 13: ~mod
+	snum = 1 start=A115 size=35
+	nlinrecs = 1
+		file -1 line 0 @ A115 ps=00 len=35
+	0 symbol records
+
+module 14: ~mov
+	snum = 1 start=A138 size=27
+	nlinrecs = 1
+		file -1 line 0 @ A138 ps=00 len=27
+	0 symbol records
+
+module 15: ~mul
+	snum = 1 start=A153 size=65
+	nlinrecs = 1
+		file -1 line 0 @ A153 ps=00 len=65
+	0 symbol records
+
+module 16: ~swt
+	snum = 1 start=A194 size=38
+	nlinrecs = 1
+		file -1 line 0 @ A194 ps=00 len=38
+	0 symbol records
+
+module 17: ~udv
+	snum = 1 start=A1BA size=52
+	nlinrecs = 1
+		file -1 line 0 @ A1BA ps=00 len=52
+	0 symbol records
+
+module 18: strpbrk
+	snum = 1 start=A1EE size=52
+	nlinrecs = 1
+		file -1 line 0 @ A1EE ps=00 len=52
+	0 symbol records
+
+module 19: strspn
+	snum = 1 start=A222 size=43
+	nlinrecs = 1
+		file -1 line 0 @ A222 ps=00 len=43
+	0 symbol records
+
+143 global sym recs
+	__main     val=00009D24 class=    ext flg=0 aux=14
+	__command  val=000020DC class=    ext flg=0 aux=15
+	__cmd      val=000020CC class=    ext flg=0 aux=0
+	__IRQPinHa val=00009E91 class=    ext flg=0 aux=17
+	__loop     val=00009DCE class=    ext flg=0 aux=17
+	__setup    val=00009D42 class=    ext flg=0 aux=17
+	__msdelay  val=00009EE3 class=    ext flg=0 aux=17
+	__RTC_in_N val=00009D0B class=    ext flg=0 aux=17
+	__RTC_in_T val=00009CF2 class=    ext flg=0 aux=17
+	__RTC_Disa val=00009CD9 class=    ext flg=0 aux=17
+	__RTC_Enab val=00009CC0 class=    ext flg=0 aux=17
+	__RTC_Stop val=00009CA7 class=    ext flg=0 aux=17
+	__RTC_RunM val=00009C8E class=    ext flg=0 aux=17
+	__RTC_12Hr val=00009C75 class=    ext flg=0 aux=17
+	__RTC_24Hr val=00009C5C class=    ext flg=0 aux=17
+	__RTC_Xtal val=00009C43 class=    ext flg=0 aux=17
+	__RTC_Xtal val=00009C21 class=    ext flg=0 aux=17
+	__RTC_Xtal val=00009BFF class=    ext flg=0 aux=17
+	__RTC_Xtal val=00009BE6 class=    ext flg=0 aux=17
+	__RTC_Set_ val=000097B3 class=    ext flg=0 aux=17
+	__RTC_Time val=00009A02 class=    ext flg=0 aux=17
+	__RTC_Time val=00009818 class=    ext flg=0 aux=17
+	__my_isxdi val=00009746 class=    ext flg=0 aux=18
+	__DisplayC val=00009654 class=    ext flg=0 aux=17
+	__ConvertA val=0000936F class=    ext flg=0 aux=19
+	__ConvertA val=00009172 class=    ext flg=0 aux=18
+	__DisplWor val=00009117 class=    ext flg=0 aux=17
+	__DisplByt val=000090B1 class=    ext flg=0 aux=17
+	__DisplWor val=00008F7A class=    ext flg=0 aux=17
+	__DisplByt val=00008EE6 class=    ext flg=0 aux=17
+	__check_va val=00008E16 class=    ext flg=0 aux=18
+	__check_op val=00008ED2 class=    ext flg=0 aux=17
+	__check_pa val=00008EBE class=    ext flg=0 aux=17
+	__check_mn val=00008EAA class=    ext flg=0 aux=17
+	__check_ad val=00008CC7 class=    ext flg=0 aux=18
+	__help_men val=00008C97 class=    ext flg=0 aux=17
+	__change_r val=00008C81 class=    ext flg=0 aux=17
+	__change_m val=00008C47 class=    ext flg=0 aux=17
+	__exit_to_ val=00008C31 class=    ext flg=0 aux=17
+	__Run_WozM val=00008C1E class=    ext flg=0 aux=17
+	__transfer val=00008C08 class=    ext flg=0 aux=17
+	__self_tes val=00008BF2 class=    ext flg=0 aux=17
+	__display_ val=00008B43 class=    ext flg=0 aux=17
+	__numeric_ val=00008B10 class=    ext flg=0 aux=17
+	__display_ val=000088F8 class=    ext flg=0 aux=17
+	__jump_to_ val=000088B1 class=    ext flg=0 aux=17
+	__load_rec val=000088C7 class=    ext flg=0 aux=17
+	__hunt     val=0000889B class=    ext flg=0 aux=17
+	__go       val=0000888B class=    ext flg=0 aux=17
+	__fill_mem val=00008728 class=    ext flg=0 aux=17
+	__disassem val=00008712 class=    ext flg=0 aux=17
+	__compare_ val=000086FC class=    ext flg=0 aux=17
+	__run_basi val=000086EC class=    ext flg=0 aux=17
+	__assemble val=000086DC class=    ext flg=0 aux=17
+	__parse_cm val=000084F2 class=    ext flg=0 aux=17
+	__operand3 val=000020D7 class=    ext flg=0 aux=5
+	__operand2 val=000020D2 class=    ext flg=0 aux=5
+	__operand1 val=000020CD class=    ext flg=0 aux=5
+	__putstrin val=000084C5 class=    ext flg=0 aux=17
+	__puts     val=0000847C class=    ext flg=0 aux=17
+	__putchar  val=0000845E class=    ext flg=0 aux=18
+	__getchar  val=00008410 class=    ext flg=0 aux=18
+	__ACIA_pro val=000083EE class=    ext flg=0 aux=17
+	__ACIA_boo val=00008393 class=    ext flg=0 aux=17
+	__ACIA_ech val=00008342 class=    ext flg=0 aux=17
+	__ACIA_ini val=00008317 class=    ext flg=0 aux=17
+	__WR_IDX   val=00002042 class=    ext flg=0 aux=0
+	__RD_IDX   val=00002041 class=    ext flg=0 aux=0
+	__lcd_boot val=0000827F class=    ext flg=0 aux=17
+	__lcd_set_ val=0000823C class=    ext flg=0 aux=17
+	__lcd_init val=000081EA class=    ext flg=0 aux=17
+	__instr_to val=00008142 class=    ext flg=0 aux=17
+	__char_to_ val=0000806E class=    ext flg=0 aux=17
+	__check_fo val=00008000 class=    ext flg=0 aux=17
+	__UNKNOWN_ val=0000F687 class=    ext flg=0 aux=22
+	__SYNTAX_E val=0000F672 class=    ext flg=0 aux=24
+	__MISVAL_E val=0000F650 class=    ext flg=0 aux=26
+	__ILLADD_E val=0000F630 class=    ext flg=0 aux=28
+	__ILLADD_E val=0000F605 class=    ext flg=0 aux=30
+	__INVVAL_E val=0000F5D0 class=    ext flg=0 aux=32
+	__INVADDR_ val=0000F599 class=    ext flg=0 aux=34
+	__WITH_MSG val=0000F58A class=    ext flg=0 aux=36
+	__VALUES_M val=0000F581 class=    ext flg=0 aux=38
+	__TRANSMEM val=0000F571 class=    ext flg=0 aux=22
+	__TO_MSG   val=0000F56A class=    ext flg=0 aux=40
+	__STORING_ val=0000F561 class=    ext flg=0 aux=38
+	__STORED_M val=0000F550 class=    ext flg=0 aux=42
+	__SELFTEST val=0000F53B class=    ext flg=0 aux=24
+	__REGHDR   val=0000F4EB class=    ext flg=0 aux=7
+	__NUMCONV_ val=0000F495 class=    ext flg=0 aux=44
+	__MSBASIC_ val=0000F481 class=    ext flg=0 aux=46
+	__MEMSEP   val=0000F431 class=    ext flg=0 aux=7
+	__MEMHDR   val=0000F3E1 class=    ext flg=0 aux=7
+	__LOCATION val=0000F3CA class=    ext flg=0 aux=48
+	__LOAD_PRG val=0000F3BA class=    ext flg=0 aux=22
+	__JUMP_MSG val=0000F3AE class=    ext flg=0 aux=50
+	__HUNT_MSG val=0000F3A2 class=    ext flg=0 aux=50
+	__GO_MSG   val=0000F398 class=    ext flg=0 aux=52
+	__FROM_MSG val=0000F38F class=    ext flg=0 aux=38
+	__FILLMEM_ val=0000F37A class=    ext flg=0 aux=24
+	__EXIT_MSG val=0000F36D class=    ext flg=0 aux=54
+	__DOTS_MSG val=0000F363 class=    ext flg=0 aux=52
+	__DONE_MSG val=0000F351 class=    ext flg=0 aux=56
+	__DISPREG_ val=0000F338 class=    ext flg=0 aux=58
+	__DISPMEMS val=0000F302 class=    ext flg=0 aux=60
+	__DISPMEM_ val=0000F2DC class=    ext flg=0 aux=62
+	__DISASSEM val=0000F2CB class=    ext flg=0 aux=42
+	__COMPMEM_ val=0000F2BC class=    ext flg=0 aux=36
+	__CHNGREG_ val=0000F2AC class=    ext flg=0 aux=22
+	__CHNGMEMS val=0000F26D class=    ext flg=0 aux=64
+	__BCK_GO   val=0000F258 class=    ext flg=0 aux=24
+	__ATADDR_M val=0000F240 class=    ext flg=0 aux=66
+	__ASSEMBLE val=0000F232 class=    ext flg=0 aux=68
+	__HELP_MEN val=0000F170 class=    ext flg=0 aux=70
+	__checksum val=0000203E class=    ext flg=0 aux=72
+	__payload  val=0000200D class=    ext flg=0 aux=74
+	__rectype  val=0000200A class=    ext flg=0 aux=72
+	__address  val=00002005 class=    ext flg=0 aux=5
+	__bytecoun val=00002002 class=    ext flg=0 aux=72
+	__startcod val=00002000 class=    ext flg=0 aux=3
+	__record   val=0000F120 class=    ext flg=0 aux=7
+	__MSG_TERM val=0000F020 class=    ext flg=0 aux=15
+	__LCD_Line val=0000F010 class=    ext flg=0 aux=22
+	__LCD_Line val=0000F000 class=    ext flg=0 aux=22
+	__START    val=0000FE00 class=    ext flg=0 aux=76
+	__strcat   val=00009F6F class=    ext flg=0 aux=76
+	__strcpy   val=00009FA2 class=    ext flg=0 aux=76
+	__strlen   val=00009FBF class=    ext flg=0 aux=76
+	__strtok   val=00009FD8 class=    ext flg=0 aux=76
+	__toupper  val=0000A02A class=    ext flg=0 aux=76
+	__~asl     val=0000A041 class=    ext flg=0 aux=76
+	__~div     val=0000A049 class=    ext flg=0 aux=76
+	__~fsw     val=0000A06C class=    ext flg=0 aux=76
+	__~llsr    val=0000A09A class=    ext flg=0 aux=76
+	__~lmul    val=0000A0C6 class=    ext flg=0 aux=76
+	__~lsr     val=0000A10D class=    ext flg=0 aux=76
+	__~mod     val=0000A115 class=    ext flg=0 aux=76
+	__~mov     val=0000A138 class=    ext flg=0 aux=76
+	__~mul     val=0000A153 class=    ext flg=0 aux=76
+	__~swt     val=0000A194 class=    ext flg=0 aux=76
+	__~udv     val=0000A1BA class=    ext flg=0 aux=76
+	__strpbrk  val=0000A1EE class=    ext flg=0 aux=76
+	__strspn   val=0000A222 class=    ext flg=0 aux=76
+
+77 aux entries
+	  0: 0000000E -  unsigned char
+	  1: 00000010 -  unsigned int
+	  2: 0000002E -  *  unsigned char
+	  3: 0000006E -  [2]  unsigned char
+	  4: 00000002
+	  5: 0000006E -  [5]  unsigned char
+	  6: 00000005
+	  7: 0000006E -  [80]  unsigned char
+	  8: 00000050
+	  9: 0000036E -  [7]  [3]  unsigned char
+	 10: 00000007
+	 11: 00000003
+	 12: 00000012 -  unsigned long
+	 13: 0000000F -  unsigned short
+	 14: 00000045 -  ()  int
+	 15: 0000006E -  [256]  unsigned char
+	 16: 00000100
+	 17: 00000041 -  ()  void
+	 18: 0000004E -  ()  unsigned char
+	 19: 00000050 -  ()  unsigned int
+	 20: 0000014E -  ()  *  unsigned char
+	 21: 00000005 -  int
+	 22: 0000006E -  [16]  unsigned char
+	 23: 00000010
+	 24: 0000006E -  [21]  unsigned char
+	 25: 00000015
+	 26: 0000006E -  [34]  unsigned char
+	 27: 00000022
+	 28: 0000006E -  [32]  unsigned char
+	 29: 00000020
+	 30: 0000006E -  [43]  unsigned char
+	 31: 0000002B
+	 32: 0000006E -  [53]  unsigned char
+	 33: 00000035
+	 34: 0000006E -  [55]  unsigned char
+	 35: 00000037
+	 36: 0000006E -  [15]  unsigned char
+	 37: 0000000F
+	 38: 0000006E -  [9]  unsigned char
+	 39: 00000009
+	 40: 0000006E -  [7]  unsigned char
+	 41: 00000007
+	 42: 0000006E -  [17]  unsigned char
+	 43: 00000011
+	 44: 0000006E -  [86]  unsigned char
+	 45: 00000056
+	 46: 0000006E -  [20]  unsigned char
+	 47: 00000014
+	 48: 0000006E -  [23]  unsigned char
+	 49: 00000017
+	 50: 0000006E -  [12]  unsigned char
+	 51: 0000000C
+	 52: 0000006E -  [10]  unsigned char
+	 53: 0000000A
+	 54: 0000006E -  [13]  unsigned char
+	 55: 0000000D
+	 56: 0000006E -  [18]  unsigned char
+	 57: 00000012
+	 58: 0000006E -  [25]  unsigned char
+	 59: 00000019
+	 60: 0000006E -  [54]  unsigned char
+	 61: 00000036
+	 62: 0000006E -  [38]  unsigned char
+	 63: 00000026
+	 64: 0000006E -  [63]  unsigned char
+	 65: 0000003F
+	 66: 0000006E -  [24]  unsigned char
+	 67: 00000018
+	 68: 0000006E -  [14]  unsigned char
+	 69: 0000000E
+	 70: 0000006E -  [194]  unsigned char
+	 71: 000000C2
+	 72: 0000006E -  [3]  unsigned char
+	 73: 00000003
+	 74: 0000006E -  [49]  unsigned char
+	 75: 00000031
+	 76: 00000000 -  

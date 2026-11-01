@@ -1,0 +1,439 @@
+Unbuffered input
+================
+So I've got Microsoft Basic running on my homemade breadboard computer and that
+means I can try out some longer programs. But I found that even if I take a simple
+program like this and just try to copy and paste it into the terminal program
+it gets garbled. And of course, if I try and run this, I get a syntax error. 
+
+The problem is the computer is taking too long to process each character and so
+it's missing some of them. If we look at this garbled mess that we got here
+when we tried to paste that program in, it actually matches the text we pasted
+in but it's skipping lots of characters because it's busy processing one
+character while several more characters come in. So it's only catching some of
+the characters. Now I can work around this problem with this terminal program
+which lets me configure pacing. So I can have it put in a 20 millisecond delay
+between characters and that'll give the computer enough time to process each
+character that I'm pasting in. So now when I paste that program in, you can see
+it sort of types it more slowly and it all makes it in, so I can list the 
+program. There it is. I can run it and of course it works. But of course, I'd like
+the computer to be able to accept input as quickly as possible without having to
+artificially slow down the rate that I type or paste it in and without it ever
+missing a character. 
+
+Interrupts
+==========
+And an effective way to do that, I'm going to use interrupts. So when a new 
+character comes in, it'll trigger an interrupt so the CPU will stop whatever it's 
+doing and read that character. Now conveniently the UART we're using, the 6551, 
+can generate interrupts. So here's the data sheet for the 6551. And it talks about 
+interrupt logic here. And it says the interrupt logic will cause the IRQ line to go 
+low when conditions are met that require the attention of the microprocessor. 
+What sort of conditions is it talking about? Well it lists a bunch of different 
+conditions including "Receiver Data Register Full" and that's what we want. 
+When a new character comes in, it gets sent over the serial connection one bit
+at a time and when all of the bits have been received, the "receiver data register"
+will be full and so this chip can generate an interrupt which we can use
+to have the microprocessor read that data register and put it in memory right
+away, before another character comes in. And so to enable those interrupts we
+need to set this bit 1 here in the Command Register to zero to enable the 
+interrupt requests. 
+So if we look at our code the beginning of Wozmon, is where
+the Command Register is initialized. So right here we're setting it to 8B. If we
+flip bit 1 off that'll make it 89 and that'll enable interrupts when we
+receive a character. 
+		LDY #$89 
+		STY ACIA_CMD 
+
+So now when this chip receives a complete character from
+the serial interface, it'll bring pin 26 low. So I'll connect pin 26 here to
+pin 4 on the 6502 microprocessor so that when that goes low, it'll trigger an
+interrupt and the microprocessor will stop what it's doing and run our
+interrupt code. And for now I'll disconnect the interrupt signal coming
+from the versatile interface adapter since we're not going to be using that for 
+the moment. And then also this interrupt line from the 6551 is an open drain 
+output, meaning it's going to pull that line low when an interrupt occurs but 
+otherwise it'll be floating. So to keep it high normally, I'll add a pull-up 
+resistor here and the value is not that important. I think this is a 1K resistor. 
+But almost anything will do. So now when that interrupt happens, let's look at 
+our BIOS code. It's going to jump to whatever address we have here for our IRQ 
+vector. Right now, it's just a bogus address but we can write some code for our
+interrupt request handler. I'll add a label for the interrupt request handler. 
+And to start with, it'll just return from the interrupt. Then I can set the IRQ 
+vector to point to that label and so now whenever we receive a character it'll 
+run whatever code we put up here in our interrupt request handler. 
+
+	.segment "RESETVEC"
+			.word	$0F00 			; NMI vector 
+			.word	RESET			; RESET vector 
+			.word	IRQ_HANDLER 	; IRQ vector 
+	
+	IRQ_HANDLER: 
+			RTI 
+
+Circular buffer
+===============
+So what do we want it to do? Well, we want to take the character that was 
+received and put it in memory somewhere. And it doesn't really matter where 
+as long as we can keep track of it. So we might have a pointer telling us 
+where to write a character to memory, a write pointer. And you know, 
+let's say that pointer is pointing at address 7. So when we receive a character 
+we can write it to memory at address 7 and increment the write pointer to 
+8 which is where the next character will go. And then when whatever software 
+is running wants to read a character from the user rather than reading it 
+directly, it'll use a second pointer that says what address in the buffer to 
+read the next character from. So that's our read pointer. In this case the read 
+pointer says to read the character from address 7 so the software reads 'H' from 
+memory as the next character typed and increments the read pointer. So now the 
+read pointer and write pointer are equal to each other. In this case they're 
+both pointing to 8 and so the software can tell there are no more characters 
+that have been typed. But now if the user starts typing really fast and the 
+software isn't reading, each character can be quickly written to memory at the 
+next available spot, pointed to by the write pointer. Then whenever the software 
+is able to catch up, it'll grab the next character at the address stored in the
+read pointer, incrementing at each time to keep track. And so this allows
+the user's typing to be disconnected from whenever the software is ready for
+the next character. And this sort of buffer is referred to as a circular
+buffer because you know it's a fixed size but when the pointers get to the
+end here, they just wrap around to the beginning. So in this case, if the pointer
+is a 4-bit value, when it gets to F and we increment it, that 4-bit value will
+just overflow and it'll wrap back around to 0, 1 and so forth and then it
+just keeps going you know. So as long as the buffer is big enough and the input's
+not coming in so rapidly that the write pointer overtakes the read pointer
+this will work perfectly. 
+
+Setting up variables
+====================
+So, to implement something like that, we'll need to set aside some space in 
+memory. Now we need a read pointer, so I'll reserve one byte for that and we also 
+need a write pointer and both of these are one byte. So each of them can count 
+up to 255 and then when we increment it again it'll wrap back around to zero. 
+So that'll work perfectly if we make our input buffer 256 bytes long. So for the 
+input buffer, I'll reserve 256 bytes. And 256 is 100 hex. 
+
+	.zeropage 
+		READ_PTR 		.res 1
+		WRITE_PTR		.res 1
+		
+	.segment "INPUT_BUFFER"
+		INPUT_BUFFER	.res $100
+
+Now we have to think 
+about where in memory we're going to put these variables. So for the one byte 
+variables, the zero page is a good place, since accessing it there is going to be 
+a little bit faster. Though I guess space is somewhat limited. 
+Then for the buffer, since it's larger, we'll just put it in its own memory 
+segment. Now for the zero page, you know Microsoft Basic is already using the
+zero page for a bunch of stuff. If we look at our custom DEFINES that we set
+up in the last video where we got Basic running, we had to define these zp_start
+variables to tell it where to put stuff in the zero page. And I think the easiest
+way to add two more bytes to the zero page without conflicting with
+anything here, is to add a zp_start0 at the beginning, starting at address
+zero. And since we just need room for two bytes, the read pointer and write 
+pointer, I'll just nudge the rest of these zp_start addresses by two. So instead 
+of zero this will be two. Instead of A this will be C. Instead of 60 this will 
+be 62 and instead of 6B this will be 6D. So that gives us two bytes free, 
+starting at zp_start0. 
+
+	.ZP_START0 = $00 
+	.ZP_START1 = $02 
+	.ZP_START2 = $0C 
+	.ZP_START3 = $62
+	.ZP_START4 = $6D 
+
+So then I can go back to our BIOS file and add an ORG statement to explicitly put 
+these two bytes in that space we just freed up. 
+
+	.zeropage 
+						.ORG ZP_START0
+		READ_PTR 		.res 1
+		WRITE_PTR		.res 1
+
+Then we've got the input buffer and that's going into its own segment memory.
+So we can configure where that goes in the linker config. So I'll add the segment 
+here. So this is the input buffer segment. 
+
+	SEGMENTS { 
+		INPUT_BUFFER: load=INPUT_BUFFER, type = rw; 
+		} 
+
+We'll load it into the input buffer 
+memory location and it's read/write. Then we need to define the memory location 
+for it, so it'll be the input buffer location and it'll start at address 0300 
+which I believe is currently not used for anything else. The size is 100 or 256
+bytes. The type is read/write and the file is going to be blank since we don't
+want to write this to the ROM file since it's just going to be in RAM only. 
+
+	MEMORY { 
+		INPUT_BUFFER: start = $0300, size = $0100, type = rw, file = ""; 
+		} 
+
+Okay, so now we should have memory reserved in a reasonable place for these 
+variables. Now we can use them so I'm going to define a couple of subroutines 
+for working with our circular buffer. 
+
+Buffer subroutines
+==================
+So I'll just go down here and first to initialize the buffer. 
+Before we do anything else, we want to make sure the read pointer and write 
+pointer are both pointing to the same place. So we'll put a zero in the A
+register and store that to both to the read pointer and to the write pointer and
+then return from the subroutine. And you know, actually, since this is a circular
+buffer, it doesn't really matter where we start. There's nothing special about
+starting both of these pointers at zero. So you know we could save a couple bytes
+by getting rid of this LDA and then loading A with whatever random value
+happens to be in the read pointer and that'll still initialize the
+buffer to be empty, since it sets the pointers to be equal to each other. 
+
+	; Initialize input buffer 
+	; Modifies: flags, A 
+	INIT_BUFFER: 
+		LDA READ_PTR 
+		STA WRITE_PTR 
+		RTS 
+
+Now I can write a subroutine to write a new character to the buffer and so when this
+subroutine gets called, we'll assume the new character is in the A register. 
+So I'll start by loading the current write pointer into the X register and 
+then we can store the character from the A register into the input buffer at 
+offset X. So if the write pointer happened to be 7, now there's
+a 7 in the X register and we're putting our new character into memory at
+the address of input buffer which is 0300 plus X gives us 0307. 
+Then we want to increment the write pointer. So we'll say increment write
+pointer and we can return from the subroutine. So that'll write a character to
+the circular buffer. 
+
+	; Write a character (from the A register)  to the circular input buffer 
+	; Modifies: flags, X 
+	WRITE_BUFFER: 
+		LDX WRITE_PTR 
+		STA INPUT_BUFFER,X
+		INC WRITE_PTR 
+		RTS 
+
+Next I'll write a subroutine that'll read the next
+character out of the circular buffer and return it in the A register. 
+This would be very similar except now we're putting the read pointer into the
+X register then we can load the A register with whatever is in the input
+buffer at offset X. So again if the read pointer is 7, we'll put whatever
+character is in memory at address 0307 into the A register and then we'll
+increment the read pointer. So increment read pointer and return from the 
+subroutine with the character now in the A register. 
+
+	; Read a character from the circular input buffer and put it in the A register 
+	; Modifies: flags, A, X 
+	READ_BUFFER: 
+		LDX READ_PTR 
+		LDA INPUT_BUFFER,X
+		INC READ_PTR 
+		RTS 
+
+Now as we write these 
+subroutines, it's useful to document what registers they modify so we don't 
+get surprised by any side effects of, you know, modifying for example the 
+X register unexpectedly. So the init_buffer subroutine modifies the processor flags, 
+as well as the A register because we're loading the A register with the read 
+pointer and writing that to the write pointer. The write buffer subroutine is 
+modifying the processor flags, as well as the X register. And then the read buffer 
+subroutine is modifying the processor flags, as well as the A register because it's
+returning the value in A and the X register. 
+
+Finally, I'll write one more 
+subroutine that computes how many bytes are in the buffer. So that is how many 
+have been written to the buffer but not yet read. So we'll start with the write 
+pointer and basically, we're just going to subtract the read pointer from it.
+So we'll set the carry bit and then "subtract with carry" the read pointer and 
+you know setting the carry bit and doing a "subtract with carry" will 
+basically give us the difference of the write pointer minus the read pointer and
+it'll wrap around correctly with our circular buffer. So this ought to just
+work. That leaves the difference in the A register. So now we can just return 
+from subroutine and this one just modifies the flags and of course the A register. 
+
+	; Return (in A) the number of unread bytes in the circular input buffer 
+	; Modifies: flags, A 
+	BUFFER_SIZE: 
+		LDA WRITE_PTR 
+		SEC
+		SBC READ_PTR 
+		RTS
+
+
+Interrupt handler
+=================
+So those are all the subroutines we need for a circular buffer. So now let's 
+start using them. The first one we need to call is init_buffer. 
+And we want to call that as soon as the computer is powered on or reset. And of
+course whenever that happens, the computer is going to jump to whatever
+code is pointed to by the reset vector down here. And in our case that's over in
+Wozmon. And so here's that Reset label and so this is the code the computer runs as
+soon as it's reset and so pretty much right away, we want to jump subroutine
+to init_buffer and so I'll put that here, right before the "clear interrupt
+disable" so that once we do that, any interrupts come in, the buffer will
+already be initialized. 
+And so now we can write the interrupt handler to process
+each incoming character. And basically all we're looking to do here is load the
+character into the A register, then write that character to the input buffer using
+the write buffer subroutine and that's basically it. But we do need to do a
+couple other things. Since we're modifying the A register with this LDA, 
+we need to push it onto the stack before we begin and then pull it off the
+stack before returning because the interrupt handler is expected to leave
+all of the registers other than flags the way it found them. And then another
+gotcha is that the write buffer subroutine that we're calling here, modifies
+the X register and that was sort of this note here "modifies the flags and the 
+X register" so we also need to save the X register and restore it before we 
+return. 
+
+	; IRQ handler 
+	IRQ_HANDLER: 
+		PHA
+		PHX 
+		LDA ACIA_DATA
+		JSR WRITE_BUFFER 
+		PLX
+		PLA
+		RTI 
+
+And then finally, you know the way the interrupt works is that when a 
+character arrives the UART is going to pull the interrupt request line low 
+which causes the processor to pause whatever it's doing and run this interrupt 
+handler. But if we don't acknowledge the interrupt, the UART will just keep that 
+IRQ line low and as soon as we exit the handler here it'll immediately run again
+and we'll be stuck in an infinite loop just running this interrupt handler forever.  
+And so we actually have to do something to acknowledge the interrupt. And the way 
+that we do that is simply reading the Status register. So just by reading the 
+Status register like this into the A register that's enough to cause the 
+UART to know that we've handled the interrupt and then it'll bring the IRQ line 
+back high again until the next character arrives. Now in theory, we could check 
+
+	; IRQ handler 
+	IRQ_HANDLER: 
+		PHA
+		PHX 
+		LDA ACIA_STATUS 
+		; For now, assume the only source of interrupts is incoming data 
+		LDA ACIA_DATA
+		JSR WRITE_BUFFER 
+		PLX
+		PLA
+		RTI 
+
+the Status register here to confirm that the interrupt actually came from the 
+UART, but since it's the only thing we've got you know physically connected to 
+the IRQ line, we can just assume that the only thing that can cause interrupts 
+is incoming data. Now if we did have other things that could cause interrupts, 
+then we would actually have to look at this status and potentially look at 
+other potential causes of interrupts, you know, make sure we're handling interrupts 
+from the correct place but for now this will do as our interrupt handler. And 
+I think if you actually look at how long this interrupt handler will take, if you
+actually look at how many instruction or how many clock cycles each of these
+instructions takes, as well as you know the instructions in this write buffer
+subroutine, it turns out to be around I think 60 clock cycles or so somewhere in
+that range which, you know a 1 MHz clock like we have, is going to take 60 
+microseconds to handle an interrupt whereas at 19.2 kilobits per second with a
+start bit and a stop bit, it's going to take 520 microseconds to receive each
+character. So 520 microseconds to receive a character, only 60 micros in this
+interrupt to process it. So even if we're pasting in a block of characters all at
+once, the computer is only going to spend about 10% of its time in this
+interrupt handler. 
+
+New input routines
+==================
+And so now we've got input being handled by the interrupt handler here and going 
+into our circular buffer. So now we need to modify the input routine to fetch 
+characters from the input buffer rather than directly from the UART. So here's 
+our CHRIN subroutine. So it started out by checking the Status register of the 
+UART seeing if a new character had arrived and if not branching down to the 
+"no key pressed". Her, what we can do is replace this with a call to the buffer 
+size subroutine which will return the number of unprocessed characters in the 
+buffer. So here, if there are no new characters, this will return a zero in the 
+A register and the Zero flag will be set. So in that case this branch will 
+actually be taken, "no key pressed" if there's nothing in the buffer. Otherwise 
+
+	CHRIN: 
+		PHX
+		JSR BUFFER_SIZE 
+		BEQ @no_keypressed 
+		JSR READ_BUFFER 
+		JSR CHROUT 
+		PLX
+		SEC
+		RTS
+
+if there are characters in the buffer to read, it'll drop down here. And now 
+instead of loading data from the UART into the A register we can just call 
+read buffer and that'll put the next character from the buffer into the A register 
+and that's basically it. Except again, we need to be careful because this read buffer 
+subroutine modifies the X register so we need to acknowledge that the we're changing 
+the way this read subroutine works, by noting here that it's going to change
+the X register but you know this subroutine is called in a lot of places, like
+from within Microsoft Basic and that's not really the expectation that Basic
+has. You know it makes sense that it's modifying the A register because it's 
+returning the whole point of here is to input a character into the A
+register but it doesn't really make sense for this subroutine to modify X. 
+So instead we'll push X onto the stack here and then make sure we pull it
+back off the stack before returning. And that should pretty much be it. So as long 
+as everything's using this input routine, the interrupt handler is going to put
+all new input into the buffer and this routine will read it out. So now 
+Microsoft Basic is already using this. But Wozmon is still interacting directly
+with the hardware. So let's change that. So let's switch over to Wozmon. And let's
+find where it's reading characters. And so here's where Wozmon is 
+reading a character directly from the hardware and this should look somewhat
+familiar. This is what we were just kind of looking at for reading a new
+character from the hardware but we can just get rid of all this and just
+call our CHRIN subroutine and that'll read in a new character from the
+buffer. And if there is no new character that's been typed then this subroutine is
+going to return with the carry flag clear. So we can branch if carry clear
+back to next care to just sit in a loop here and keep calling character in until
+we get some kind of input. So that actually simplifies this a bit since it
+doesn't have to interact directly with the hardware anymore and also since 
+CHRIN already echoes the character back, we can get rid of this 
+line here to echo. And so now everything should be using our new interrupt 
+driven buffered input routines. 
+
+Testing it out
+==============
+So let's give it a try. I'll save everything and get out and run 
+"make" and then write the eprom image it creates. Using minipro, we're 
+programming a 28c256, we want to unprotect it before we write and then
+protect it after writing and we're writing the /tmp/eater.bin file to it. 
+So there it goes. Success. So I'll put that eprom back in the computer and
+reset. And ... well that's kind of weird. It's just sort of scrolling off the 
+screen. I reset again. Here all right. So if I type 8 0. What it's like ... it's 
+repeating each character that I type. Sort of sporadically. If I hit "Enter". 
+Weird. So I think what's going on is we're getting extra interrupts. 
+And you know the only thing that can cause interrupts is the 
+UART because that's the only thing that's connected to the interrupt line. 
+
+Fixing a bug
+============
+But if we look at the UART data sheet, the description here of interrupt logic 
+says that the conditions which can cause an interrupt will set bit 7 and the 
+appropriate bit of bits 3 through 6 in the Status register. So bits 5 and 6 
+correspond to "data carrier detect" logic and "data set ready" logic with bit 3 
+corresponding to "receiver data register full". And so these are the conditions 
+that can cause an interrupt request. We only care about the "receiver data register 
+full". So I guess this assumption about the only source of interrupts being incoming 
+data isn't right. So maybe we need to actually check this Status register to
+verify that the cause of the interrupt really was incoming data. But really I
+didn't expect DCD or DSR to be doing anything at all since we're not
+currently using them. You know those are pins 16 and 17 here and well actually
+right now they're not connected to anything so maybe because they're just
+left floating like this, they're causing spurious interrupts. Let's actually just 
+connect both of them to GND to see if that stops the extra interrupts from
+happening. There's DCD and DSR. And that actually seems to have maybe worked. 
+It's stopped it anyway. And it looks like I can type. And yeah, Wozmon seems to 
+be working so let's run Basic. All right Basic seems to be running. 
+
+Success!
+========
+So far so good let's try copy pasting that program in again. Oh well, it's still 
+doing it slowly but I guess it at least it seems to still work. But let's get rid 
+of the pacing here so we can see our buffer do its thing. So I'll clear out the 
+program. Nothing there. Paste it in there. It is nice. Much faster. So that's a huge
+improvement. We can send data as fast as the hardware will allow and we're
+guaranteed not to miss anything unlike before. However there is still a
+limitation which is that the buffer is only 256 bytes. So if we tried pasting 
+a larger block of text, significantly more than 256 bytes at a time we could 
+overrun the program. So we take this program here, paste that. In this case you 
+can see we overran the buffer. That is the write pointer caught up to the read 
+pointer and lapped it. So we lost data. Now fortunately there is still a way to 
+fix that. But that's going to have to wait for the next video. 

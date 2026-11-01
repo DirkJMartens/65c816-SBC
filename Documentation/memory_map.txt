@@ -1,0 +1,94 @@
+; *******S		; 65C816 hardware-coded memory map: 
+;	Sections are also defined/included in the compiler/linker command line 
+; 	Definitions in the .bat file must match this memory map. 
+;		$0000 .. $7F00 				: almost 32K of RAM 
+;			$1000 .. $10FF 	: ACIA circular cmd console input text buffer (256 bytes) 
+;				"INPUT_BUFFER" in .bat file 
+;			... 
+;			$1200 .. $120E 	: shadow copies of CPU registers 
+;				PB, PC, SR, C, X, Y, SP, DP, DB 		
+;			... 
+;			$1800 .. $19FF	: E_WOZMON data section 
+;				$1800..$18FF : circular input buffer 
+;				$1901..$1902 : rd/wr indices for command buffer 
+;				$1924..$192B : E_Wozmon scratchpad area 
+;			... 
+;			$2000 			: DATA section (initialized variables; will most likely
+;											change during program execution, so in RAM) 
+; 				$2000, $2001	: RD_IDX, WR_IDX of circular input buffer
+; 				$2002 			: cmd -> char in the circular buffer, being processed 
+; 				$2003/2005/2007	: operands -> pointers to parsed parameters of cmd line 
+;			$2xxx 			: UDATA section (uninitialized variables; will most likely
+;											 change during program execution, so in RAM) 
+;			... 
+;			... 
+;			... 
+;			$xxxx .. $7DFF 	: main program stack ($7DFF = ToS, growing to $0000) 
+;			$7EE0 .. $7EFF 	: SHADOW interrupt vectors 
+; 			$7F00 .. $7FFF : Hardware mapped IO addresses: 
+;				$7F00 .. $7F1F (16 words) 	: XCSO (ICM7170) 
+;					RTC Real Time Clock 
+;					$7F00 : Counter 1/100 seconds 
+;					$7F01 : Counter Hours 
+;					$7F02 : Counter Minutes 
+;					$7F03 : Counter Seconds 
+;					$7F04 : Counter Month 
+;					$7F05 : Counter Date
+;					$7F06 : Counter Year 
+;					$7F07 : Counter DoW 
+;					$7F08 : RAM 1/100 seconds 
+;					$7F09 : RAM Hours 
+;					$7F0A : RAM Minutes 
+;					$7F0B : RAM Seconds 
+;					$7F0C : RAM Month 
+;					$7F0D : RAM Date 
+;					$7F0E : RAM Year 
+;					$7F0F : RAM DoW 
+;					$7F10 : Interrupt Status and Mask Register 
+;					$7F11 : Command Register 
+;					$7F12 - $7F1F : unused 
+;				$7F20 .. $7F3F (16 words) 	: XCS1 
+;				$7F40 .. $7F5F (16 words) 	: XCS2 
+;				$7F60 .. $7F7F (16 words) 	: XCS3 
+;				$7F80 .. $7F9F (16 words) 	: ACIA (UMC6551) 
+;					ACIA_DATA EQU $7F80	; ACIA DATA REGISTER (Tx and Rx data register) 
+;					ACIA_STAT EQU $7F81	; ACIA STATUS REGISTER (Err bits, TxDR, RxDR, DCDB, DSRB, IRQ) 
+;					ACIA_CMD  EQU $7F82	; ACIA COMMAND REGISTER (DTR, RIE, TxC, Echo, Parity) 
+;					ACIA_CTRL EQU $7F83	; ACIA CONTROL REGISTER (Baudrate, Data length, Stop bits) 
+;				$7FA0 .. $7FBF (16 words) 	: PIA 
+;				$7FC0 .. $7FDF (16 words) 	: VIA 
+;				$7FE0 .. $7FFF (16 words) 	: VIA2 (6522) 
+; 					PORTB EQU $7FE0	; I/O port B on VIA2 (LCD display) 
+; 					PORTA EQU $7FE1	; I/O port A on VIA2 (bar display) 
+; 					DDRB  EQU $7FE2	; data direction register B on VIA2 (1=out; 0=in) (LCD display) 
+; 					DDRA  EQU $7FE3	; data direction register A on VIA2 (1=out; 0=in) (bar display) 
+;		$8000 .. $FFFF 				: 32K of (EEP)ROM 
+;			$8000			: CODE section (compiled C code; can be in ROM) 
+;					include files: 
+;						LCD functions 
+;						ACIA functions 
+;						cmdmon functions 
+;					main(): 
+;						setup, loop, msdelay ... 
+;			$Axxx			: end of CODE 
+;			... 
+;			... 
+;			... 
+; 			$F000 .. 		: KDATA section 
+;								(constant data that never changes or is never modified 
+;								during program execution and therefore can be in ROM)
+;								e.g. banner msgs, welcome screen, error msgs, ... 
+;			$FA00 .. $FB5B	: "WOZMON" code section 
+;
+;			$FE00 .. 		: "STARTUP" section
+;
+;
+;			$FF00 .. $FFDF	: STARTUP code (in ASM)
+; 						STARTUP-section 
+; 						RESET interrupt handler subroutines 
+; 						Initialize and copy UDATA/KDATA/... 
+; 						Jump to main() function in C program 
+;						Remainder of interrupt handler subroutines 
+; 			$FFE0 .. $FFFF 	: interrupt vector table 
+; *******E
+

@@ -1,0 +1,647 @@
+  Mon Nov  2 2026  0:10                                                                                                    Page 1
+
+
+                                               ***************************************
+                                               **      WDC 65C816 Macro Assembler   **
+                                               **                                   **
+                                               **     Version 3.49.1- Feb  6 2006    **
+                                               ***************************************
+
+     1                        ; *******S		; File: WDC_CStartup_816.asm
+     2                        ; 10/07/2003
+     3                        
+     4                            ; PW 132         ;Page Width (# of char/line) 
+     5                            ; PL 60          ;Page Length for HP Laser
+     6                            ; INCLIST ON     ;Add Include files in Listing
+     7                        
+     8                        	;*********************************************
+     9                        	;Test to ensure USING_816 is used in -D option
+    10                        	;*********************************************
+    11                        	; IFFALSE USING_816
+    12                        		; EXIT	"Not Valid Processor: Use -DUSING_816 !"
+    13                        	; ENDIF
+    14                        
+    15                        	;*********************************************
+    16                        	;Test to ensure SMALL is used in -D option
+    17                        	;*********************************************
+    18                        	; IFFALSE SMALL
+    19                        		; EXIT	"Not using SMALL memory model: Use -DSMALL !"
+    20                        	; ENDIF
+    21                        
+    22                        	;****************************************************************************
+    23                        	; End of testing for proper Command line Options for Assembly of this program
+    24                        	;****************************************************************************
+    25                        	; IF USING_816
+    26                        		; IF SMALL
+    27                        			; title  "WDC 'C' Startup Program V 1.01 for Small Model W65C816 - WDC_CStartup_816.
+                    asm"
+    28                        		; ENDIF
+    29                        	; ENDIF
+    30                        ; *******E
+    31                        
+    32                        .TWOCHAR	ON				; enable use of CR, LF, NL, HT, SP mnemonics 
+    33                        
+    34             00007DFF   STACK   	EQU   	$7DFF   ; Top of Stack, near top of RAM. Grows towards smaller addresses. 
+    35             00007000   SP_FGND		EQU		$7000	; SP location to save main SP ToS (3 bytes)
+    36             00007002   SP_ISR		EQU		$7002	; SP location to save ISR SP ToS (3 bytes)
+    37                        
+    38             00007F80   ACIA_DATA	EQU		$7F80	; ACIA DATA REGISTER (Tx and Rx data register) 
+    39             00007F81   ACIA_STAT	EQU		$7F81	; ACIA STATUS REGISTER (Err bits, TxDR, RxDR, DCDB, DSRB, IRQ) 
+    40             00007F82   ACIA_CMD	EQU		$7F82	; ACIA COMMAND REGISTER (DTR, RIE, TxC, Echo, Parity) 
+    41             00007F83   ACIA_CTRL	EQU		$7F83	; ACIA CONTROL REGISTER (Baudrate, Data length, Stop bits) 
+    42                        
+    43             00007FE0   PORTB		EQU		$7FE0	; I/O port B on VIA2
+    44             00007FE1   PORTA		EQU		$7FE1	; I/O port A on VIA2
+    45             00007FE2   DDRB		EQU		$7FE2	; data direction register B on VIA2 (1=out; 0=in)
+    46             00007FE3   DDRA		EQU		$7FE3	; data direction register A on VIA2 (1=out; 0=in)
+    47                         
+    48             00000026   STL         EQU 	$26		;mem addr low 
+    49             00000027   STH         EQU 	$27		;mem addr high 
+    50             00000028   L           EQU		$28		;ASCII to HEX value low 
+    51             00000029   H           EQU 	$29		;ASCII to HEX value high 
+  Mon Nov  2 2026  0:10                                                                                                    Page 2
+
+
+    52             0000002E   COUNTER     EQU 	$2E		;keeps track of # ASCII chars processed  
+    53             0000002F   CRC         EQU 	$2F		;keeps track of running CRC checksum
+    54             00000030   CRCCHECK   	EQU 	$30		;flag, set when CRC error 
+    55             00001000   IN          EQU 	$1000   ;Input buffer
+    56                        
+    57                        ; ASM macros to e.g. switch between 8 and 16 bit registers 
+    58                        ; mostly definitions for the WDC assembler 
+    59                        ; *******S
+    60                        R16 .MACRO			; A and X/Y both 16 bits 
+    61                        	LONGA ON
+    62                        	LONGI ON
+    63                        	REP #$30
+    64                        	.ENDM
+    65                        R8 .MACRO			; A and X/Y both 8 bits 
+    66                        	LONGA OFF
+    67                        	LONGI OFF
+    68                        	SEP #$30
+    69                        	.ENDM
+    70                        A16 .MACRO			; A now 16 bits 
+    71                        	LONGA ON
+    72                        	REP #$20
+    73                        	.ENDM
+    74                        A8 	.MACRO			; A now 8 bits 
+    75                        	LONGA OFF
+    76                        	SEP #$20
+    77                        	.ENDM
+    78                        I16 .MACRO			; X/Y now 16 bits 
+    79                        	LONGI ON
+    80                        	REP #$10
+    81                        	.ENDM
+    82                        I8 	.MACRO			; X/Y now 8 bits 
+    83                        	LONGI OFF
+    84                        	SEP #$10
+    85                        	.ENDM
+    86                        ; *******E
+    87                        
+    88                        ; INPUT_BUFFER and RD_IDX and WR_IDX are defined in ACIA.H
+    89                        INPUT_BUFFER: SECTION 		
+    90                        	; mapped to $1000 using "AINPUT_BUFFER=1000" in hex_file.opt file 
+    91 00:0000: 00           	BLKB $100,$0			; Console circular input buffer of 256 bytes; $1000 .. $10FF 
+    92                        							; BLKB X,Y = define a block of X bytes, initialized 
+                    with Y 
+    93                        
+    94                        ; BUFFER_IDX: SECTION 		; OFFSET $1100 
+    95                        ; RD_IDX	DSB	1				; RD_IDX is stored at $1100
+    96                        ; WR_IDX	DSB	1				; WR_IDX is stored at $1101 
+    97                        
+    98                        STARTUP: SECTION 
+    99                        ; Prefixes define memory model used: Small : __ / Medium : ~_ / Compact : _~ / Large : ~~
+   100                        	IF SMALL
+   101                        	; This defines "START" as a label that the linker will fill in the address for. 
+   102                        	; Defined as "extern void START(void);" in a C program 
+   103                        		XDEF __START
+   104                        	__START:
+   105                        	ENDIF
+   106                        
+   107                        E_RESET:
+   108                        ; *******S		; execution jumps here when a hardware reset is performed 
+  Mon Nov  2 2026  0:10                                                                                                    Page 3
+
+
+   109                        ; mapped to $FE00 using "ASTARTUP=FE00" in hex_file.opt file 
+   110 00:0000: 78           		SEI					; 78: SEt Interrupt disable (=disable interrupts). 
+   111                        							; "cli" in C_main enables interrupts 
+   112 00:0001: 18                   CLC                	; 18: clear carry 
+   113 00:0002: FB                   XCE                	; FB: clear emulation bit - in Native 16 bit Mode 
+   114 00:0003: D8           		CLD					; D8: clear decimal mode  
+   115                        
+   116                        		; SEP		#$30		; 8 bit register A/X/Y
+   117                        		; LONGI	OFF			; and tell assembler about it 
+   118                        		; LONGA	OFF
+   119                        
+   120                        		; init circular input buffer 
+   121                        		; STZ		RD_IDX		; read pointer to SoB 
+   122                        		; STZ		WR_IDX		; write pointer to SoB 
+   123                        
+   124 00:0004: C2 30                REP   	#$30		; C2 30: 16 bit registers A/X/Y 
+   125                                LONGI 	ON			; and tell assembler about it 
+   126                                LONGA 	ON
+   127                        
+   128 00:0006: A9 FF 7D             LDA   	#STACK      ; A9 FF 7D: get the stack address 
+   129 00:0009: 1B                   TCS                	; 1B: and set the stack pointer to it 
+   130                        ; *******E
+   131                        
+   132                        ; *******S		; setup the databank register
+   133 00:000A: E2 20        		SEP #$20			; E2 20: A register 8 bit 
+   134                        		LONGA OFF			; tell assembler 
+   135 00:000C: A9 xx        		LDA #^_BEG_DATA		; A9 00: get bank part of DATA section 
+   136 00:000E: 48           		PHA					; 48: push it onto stack  
+   137 00:000F: AB           		PLB					; AB: and pull it into data bank register 
+   138 00:0010: C2 20        		REP #$20			; C2 20: A register 16 bit 
+   139                        		LONGA ON 
+   140                        
+   141                        ; The assembler creates 3 symbols for each (user-defined) section: 
+   142                        ; 		_ROM_BEG_secname 	: this is the ROM location of the section 
+   143                        ; 		_BEG_secname 		: this is the execution beginning of the section 
+   144                        ; 		_END_secname		: this is the end of the section 
+   145                        ;			E.g. _ROM_BEG_STARTUP, _BEG_STARTUP and _END_STARTUP 
+   146                        ; 5 sections are always automatically created: 
+   147                        ; 		PAGE0 : for 6502: $0000 to $00FF; for 65816: $0000 to $FFFF (must be RAM)
+   148                        ; 		CODE : main program section (typ. in ROM) 
+   149                        ;		KDATA : constant data that never changes (e.g. constant strings; typ. in ROM)
+   150                        ; 		DATA : initialized data that will be modified (e.g. int cnt=0; cnt++, typ. RAM) 
+   151                        ;		UDATA : data that is not initialized (e.g. int temp; must be in RAM)
+   152                        ; The user can define up to 250 additional ones using "name: SECTION" 
+   153                        
+   154                        ; These symbols can be used by the programmer in the code to access, read, copy ... 
+   155                        
+   156                        ; Copy (initialized) DATA from ROM to RAM 
+   157                        ; 		assumes that DATA has been linked to reside in RAM but is
+   158                        ; 		physically in ROM starting at location _ROM_BEG_DATA 
+   159                        ; 		comment out this section if DATA does not need to be copied from ROM to RAM 
+   160                        
+   161 00:0012: A9 xx xx             LDA   #_END_DATA-_BEG_DATA 			; A9 B2 01: number of bytes to copy
+   162                        					; BEG_DATA ~ 0x2000 and END_DATA ~ 0x21B2 
+   163 00:0015: F0 0A                BEQ   SKIP         					; F0 0A: if none, skip rest and jump
+                     to SKIP
+   164 00:0017: 3A                   DEC   A            					; 3A: less one for MVN instruction
+   165 00:0018: A2 xx xx             LDX   #<_ROM_BEG_DATA 				; A2 00 20: low 16 bits of source (ROM) addr
+  Mon Nov  2 2026  0:10                                                                                                    Page 4
+
+
+                     into X
+   166 00:001B: A0 xx xx             LDY   #<_BEG_DATA  					; A0 00 20: low 16 bits of dest (RAM
+                    ) addr into Y
+   167 00:001E: 54 xx xx             MVN   #^_ROM_BEG_DATA,#^_BEG_DATA 	; 54 00 00: copy bytes using the bank parts of ROM/RAM 
+   168                        ; *******E
+   169                        
+   170                        SKIP:
+   171                        ; fill the uninitialized UDATA area with zeroes 
+   172                        ; UDATA is uninitialized, so it does not need to be in ROM and also not copied to RAM 
+   173                        ; *******S
+   174 00:0021: A2 xx xx     		LDX   #_END_UDATA-_BEG_UDATA  		; A2 02 00: get number of bytes to clear
+   175                        					; BEG_UDATA ~ 0x21B2 and END_UDATA ~ 0x21B4 
+   176 00:0024: F0 11                BEQ   DONE         					; F0 11: if none, skip rest and jump
+                     to DONE 
+   177 00:0026: A9 00 00             LDA   #0           					; A9 00 00: load the zero to clear U
+                    DATA section in A reg 
+   178 00:0029: E2 20                SEP   #$20       					; E2 20: A register 8 bits, so do byte at a 
+                    time
+   179 00:002B: A0 xx xx             LDY   #_BEG_UDATA					; A0 B2 21: get beginning of UDATA into Y 
+   180                        						
+   181 00:002E: 99 00 00     LOOP    STA   |0,Y       					; 99 00 00: clear memory using the 0 from A 
+                    register 
+   182 00:0031: C8                   INY              					; C8: bump pointer
+   183 00:0032: CA                   DEX              					; CA: decrement count
+   184 00:0033: D0 F9                BNE   LOOP       					; D0 F9: loop till done
+   185 00:0035: C2 20                REP   #$20       					; C2 20: 16 bit memory reg
+   186                        DONE:
+   187                        ; *******E
+   188                        
+   189                        ; transfer control to the main() function in the C program 
+   190                        	IF SMALL
+   191                        ; XREF = symbol declared outside this file (declare = name + type specified, no value assigned) 
+   192                        ; XDEF = symbol defined in this file (i.e. value assigned) but referenced in another file 
+   193                        		XREF __main     ; jumps to "main" function of C program  
+   194                        						; XREF tells assembler that the linker will fill in the addr
+                    ess 
+   195                        						; declare it as "extern void START (void);" in the file with
+                     main() 
+   196                        						; and update reset vector accordingly 
+   197 00:0037: 22 xx xx xx  		JSR >__main    	; 22 B3 97 00: using '>' to force long jump (in case not bank 0) (changes JS
+                    R into JSL) 
+   198 00:003B: 00 00        		BRK				; 00 00
+   199                        	ENDIF
+   200                        
+   201                        ; declare special linker symbols for the linker to fill in 
+   202                        ; XREF = symbol declared outside this file (declare = name + type specified, no value assigned) 
+   203                        	XREF  _BEG_DATA
+   204                        	XREF  _END_DATA
+   205                        	XREF  _ROM_BEG_DATA
+   206                        	
+   207                        	XREF  _BEG_UDATA
+   208                        	XREF  _END_UDATA
+   209                        
+   210                        
+   211                        ISRS: SECTION
+   212                        ;interrupt processing routines
+   213                        ; mapped at $FF00 using "ISRS=FF00" in .bat file 
+   214                        ; *******S
+  Mon Nov  2 2026  0:10                                                                                                    Page 5
+
+
+   215                        ; Co-processor (not used) 
+   216                        N_COP:							; 65816 mode 
+   217                        E_COP:							; 6502 emulation mode 
+   218 00:0000: EA           		NOP						; EA: NOP 
+   219 00:0001: 80 FD        		BRA N_COP				; 80 FD: endless loop of NOP
+   220                        
+   221                        ; Break (BRK s/w instruction) 
+   222                        N_BRK:							; only used in 65816 mode
+   223 00:0003: EA           		NOP						; EA: NOP
+   224 00:0004: 80 FD        		BRA N_BRK				; 80 FD: endless loop of NOP
+   225                        
+   226                        ; Abort (CPU pin 3) 
+   227                        N_ABORT:						; 65816 mode
+   228                        E_ABORT:						; 6502 emulation mode
+   229 00:0006: EA           		NOP						; EA: NOP
+   230 00:0007: 80 FD        		BRA E_ABORT				; 80 FD: endless loop of NOP
+   231                        
+   232                        ; NMI (CPU pin 6 - frontpanel pushbutton)  
+   233                        N_NMI: 							; 65816 mode 
+   234                        E_NMI: 							; 6502 emulation mode 
+   235 00:0009: EA           		NOP						; EA: NOP 
+   236 00:000A: 80 FD        		BRA E_NMI				; 80 FD: endless loop of NOP
+   237                        
+   238                        ; 
+   239                        Undefined_IRQ: 					; 6502 and 65816 mode 
+   240 00:000C: EA           		NOP						; EA: NOP 
+   241 00:000D: 80 FD        		BRA Undefined_IRQ		; 80 FD: endless loop of NOP
+   242                        
+   243                        ; XDEF = symbol defined in this file (i.e. value assigned) but referenced in another file 
+   244                        ; ISR to handle Wired-OR connections of IRQ pins of ACIA, VIA, ... 
+   245                        ; IRQPinHandler is defined in C_TEMPLATE_816.C 
+   246                         	XDEF __IRQPinHandler 
+   247                        ; *******E
+   248                        
+   249                        ;string constants table 
+   250                        STRINGS: SECTION 
+   251                        ; mapped at $F900 using "ASTRINGS=F900" in bin_file.opt file 
+   252                        ; *******S
+   253 00:0000: 1B 5B 32 4A  MSGCLS	DB $1B,'[','2','J','NL'
+       00:0004: 00 
+   254 00:0005: 1B 5B 48 00  MSGHOM	DB $1B,'[','H','NL'
+   255                        ;LDPRG 	DB "Loading Intel HEX program ... ", 'CR', 'LF', 'NL'
+   256 00:0009: 4C 6F 61 64  LDPRG 	DB "Load ... ", 'CR', 'LF', 'NL' 
+       00:000D: 20 2E 2E 2E 
+       00:0011: 20 0D 0A 00 
+   257 00:0015: 0D 0A 49 6E  CRCERR	DB 'CR', 'LF', "Intel HEX file loaded with CRC error.", 'CR', 'LF', 'NL'
+       00:0019: 74 65 6C 20 
+       00:001D: 48 45 58 20 
+       00:0021: 66 69 6C 65 
+       00:0025: 20 6C 6F 61 
+       00:0029: 64 65 64 20 
+       00:002D: 77 69 74 68 
+       00:0031: 20 43 52 43 
+       00:0035: 20 65 72 72 
+       00:0039: 6F 72 2E 0D 
+       00:003D: 0A 00 
+   258 00:003F: 0D 0A 49 6E  CRCOK	DB 'CR', 'LF', "Intel HEX file loaded successfully.", 'CR', 'LF', 'NL' 
+       00:0043: 74 65 6C 20 
+  Mon Nov  2 2026  0:10                                                                                                    Page 6
+
+
+       00:0047: 48 45 58 20 
+       00:004B: 66 69 6C 65 
+       00:004F: 20 6C 6F 61 
+       00:0053: 64 65 64 20 
+       00:0057: 73 75 63 63 
+       00:005B: 65 73 73 66 
+       00:005F: 75 6C 6C 79 
+       00:0063: 2E 0D 0A 00 
+   259 00:0067: 0D 0A 2E 2E  LDDONE	DB 'CR', 'LF', "... end of file loading", 'CR', 'LF', 'NL'
+       00:006B: 2E 20 65 6E 
+       00:006F: 64 20 6F 66 
+       00:0073: 20 66 69 6C 
+       00:0077: 65 20 6C 6F 
+       00:007B: 61 64 69 6E 
+       00:007F: 67 0D 0A 00 
+   260 00:0083: 0D 0A 00     NEWLINE DB 'CR', 'LF', 'NL'
+   261                        
+   262 00:0086: 28 43 29 20  SIGNATURE_DMA_SRC	DB "(C) by Dirk Martens " 	; Human readable
+       00:008A: 62 79 20 44 
+       00:008E: 69 72 6B 20 
+       00:0092: 4D 61 72 74 
+       00:0096: 65 6E 73 20 
+   263 00:009A: 43 28 20 29  SIGNATURE_DMA_ASM	DB "C( )ybD ri kaMtesn  " 	; Little Endian format
+       00:009E: 79 62 44 20 
+       00:00A2: 72 69 20 6B 
+       00:00A6: 61 4D 74 65 
+       00:00AA: 73 6E 20 20 
+   264 00:00AE: 4D 6F 6E 20  					DATE						; Compilation Date/T
+                    ime stamp
+       00:00B2: 4E 6F 76 20 
+       00:00B6: 20 32 20 32 
+       00:00BA: 30 32 36 20 
+       00:00BE: 20 30 3A 31 
+       00:00C2: 30 
+   265                        ; *******E
+   266                        
+   267                        ;shadow vector table 
+   268                        SHADOW: SECTION 		
+   269                        ; mapped at $7EE0 using "ASHADOW=7EE0" in bin_file.opt file 
+   270                        ; *******S
+   271                        	; ; mapped 16 words of RAM 7EE0 ... 7EFF, just before memory mapped I/O
+   272                        	; ;Status bit E = 0 (Native mode)
+   273                        	; ds	4				; $7EE0 - Reserved(816)
+   274                        						; ; $7FE2 - Reserved(816)
+   275                        	; dw	Undefined_IRQ	; $7FE4 - COP(816)
+   276                        	; dw	Undefined_IRQ	; $7FE6 - Brk(816)
+   277                        	; dw	Undefined_IRQ	; $7FE8 - Abort(816)
+   278                        	; dw	N_NMI			; $7FEA - NMI(816)
+   279                        	; ds	2				; $7FEC - Reserved(816)
+   280                        	; dw	__IRQHandler	; $7FEE - IRQ(816)
+   281                        	; ;Status bit E = 1 (Emulation mode)
+   282                        	; ds	4				; $7FF0 - Reserved(02)
+   283                        						; ; $7FF2 - Reserved(02)
+   284                        	; dw	Undefined_IRQ	; $7FF4 - COP(02Emulation)
+   285                        	; ds	2				; $7FF6 - Reserved(02Emulation)
+   286                        	; dw	Undefined_IRQ	; $7FF8 - Abort(02Emulation)
+   287                        	; dw	E_NMI			; $7FFA - NMI (ALL)
+   288                        	; dw	E_RESET			; $7FFC - Reset (ALL)
+  Mon Nov  2 2026  0:10                                                                                                    Page 7
+
+
+   289                        	; dw	__IRQHandler	; $7FFE - IRQBRK (ALL)
+   290                        ; *******E
+   291                        
+   292                        ;interrupt vector table
+   293                        VECTORS: SECTION		
+   294                        ; mapped at $FFE0 using "AVECTORS=FFE0" in .bat file 
+   295                        ; *******S
+   296                        	; the real reset and interrupt vectors
+   297                        
+   298                        ; replace Undefined_IRQ with actual interrupt routine name 
+   299                        ; they can only be 16 bits wide, so the IRQ routine must be in bank 0
+   300                        
+   301                        ; If not in bank 0, replace Undefined_IRQ with label "JMP0" and 
+   302                        ;	put in ORG directive 
+   303                        ; 		ORG xxxxx 
+   304                        ; before the label and long jump instruction 
+   305                        ; 		JMP0 	JMP >FUNC0 
+   306                        ; and then write the FUNC0 interrupt handler function 
+   307                        ; where ">" indicates long (=16 bit) pointers 
+   308                        
+   309                        	; 65C816 Vectors
+   310                        	; Status bit E = 0 (Native mode)
+   311 00:0000:              	ds	4				; $FFE0,1 - Reserved 
+   312                        						; $FFE2,3 - Reserved
+   313 00:0004: xx xx        	dw	N_COP			; $FFE4,5 - Co-Processor 	(65816 mode)
+   314 00:0006: xx xx        	dw	N_BRK			; $FFE6,7 - Brk 			(65816 mode)
+   315 00:0008: xx xx        	dw	N_ABORT			; $FFE8,9 - Abort 			(65816 mode - pin 3)
+   316 00:000A: xx xx        	dw	N_NMI			; $FFEA,B - NMI 			(65816 mode - pin 6)
+   317 00:000C:              	ds	2				; $FFEC,D - Reserved 		(65816 mode)
+   318 00:000E: xx xx        	dw	__IRQPinHandler	; $FFEE,F - IRQ 			(65816 mode - pin 4)
+   319                        
+   320                        	; 6502 Vectors
+   321                        	; Status bit E = 1 (Emulation mode)
+   322 00:0010:              	ds 	4				; $FFF0,1 - Reserved 		(6502 mode)
+   323                        						; $FFF2,3 - Reserved 		(6502 mode)
+   324 00:0014: xx xx        	dw	E_COP			; $FFF4,5 - Co-Processor 	(6502 mode)
+   325 00:0016:              	ds	2				; $FFF6,7 - Reserved 		(6502 mode)
+   326 00:0018: xx xx        	dw	E_ABORT			; $FFF8,9 - Abort 			(6502 mode - pin 3)
+   327 00:001A: xx xx        	dw	E_NMI			; $FFFA,B - NMI 			(6502 mode - pin 6)
+   328 00:001C: xx xx        	dw	E_RESET			; $FFFC,D - Reset 			(6502 mode - pin 40)
+   329 00:001E: xx xx        	dw	__IRQPinHandler	; $FFFE,F - IRQ/BREAK 		(6502 mode - pin 4)
+   330                        ; *******E
+   331                        
+   332                        ends
+   333                        end
+   334                        
+   335                        ; not used or temporarily disabled 
+   336                        ; *******S 
+   337                        
+   338                        ; *******S 
+   339                        ;ASM version of subroutine to process IRQ when ACIA receives data 
+   340                        ; replaced by C function " interrupt void IRQHandler(void); " in C_TEMPLATE_816.c
+   341                        ; Every time a character is received by the ACIA, an IRQ interrupt is generated and 
+   342                        ; this IRQ handler routine is run, putting the ASCII code of the char in the circular buffer. 
+   343                        ; The WR_PTR is used as the destination index into the circular buffer, incremented each 
+   344                        ; time a new interrupt is generated and wrapping around after 256 chars received. 
+   345                        ; The C main function reads the characters from the buffer and processes them. 
+   346                        ; !!! If not processed on time, the WR_PTR could wrap around and overwrite unprocessed chars.
+  Mon Nov  2 2026  0:10                                                                                                    Page 8
+
+
+   347                        ; Modifies: CPU flags, A, X, Y 
+   348                        ; N_IRQ: 
+   349                        		; REP #$30 			; 16 bit register A/X/Y so we save A/B and MSB/LSB of X/Y 
+   350                        		; LONGA ON 			; and tell assembler about it 
+   351                        		; LONGI ON 			; 
+   352                        		; PHA					; save A/B, X and Y registers 
+   353                        		; PHX					; since interrupt handler 
+   354                        
+   355                        							; If there are multiple IRQ sources, we need to chec
+                    k which 
+   356                        							; source generated the IRQ so we can handle it a ded
+                    icated 
+   357                        							; handler routine. We have only one source, so we ca
+                    n skip. 
+   358                        
+   359                        		; LDA ACIA_DATA		; char in RX DATA REGISTER into A register 
+   360                        		; LDX WR_IDX		; offset for destination in circular buffer 
+   361                        		; STA $1000,X		; save char into circular buffer 
+   362                        		; INC WR_IDX		; prep offset for next char 
+   363                        
+   364                        		; REP #$30 			; st A/X/Y back to 16 bit sizes 
+   365                        		; LONGA ON 			; and tell assembler about it 
+   366                        		; LONGI ON 			
+   367                        		
+   368                        		; PLX					; restore X and A/B registers 
+   369                        		; PLA
+   370                        
+   371                        		; RTI 				; return from interrupt
+   372                        ; *******E
+   373                        
+   374                        ; :10010000214601360121470136007EFE09D2190140
+   375                        ; :100110002146017E17C20001FF5F16002148011928
+   376                        ; :10012000194E79234623965778239EDA3F01B2CAA7
+   377                        ; :100130003F0156702B5E712B722B732146013421C7
+   378                        ; :00000001FF
+   379                        
+   380                        ; :06 5000 00 01 02 03 04 05 06 95
+   381                        ; :00 0000 01 FF
+   382                        
+   383                        ; :01 5000 00 01 AE
+   384                        ; :00 0000 01 FF
+   385                        
+   386                        ;NMI IRQ interrupt routine - used to read HEX file 
+   387                        ; *******S
+   388                        ; Subroutine to output null-terminated string 
+   389                        ; 	X reg contains 16-bit start addr of string 
+   390                        ; this compiles to ~FF3D
+   391                        ; PRINTMSG	I8				;8bit X/Y 
+   392                        			; A8				;8bit A 
+   393                        ; ?NEXT      	LDA !0,X		;get Xth char 
+   394                        			; BEQ ?DONE		;branch if null char reached 
+   395                        			; STA ACIA_DATA	;output char to send (ACIA_DATA=$7F80)
+   396                        ; ?WAIT: 
+   397                        			; LDA ACIA_STAT	;get send status (ACIA_STAT=$7F81)
+   398                        			; AND #$10		;bit4=1 @ send complete
+   399                        			; BEQ ?WAIT		;loop until ACIA TX is ready 
+   400                        			; INX 			;incr index ptr
+   401                        			; BRA ?NEXT		;loop to get next char 
+  Mon Nov  2 2026  0:10                                                                                                    Page 9
+
+
+   402                        ; ?DONE:      RTS 
+   403                        
+   404                        ; ;Automatically pushes PBR, PCH, PCL and P on stack. Restored upon RTI. 
+   405                        		; SEC					;set carry
+   406                        		; XCE					;use it to go to 6502 native mode 
+   407                        		; I8					;16bit X/Y 
+   408                        		; A8					;8bit A 
+   409                        		; ;show opening msg 
+   410                        		; LDX #LDPRG			;start addr of msg (~$F809)
+   411                        		; JSR PRINTMSG		;output msg (~$FF3D)
+   412                        		; ;load Intel Hex format file 
+   413                        ; ;LOADINTEL: 
+   414                        ; ; 		:100130003F0156702B5E712B722B732146013421C7
+   415                        ; ; 		:00000001FF
+   416                        ; ;		: = SoL char / 10 = number of data bytes (0x10 = 16) 
+   417                        ; ; 		0130 = mem addr (0x0130) / 00 = record type (00=data;01=EoF)
+   418                        ; ;		3F 01 .. 34 21 = bytes of data / C7 = CRC
+   419                        		; LDY #$00			;init buffer rd_ptr 
+   420                        		; STY CRCCHECK		;start with reset CRCCHECK flag 
+   421                        ; ; INTELLINE
+   422                        		; JSR GETCHAR			;get char from console 
+   423                        		; STA IN,Y			;store it in input_buffer 
+   424                        		; INY					;prep for next char
+   425                        		; CMP #$1B			;was char = ESC? 
+   426                        		; BNE NO_ESC			;no, continue processing  
+   427                        		; BRL INTELDONE		;yes, abort 
+   428                        ; ; NO_ESC
+   429                        		; CMP #$0D			;was char = CR? 
+   430                        		; BNE INTELLINE		;nope, get next char 
+   431                        		; LDY $FF				;CR encountered, so process one full line 
+   432                        ; ; FINDCOL
+   433                        		; INY					;go back to start of buffer rd_ptr 
+   434                        		; LDA IN,Y			;get 1st char
+   435                        		; CMP #$3A			;was char = ':'? (=SoL) 
+   436                        		; BNE FINDCOL			;nope, loop until ':'
+   437                        		; INY					;':' found, skip it 
+   438                        		; LDX #$00			;init running CRC
+   439                        		; STX CRC				;store it 
+   440                        		; JSR GETHEX			;read 2 ASCII chars and convert to HEX (=byte count)
+   441                        		; STA COUNTER 		;expected number of bytes in HEX
+   442                        		; CLC
+   443                        		; ADC CRC				;update running CRC
+   444                        		; STA CRC				;save it 
+   445                        		; JSR GETHEX			;read 2 ASCII chars and convert to HEX (=mem addr high)
+   446                        		; STA STH				;store mem addr high byte
+   447                        		; CLC
+   448                        		; ADC CRC				;update running CRC
+   449                        		; STA CRC				;save it
+   450                        		; JSR GETHEX			;read 2 ASCII chars and convert to HEX (=mem addr low)
+   451                        		; STA STL				;store mem addr byte
+   452                        		; CLC
+   453                        		; ADC CRC				;update running CRC
+   454                        		; STA CRC				;save it 
+   455                        		; LDA #$2E			;print '.' for each full line read as progress indicator 
+   456                        		; STA ACIA_DATA		;store in ACIA for it to output 
+   457                        ; ?SENT
+   458                        		; LDA ACIA_STAT		;get ACIA status 
+   459                        		; CMP #$10			;test for TX buffer empty
+  Mon Nov  2 2026  0:10                                                                                                    Page 10
+
+
+   460                        		; BEQ	?SENT			;loop ifnot yet sent 
+   461                        ; NODOT
+   462                        		; JSR GETHEX			;read 2 ASCII chars and convert to HEX (=record type)		
+                    	
+   463                        		; CMP #$01			;was $01=EoF reached? 
+   464                        		; BEQ INTELDONE		;yes, all lines read 
+   465                        		; CLC					;more data 
+   466                        		; ADC CRC				;update running CRCCRC				
+   467                        		; STA CRC				;save it CRC
+   468                        ; INTELSTORE
+   469                        		; JSR GETHEX			;read 2 ASCII chars and convert to HEX (=data)
+   470                        		; STA (STL,X)			;store data at mem addr location 
+   471                        		; CLC
+   472                        		; ADC CRC				;update running CRC CRC
+   473                        		; STA CRC				;save it  CRC
+   474                        		; INC STL				;advance mem addr low location
+   475                        		; BNE TESTCOUNT		; 
+   476                        		; INC STH				;advance mem addr high location
+   477                        ; TESTCOUNT
+   478                        		; DEC COUNTER			;update counter 
+   479                        		; BNE INTELSTORE		;if counter not yet 0, continue processing 
+   480                        		; JSR GETHEX			;read last 2 ASCII chars and convert to HEX (=CRC)
+   481                        		; LDY #$00			;reset input buffer rd_ptr so we read from SoL again
+   482                        		; CLC					;
+   483                        		; ADC CRC				;add HEX file CRC to running CRC
+   484                        		; BNE CRC_NOK			;if CRC is still 0, set CRC error flag 
+   485                        		; BRL INTELLINE		;long branch to process next line 
+   486                        ; CRC_NOK
+   487                        		; LDA #$01			;set a flag 
+   488                        		; STA CRCCHECK		;to indicate a CRC error 
+   489                        		; JMP INTELLINE		;process next line 
+   490                        ; INTELDONE 
+   491                        		; LDA CRCCHECK		;get CRC error flag 
+   492                        		; BEQ CRC_OKMESS		;when 0, all lines were ok, so show "ok" msg
+   493                        		; LDX #CRCERR			;else, loading had a CRC error 
+   494                        		; JSR PRINTMSG		;output an "error" msg saying so
+   495                        		; ;show closing msg 
+   496                        		; LDX #NEWLINE		;cursor to start of next line 
+   497                        		; JSR PRINTMSG		
+   498                        		; LDX #LDDONE			;reading of Intel HEX file is done (~$F832)
+   499                        		; JSR PRINTMSG		;output msg (~$FF3D) 
+   500                        		; RTI 				;all done (but with error), return from NMI_IRQ
+   501                        
+   502                        ; CRC_OKMESS
+   503                        		; LDX #CRCOK			;CRC matched, so loading was ok 
+   504                        		; JSR PRINTMSG		;output an "OK" msg
+   505                        		; RTI					;all done (no error), return from NMI_IRQ 
+   506                        
+   507                        ; ;read 2 ASCII chars and converts them to 1 HEX byte
+   508                        ; ; input:  Y reg contains position of 1st ASCII char to read 
+   509                        ; ; output: A reg contains converted HEX value 
+   510                        ; GETHEX						
+   511                        		; LDA IN,Y			;first char (0..9/A..F=0x30..39/0x41..46)
+   512                        		; EOR #$30			;remove '0' ASCII offset (0..9/0x71..76)
+   513                        		; CMP #$0A			;check if >9 (carry will be set for 9..76)
+   514                        		; BCC DONEFIRST		;no, so char was 0..9 
+   515                        		; ADC #$08			;yes, so char was A..H (0x7A..7F)
+   516                        ; DONEFIRST					
+  Mon Nov  2 2026  0:10                                                                                                    Page 11
+
+
+   517                        		; ASL					;move from lower to upper nibble (0..9/A..F)
+   518                        		; ASL
+   519                        		; ASL
+   520                        		; ASL
+   521                        		; STA L				;store upper nibble 
+   522                        		; INY					
+   523                        		; LDA IN,Y			;2nd char
+   524                        		; EOR #$30			;remove '0' ASCII offset (0..9/0x71..76)
+   525                        		; CMP #$0A            ;check if >9 (carry will be set for 9..76)
+   526                        		; BCC DONESECOND      ;no, so char was 0..9 
+   527                        		; ADC #$08            ;yes, so char was A..H (0x7A..7F)
+   528                        ; DONESECOND
+   529                        		; AND #$0F			;keep lower nibble (0..9/A..F)
+   530                        		; ORA L				;merge upper and lower nibble (00..FF)
+   531                        		; INY					;move to next char
+   532                        		; RTS 
+   533                        
+   534                        ; ;Subroutine that checks if ACIA has char in RX buffer 
+   535                        ; ;	Input: 	none
+   536                        ; ;	Output: char received 
+   537                        ; GETCHAR
+   538                        		; LDA ACIA_STAT		;check if char received
+   539                        		; AND #$08			;test bit3 (=ACIA_RX_FULL) 
+   540                        		; BEQ GETCHAR			;loop until char received 
+   541                        		; LDA ACIA_DATA		;return char in A reg 
+   542                        		; RTS 
+   543                        
+   544                        ; *******E
+   545                        
+   546                        ; *******E
+
+
+      Lines assembled: 546
+      Errors: 0

@@ -1,0 +1,38 @@
+#     -A Specify section address.
+#     -B Place bank info in .bnk file.
+#     -C Specify CODE address.
+#     -D Specify DATA address.
+#     -E Place errors in a .err file.
+#     -F Read arguments from the specified file.
+#     -G Generate source debug information.
+#     -H Specify the hex output format.
+#     -J Sort module info by name.
+#     -K Specify KDATA address.
+#     -L Specify a library name.
+#     -M Specify machine format.
+#     -N Discard .QCK symbols.
+#     -O Specify the name of the output file.
+#     -P Set the fill characters in the hex output file.
+#     -Q Tell the linker to be quiet.
+#     -S Specify the symbol file format to use.
+#     -T Generate a map file.
+#     -U Specify UDATA address.
+#     -V Display additional information.
+#     -W Disable warnings.
+#     -X Use EMM memory for symbol tables.
+#     -Z Set the spread for the section.
+
+-AINPUT_BUFFER=1000 
+-D2000 
+-ASHADOW=7EE0 
+-C8000 
+-KF000 
+-ASTRINGS=F900
+#-AWOZMON=FA00 
+-ASTARTUP=FE00 
+-AISRS=FF00 
+-AVECTORS=FFE0 
+-G 
+-T 
+-HB 
+ 

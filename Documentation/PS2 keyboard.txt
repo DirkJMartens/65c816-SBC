@@ -1,0 +1,45 @@
+
+	     retrigger>		   
+-------+           .  |        .           .           .           .           .           .           .           .           .              +-------
+       |           .  |        .           .           .           .           .           .           .           .           .              |
+       |           .  |        .           .           .           .           .           .           .           .           .              |
+       |           .  |        .           .           .           .           .           .           .           .           .              |         
+       +--------------+-----------------------------------------------------------------------------------------------------------------------+
+       <pulse duration>              
+
+-------+                                                                                                                                      +-------
+       |                                                                                                                                      |
+       |                                                                                                                                      ^
+       |                                                                                                                                      |
+       +--------------------------------------------------------------------------------------------------------------------------------------+
+
+-------+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-------------
+       |  S  |     |  0  |     |  1  |     |  2  |     |  3  |     |  4  |     |  5  |     |  6  |     |  7  |     |  P  |     |     |
+       |     ^     |     ^     |     ^     |     ^     |     ^     |     ^     |     ^     |     ^     |     ^     |     ^     |     ^    
+       |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+       +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+     +-----+
+ 
+-----+           +-----------+           +-----------+-----------+-----------+                                   +-----------+-------------------------
+     |     0     |     1     |    0      |     1     |     1     |    1      |     0     |     0     |     0     |    0/1    |    1    
+     |   START   |    LSB    |           |           |           |           |           |           |    MSB    |  Odd Par  |   STOP
+     +-----------+           +-----------+           |           |           +-----------+-----------+-----------+           |          
+
+
+Measured timings: 
+	1. KB_CLOCK frequency is around 12.56 KHz, with a period of around . 
+	2. Delay between "key release" and released "key code" is around 250us. 
+	3. KB_DATA is 11 bits long: 1 start bit, 8 data bits, 1 parity bit (odd parity) and 1 stop bit. 
+
+74595 :
+	Serial input data is clocked into shift register on rising PS2 clock edge, at which time the PS2 data is sampled.
+	Output buffers are latched on rising edge, so shift register data is stable.
+
+74122 :
+	A1B and A2B inputs are active low triggers for the output pulse.
+	B1B and B2B inputs are active high triggers for the output pulse.
+	The falling PS2 clock A1A triggers the output pulse, lasting around 20us.
+	The subsequent falling edges re-trigger the output pulse, creating an output pulse longer than the 11 input pulses.
+
+74595 :
+	Interrupt is triggered by the rising edge of the output pulse.
+

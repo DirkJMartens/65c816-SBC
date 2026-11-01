@@ -1,0 +1,19 @@
+Info about developing soft/hardware for the 65816 SBC
+===================================================== 
+
+1. Upon power-on and upon hardware reset: the CPU will start in 6502 Emulation mode 
+	and will execute a jump to the memory location stored at FFFC/FFFD. 
+
+2. In the WDC_CStartup_816.asm file, this is done using a label "E_RESET" which is 
+	within a user-defined section of code named "STARTUP". 
+
+3. This "STARTUP" section will perform some initialization steps such as disabling 
+	interrupts, switch to 65816 native mode, setup a stack, initialize the databank 
+	register, and finally perform a jump to the "main" function in C_TEMPLATE_816.c 
+
+4. Create the .bin file using the batch file. This creates a 64K .bin file. 
+
+5. Open the file in XGPro, load it, starting at address 0x8000 and program it, making 
+	sure the "protect after programming" option is on. 
+
+6. 

@@ -1,0 +1,56 @@
+Available on all 65x processors: Example Syntax
+===============================================
+	Implied 					TAY (A and Y reg) 
+	Accumulator 				ASL A (A reg) 
+	Immediate 					LDA #$12 (i.e. constant value) 
+								LDA #<$1234		= LDA #$34
+								LDA #>$1234		= LDA #$12 
+	Absolute 					LDA $1234		= db:$1234 
+	Direct page 				LDA $12 
+	Stack 						PHA	(push A reg on stack) 
+
+Available on 65816 only:
+========================
+	Direct page indirect 		LDA ($12)
+	Absolute long 				LDA $123456
+	Direct page indirect long 	LDA [$12]
+	Block move 					MVN SOURCE, DEST
+	
+
+Symbol 		Name 					Use
+======================================================
+| 			Pipe 					Absolute Address
+! 			Exclamation 			Absolute Address
+< 			Less than 				Lower 16 bits only
+> 			Greater than 			8 bit shift to the right
+# 			Pound 					Immediate
+^ 			Caret 					Upper 16 bits only
+* 			Star 					Program Counter at the next location
+$ 			Dollar 					Program Counter current hex value
+#( ).low. 	Lower 					16 bits only
+#( ).high. 	Upper 					16 bits only
+>> 			16bit shift to right 	(used to target the bank, load bank address)
+#“x” 		(pound double quote) 	Use ASCII character for Immediate.
+#‘@’ 		(pound single quote) 	Use ASCII character for Immediate. 
+									If LONGA is ON then # ‘23’ is valid.
+
+When an instruction uses the IMMEDIATE addressing mode, the operand is preceded by a `#' character. 
+The value of the expression following the `#' character is truncated to either eight or sixteen bits,
+depending on the settings of the CHIP, LONGA and LONGI.
+
+The `#' character may be followed by a second character which causes the expression to be shifted right before truncating.
+	The `<' character causes no shift to occur, 
+	the `>' character causes an eight bit shift, 
+	and the `^' character causes a sixteen bit shift. 
+Thus, these characters allow access to the low byte, the high byte and finally the bank part respectively. 
+
+For example:
+	Expression			8bit	16bit
+	#01020304H 			04H 	0304H	Low byte/word
+	#<1020304H 			04H 	0304H	Low byte/word
+	#>1020304H 			03H 	0203H	Drop lower 8 bits 
+	#^1020304H 			02H 	0102H	Drop lower 16 bits
+	#(1020304H).low. 	04H 	0304H	Lowest byte/word 
+	#(1020304H).high. 	03H 	0102H	Highest byte/word 
+
+

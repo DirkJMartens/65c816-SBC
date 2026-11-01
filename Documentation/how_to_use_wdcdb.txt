@@ -1,0 +1,82 @@
+- The default install path for "WDC Tools" is C:\WDC 
+- Windows securty policy typically will prompt to confirm each time you want to run the tools. 
+- You can install is in your user folder, e.g. "C:\Users\DM\Documents 
+- Adjust the path(s) below and the files should run without prompting for confirmation. 
+
+- Use Notepad++ as your program editor 
+- Go to Plugins -> Plugin Manager -> Show Plugins. 
+- Find NppExec and install it.
+- Restart Npp.
+- Select Plugins -> NppExec -> click Follow $(current_Directory) to enable the option. 
+- Hit F6 and copy paste the following in the dialog box,
+	C:\wdc\Tools\bin\wdc816as.exe -g -DUSING_816 -DM_SMALL -l $(FULL_CURRENT_PATH)
+	Save as Compile.
+- Paste the following,
+	C:\WDC\Tools\bin\WDCLN.exe -g -t -sz -HZ -o$(CURRENT_DIRECTORY)\$(NAME_PART).bin $(CURRENT_DIRECTORY)\$(NAME_PART).obj
+	Save as Link
+	Note: using -HZ is critical. Code that goes into the ROM requires -HB 
+- Paste the following,
+	C:\WDC\Tools\bin\wdcdb.exe $(CURRENT_DIRECTORY)\$(NAME_PART).bin
+	Save as Debug.
+- Cancel out of the dialog box.
+- Select Plugins -> NppExec -> Advanced Options...
+- Bottom left corner, in the Menu Item section: 
+	- Type WDC-Compile in the Item name and select the Associated Script Compile, Add/Modify.
+	- Type WDC-Link in the Item name and select the Associated Script Link, Add/Modify.
+	- Type WDC-Debug in the Item name and select the Associated Script Debug, Add/Modify.
+- Use "Move Up" and 'Move Down" to arrange to your liking 
+- Tick the "Place to the Macro submenu" option and click OK.
+- Restart Notepad++ 
+- The menu items will show up under the Macro menu.
+
+- Go to the forum.6502.org website, a Search for "WDC Tools STARTUP.ASM and C samples files for 6502/816"
+- User tokafondo attached 2 files: startups.zip and csamp.zip 
+	startups.zip 
+	- The startups.zip file contains startup02.asm and startup816.asm 
+	- They must be edited, then compiled and linked together with your C source file. 
+	- The startup816.asm file will e.g. setup the interrupt vector table, set start address, memory model, stack location, etc. 
+- The csample.zip file contains 
+	- Example makefiles that can be used to compile and link your C source code 
+	- 8 separate makefiles are provided, one set for 6502 and one for 65816.
+	- Each set contains 4 batch files, one for each memory model: small, compact, medium and large
+	- A makefile for the 134 and one for the 256 SBC system. 
+	- Also included are 2 "WDC_CStartup_xxx.asm" files (xx=02/816) that play a similar to the startup816.asm role above
+- An "exmpl1.c" file is also provided, which is a template for a C program. 
+	- Although intended to be used with WDC's 134 / 265 SBC systems, it can easily be adjusted for any system. 
+	- It has a lot of error checking for set up: e.g. processor type, memory model, etc. 
+	- It defines data types, a IRQ interrupt handler routine, a main() placeholder, a msdelay() delay function, memory checking routine  
+	- It defines some register memory locations for VIA and then has some simple code to blink onboard LEDs using the VIA 
+
+
+- For a new C project: 
+	- Copy "wdc_cstartup_816.asm". No need to adjust memory model or CPU (02/816) 
+	- The ASM file includes conditional assembling. 
+	- Adjust the memory locations inside the ASM file, specifically: 
+		- STACK EQU to set ToS location 
+		- STARTUP SECTION OFFSET to set the RESET interrupt vector jump location 
+		- .dw START (reset vector in interrupt table) 
+	- the WDC_CSTARTUP file will: 
+		- disable interrupts
+		- switch to native 816 mode
+		- clear decimal mode 
+		- set 16 bit A, X and Y registers 
+		- set stack pointer 
+		- set up DataBank (DB) register 
+		- copy initialized data from ROM to RAM 
+		- set remainder of data area to zero 
+		- transfer control to the MAIN program in your C program 
+	- Make sure the assembler command contains correct CPU and memory model by adjusting the command: 
+		WDC816AS -g -l -DUSING_816 -DSMALL WDC_CStartup_816.ASM
+	- The resulting WDC_Cstartup816.obj file can now be linked with the assembled C program into the final HEX/BIN file 
+
+	- Use the EXMPL1.C file as a starting template for your file
+	- The original file is generic and can be used for all processes and WDC SBC systems thru the use of "#IF - #ELIF - #ELSE" statements 
+	- These were removed to shorten the file. 
+	- Register addresses for the VIA were also adjusted and those for the ACIA were added. 
+
+WDC Tools gotcha's: 
+- In .asm, EQU should not have spaces before/after a '+", so don't use "STAT EQU BASE + 1" but "STAT EQU BASE+1" 
+- In .asm, do not use the REPT macro to include repeating opcodes 
+- In .C, there is no prefix for binary numbers, so only hex, octal and decimal can be used. 
+- WDCDB needs to be run as administrator 
+- 

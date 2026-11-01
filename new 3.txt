@@ -1,0 +1,334 @@
+Car Scanner ELM OBD2
+Version: 1.118.0/401180/GP
+DTC report
+Connection profile: Ford Explorer 3.5 TiVCTDate: 5/24/2025 2:00:56 PM
+VIN: 1FM5K8F82EGA30025
+============================
+OBD-II
+No DTC found.
+============================
+Engine control unit
+No DTC found.
+============================
+DashboardDashboard
+DTCs: 6
+----------------------------
+P0460(11) [0x046011]
+Fuel tank level sensor - circuit malfunction
+Fuel Level Sensor Circuit Malfunction
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+P0460(13) [0x046013]
+Fuel tank level sensor - circuit malfunction
+Fuel Level Sensor Circuit Malfunction
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+P1243(06) [0x124306]
+Second Fuel Pump Faulty or Ground Fault
+Second Fuel Pump Faulty or Ground Fault
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+P1346(11) [0x134611]
+Fuel Level Sensor B Circuit Malfunction
+Fuel Level Sensor B Circuit Malfunction
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+P1346(13) [0x134613]
+Fuel Level Sensor B Circuit Malfunction
+Fuel Level Sensor B Circuit Malfunction
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U2100(00) [0xE10000]
+CAN-BUS Communication Malfunction
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+============================
+ACMACM
+DTCs: 26
+----------------------------
+B1A01(13) [0x9A0113]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A01(11) [0x9A0111]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A01(12) [0x9A0112]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A01(01) [0x9A0101]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A02(13) [0x9A0213]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A02(11) [0x9A0211]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A02(12) [0x9A0212]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A02(01) [0x9A0201]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A03(13) [0x9A0313]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A03(11) [0x9A0311]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A03(12) [0x9A0312]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A03(01) [0x9A0301]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A04(13) [0x9A0413]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A04(11) [0x9A0411]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A04(12) [0x9A0412]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A04(01) [0x9A0401]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A05(02) [0x9A0502]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A56(21) [0x9A5621]
+Status: Test not completed during this operation cycle
+----------------------------
+U0257(00) [0xC25700]
+Lost communication with front controls/display interface module
+Status: Test not completed during this operation cycle
+----------------------------
+U0253(00) [0xC25300]
+Lost communication with accessory protocol interface module
+Status: Test not completed during this operation cycle
+----------------------------
+U0238(00) [0xC23800]
+Lost communication with digital audio broadcast (DAB) control module D
+Status: Test not completed during this operation cycle
+----------------------------
+U0256(00) [0xC25600]
+Lost communication with front controls interface module A
+Status: Test not completed during this operation cycle
+----------------------------
+B1A89(13) [0x9A8913]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A89(11) [0x9A8911]
+Status: Test not completed during this operation cycle
+----------------------------
+B1A06(01) [0x9A0601]
+Status: Test not completed during this operation cycle
+----------------------------
+U0237(00) [0xC23700]
+Lost communication with digital audio broadcast (DAB) control module C
+Status: Test not completed during this operation cycle
+============================
+APIMAPIM
+DTCs: 13
+----------------------------
+C1001(01) [0x500101]
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+B117A(01) [0x917A01]
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+B1215(00) [0x921500]
+Running Board Lamp Circuit Short to Battery Edge Products 1080 S. Depot Dr. Ogden, UT 84404 888-360-3343 www.edgeproducts.com Ford DTC Codes 32
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+B1252(13) [0x925213]
+Air Temperature Internal Sensor Circuit Short To Battery
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+B12B8(11) [0x92B811]
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U0159(00) [0xC15900]
+Data bus, parking aid control module A - no communication
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U0196(00) [0xC19600]
+Data bus, entertainment control module, rear - no communication
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U0198(00) [0xC19800]
+Data bus, telematics control module - no communication
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U024B(00) [0xC24B00]
+Lost communication with seat control module G
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U024C(00) [0xC24C00]
+Lost communication with seat control module H
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U0293(00) [0xC29300]
+Lost communication with hybrid powertrain control module
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U1018(00) [0xD01800]
+SCP (J1850) Invalid or Missing Data for Throttle
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+----------------------------
+U1A00(87) [0xDA0087]
+Status: Test not completed since last DTC clear, Test not completed during this operation cycle
+============================
+BCMBCM
+DTCs: 33
+----------------------------
+U2100(00) [0xE10000]
+CAN-BUS Communication Malfunction
+Status: Test not completed during this operation cycle
+----------------------------
+B1182(55) [0x918255]
+Status: Test not completed during this operation cycle
+----------------------------
+U2200(55) [0xE20055]
+Status: Test not completed during this operation cycle
+----------------------------
+C1A56(51) [0x5A5651]
+Status: Test not completed during this operation cycle
+----------------------------
+C1A58(51) [0x5A5851]
+Status: Test not completed during this operation cycle
+----------------------------
+B1254(51) [0x925451]
+Air Temperature External Sensor Circuit Failure
+Status: Test not completed during this operation cycle
+----------------------------
+B1255(51) [0x925551]
+Air Temperature External Sensor Circuit Open
+Status: Test not completed during this operation cycle
+----------------------------
+B1256(51) [0x925651]
+Air Temperature External Sensor Circuit Short To Battery
+Status: Test not completed during this operation cycle
+----------------------------
+B1257(51) [0x925751]
+Air Temperature External Sensor Circuit Short To Ground
+Status: Test not completed during this operation cycle
+----------------------------
+B1250(00) [0x925000]
+Air Temperature Internal Sensor Circuit Failure
+Status: Test not completed during this operation cycle
+----------------------------
+B1251(00) [0x925100]
+Air Temperature Internal Sensor Circuit Open
+Status: Test not completed during this operation cycle
+----------------------------
+B124D(4A) [0x924D4A]
+Status: Test not completed during this operation cycle
+----------------------------
+U0100(00) [0xC10000]
+Data bus, engine control module (ECM) A - no communication
+Status: Test not completed during this operation cycle
+----------------------------
+U0104(00) [0xC10400]
+Data bus, cruise control module - no communication
+Status: Test not completed during this operation cycle
+----------------------------
+U0121(00) [0xC12100]
+Data bus, anti-lock brake system (ABS) control module - no communication
+Status: Test not completed during this operation cycle
+----------------------------
+U0405(00) [0xC40500]
+Invalid data received - cruise control module
+Status: Test not completed during this operation cycle
+----------------------------
+U0433(00) [0xC43300]
+Invalid data received from cruise control distance range sensor, front
+Status: Test not completed during this operation cycle
+----------------------------
+U2107(53) [0xE10753]
+Status: Test not completed during this operation cycle
+----------------------------
+U2108(53) [0xE10853]
+Status: Test not completed during this operation cycle
+----------------------------
+U3000(49) [0xF00049]
+Control module
+Status: Test not completed during this operation cycle
+----------------------------
+B10AB(00) [0x90AB00]
+Status: Test not completed during this operation cycle
+----------------------------
+B1218(00) [0x921800]
+Horn Relay Coil Circuit Short to Vbatt
+Status: Test not completed during this operation cycle
+----------------------------
+B130D(00) [0x930D00]
+Status: Test not completed during this operation cycle
+----------------------------
+B10F1(14) [0x90F114]
+Status: Test not completed during this operation cycle
+----------------------------
+B121B(01) [0x921B01]
+Status: Test not completed during this operation cycle
+----------------------------
+B131E(12) [0x931E12]
+Status: Test not completed during this operation cycle
+----------------------------
+B10D7(55) [0x90D755]
+Status: Test not completed during this operation cycle
+----------------------------
+B10D8(00) [0x90D800]
+Status: Test not completed during this operation cycle
+----------------------------
+B115E(01) [0x915E01]
+Status: Test not completed during this operation cycle
+----------------------------
+B115E(08) [0x915E08]
+Status: Test not completed during this operation cycle
+----------------------------
+B115E(49) [0x915E49]
+Status: Test not completed during this operation cycle
+----------------------------
+B115E(55) [0x915E55]
+Status: Test not completed during this operation cycle
+----------------------------
+B1331(08) [0x933108]
+Decklid Ajar Rear Door Circuit Failure
+Status: Test not completed during this operation cycle
+============================
+DSPDSP
+DTCs: 8
+----------------------------
+U0155(00) [0xC15500]
+Data bus, instrumentation control module - no communication
+Status: Test not completed during this operation cycle
+----------------------------
+U0184(00) [0xC18400]
+Data bus, radio - no communication
+Status: Test not completed during this operation cycle
+----------------------------
+U0253(00) [0xC25300]
+Lost communication with accessory protocol interface module
+Status: Test not completed during this operation cycle
+----------------------------
+U0256(00) [0xC25600]
+Lost communication with front controls interface module A
+Status: Test not completed during this operation cycle
+----------------------------
+U0257(00) [0xC25700]
+Lost communication with front controls/display interface module
+Status: Test not completed during this operation cycle
+----------------------------
+U201A(51) [0xE01A51]
+Status: Test not completed during this operation cycle
+----------------------------
+U3000(41) [0xF00041]
+Control module
+Status: Test not completed during this operation cycle
+----------------------------
+U3000(42) [0xF00042]
+Control module
+Status: Test not completed during this operation cycle
+============================
+SCCM
+No DTC found. 

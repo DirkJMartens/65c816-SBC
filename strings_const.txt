@@ -1,0 +1,39 @@
+Consts and Strings
+==================
+
+Four options are available for manipulating constant data and strings. 
+
+Constant data is any initialized data declared using the const keyword. 
+Normally both are just considered part of initialized data and are not 
+handled any differently.
+
+1. By using the -MU option, constant data will be placed in what the compiler 
+considers the CONST section. 
+This section defaults to the KDATA section at the assembly level. 
+To change the CONST section, use the section #pragma statement.
+	#pragma section CONST=yournamehere
+
+2. Similarly, using the -MV compiler option will place strings in the compiler 
+STRING section. This section also defaults to KDATA. 
+Even though strings and/or constants are placed in the KDATA section, 
+references to them are made using short absolute or 16-bit addresses. 
+This means that the KDATA section or whatever section has been used must 
+be located in the current data bank. 
+
+For strings or constants that are to be placed in a different bank, the 
+compiler supports two additional options that change all references to 
+constant data or string data to far references. 
+
+The -MK option changes all references to const data to be far references, 
+while the -MT option does the same for strings.
+
+Example
+The following compiler command and linker command will place constants into the KDATA section, make all references to
+ the const data use long absolute addressing and place the KDATA section into Bank 0. Program code is also in Bank 0 and
+initialized and un-initialized data is in Bank 1. This might occur if ROM was located in Bank 0 and scratch RAM was
+located in Bank 1. It would be a waste of RAM to copy constant data from ROM to RAM.
+WDC816CC -mku program.c
+WDCLN -c8000 -d10000, program
+The program CODE section is in ROM starting at $8000 immediately followed by section KDATA followed by section
+DATA. Although the DATA section is in ROM, it is linked as though it will reside in RAM at $1:0000. The program
+startup code will copy it from ROM to RAM. The const data will stay in ROM and will be accessed using far addressing.

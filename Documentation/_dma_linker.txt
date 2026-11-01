@@ -1,0 +1,25 @@
+The assembler has five pre-defined sections whose names and descriptions are:
+
+	PAGE0 		This section is reference only and is used for creating labels 
+				that refer to the direct page. 
+				For the 6502, address $00-$FF. 
+				For the 65816, address $00:0000- $00:FFFF.
+	CODE 		This is the main program section.
+	KDATA 		This is a special data section for constant initialized data 
+				that is never modified, e.g. table of constants, constant strings. 
+	DATA 		This is initialized data that will be modified.
+	UDATA 		This is data that is not initialized. 
+
+- Using ORG directives inside the assembler code, makes the resulting .obj file to be 
+absolute and non-relocatable. 
+
+- By omitting the ORG directives and instead using section name(s), the assembler creates
+.obj files that are all relative to the first address of the section. 
+
+- After that, the linker can be used to locate individual section, so the code is relocatable. 
+
+- The linker output file (.hex or .bin), will have all the sections (predefined or user-defined) 
+put in the ROM location. But, if you include the relevant startup-code to copy from ROM to RAM, 
+you can then jump to the RAM location to execute code from there. This allows e.g. to manually 
+change bytes, and re-run the code without needing to recompile and download the code. 
+

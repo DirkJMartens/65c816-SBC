@@ -1,0 +1,24 @@
+								CPU 		RAM		ROM		Accessories		VDU			OS
+1976	KIM-1 SBC				6502		1KB		2KB		Cass			32x16		TIM
+1976	Apple I					6502/1MHz	4/8KB	256B	Cass			40x24 		WozMon								VDU chip: Signetics 2513)
+		ZX80
+		ZX-Spectrum 
+1977	Tandy TRS80				Z80/1.8MHz	4-48KB			Cass			64x16		TRSDos/LDos/NewDos/L1 Basic
+		Tandy TRS80-III		
+		Tandy TRS80-4		
+1977	Commodore PET (2001)	6502/1MHz	4-96KB			Cass/FDD/HDD	40x25/80x25 Comm Basic 1.0-4.0	
+1977	Apple II				6502/1MHz	4-64KB			Cass/FDD		280x192x6	BASIC/AppleDOS
+1979	Apple II+				6502		16-64K			FDD/mouse/serial			AppleDOS/PASCAL/ProDOS
+1980	VIC-20 					6502/1.1MHz	5-32KB	20KB	Cass/FDD		176x184x16	KERNAL/Basic 2.0					VDU chip: VIC
+1981	BBC Micro				6502/2MHz	16-272K			FDD/HDD			640x256x8	AcornMOS							VDU chip: 6845 or SAA5050
+1982	Commodore 64			6510/1MHz	64KB	20KB	Serial/FDD		320x200x16	KERNAL/Basic 2.0/GEOS				VDU chip: VIC2
+1984	Commodore 16 			7501/8501	16KB	32KB	Joy				320x200		KERNAL/Basic 3.5					VDU chip: TED
+1984	Commodore/Plus 4 		7501/8501	64KB	32KB					320x200x121	BASIC 3.5							VDU chip: TED
+1985	Commodore 128 			8502/Z80	128KB							320x200x16	BASIC 7.0/CPM3.0/GEOS				VDU chip: VIC2
+1985	Amiga1000 
+		Commodore/Plus
+1984	Apple IIe				6502		64K-1MB										ProDOS/Dos3.3
+1984	Apple IIc				65c02		128K-1.25M		Joy/mouse/serial			ProDOS/Dos3.3/Pascal				
+		Apple IIcPlus
+1986	Apple IIgs				65816/3MHz	256K-1M			FDD/serial/		320x200x4	
+		Apple IIge

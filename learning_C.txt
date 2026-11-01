@@ -1,0 +1,337 @@
+/* 
+
+	int a; 			// definition: set aside memory of int size, label it a 
+	extern int a; 	// declaration: does not set aside memory (assumes that is done elsewhere) 
+	int a = 10; 	// initialization: assign/load a value in the memory location 
+
+	& : "address of" operator
+	* : "value at address" operator 
+
+	int a; 
+	=========
+	1) Tells compiler to allocate a memory location, large enough to store an integer 
+	2) The location is given the alias/name "a" 
+	3) "int a" reads as "value stored in a is an int"
+	3) The '&' operator is called the "address of" operator. 
+	4) It can only be applied to objects in memory: variables and array elements. 
+	5) Hence, the memory location of the integer can be found as "&a" 
+	6) Storing the value 7 in that location is done by "a = 7" 
+
+		Alias: 		  a
+				+------------+
+				| Value: 7   |
+				+------------+
+		Addr: 		  &a
+
+	int *ptr;
+	=========
+	A) In a declaration:
+	--------------------
+		1. The '*' modifies the datatype before it to a "pointer-to" datatype. 
+		2. "int *ptr" reads as "ptr stores an address that can hold an int" 
+		3. "int *ptr" declares "ptr" to be a variable of the datatype of "pointer to int". 
+			  So a pointer will store a memory location of an int and has the alias/name "ptr". 
+		4. Since ptr is a memory location itself, it also has a memory location: "&ptr". 
+		5. The pointer ptr MUST be initialized using the "& address-of" PRIOR to use. 
+		6. This can be done using "*ptr = &a;" 
+		7. In above example, "*(&a)" gives "value at address (address of a)" is . 
+	
+	B) In expressions or assignments: 
+	---------------------------------
+		1. '*' is an operator and not a modifier 
+		2. In this case, '*' dereferences the address stored in ptr. 
+		3. Here, '*' is also known as the "value at address" operator. 
+		4. In assignments such as '*ptr = 7', '*' functions as an "indirection operator" which means 
+			"the value at address pointed-to by ptr" or "the value at address stored in ptr". 
+
+		Alias: 		a						ptr						
+				+----------+	  		+-------------+
+				| 7 = *ptr |			| &a = 0x7380 |
+				+----------+			+-------------+
+		Addr: 	 &a = 0x7380			 &ptr = 0x8210
+
+		5. Assume 'a' refers to an 8-bit UART_DATA_REGISTER at memory-mapped I/O location 0x7380.
+			So we have "&a = 0x7380" and store letter 'A' (0x41) in it using "a = 0x41" or "a = 'A'". 
+		
+		6. Alternatively, we declare "int *ptr" and initialize it using "ptr = &a". 
+			This means that ptr now contains 0x7380, and we can store 'A' using "*ptr = 'A'". 
+			So we have: ptr=0x7380 and *ptr='A' and also &a=0x7380 and a='A'. 
+
+		Alias: 		a = *ptr				ptr = &a			ptrptr = &ptr
+				+-----------------+	  	+-------------+			+-----------+ 
+				| 	'A' = 0x41 	  |		| 	0x7380	  |			| 	0x8210 	|
+				+-----------------+		+-------------+			+-----------+
+		Addr: 		&a = 0x7380			 &ptr = 0x8210			&ptrptr = 0x9F01
+
+
+		&arr: returns a pointer to (the first element of) an array of elements. 
+		(&arr + i): returns a pointer to the i-th element of an array.
+		*(&arr + i) – arr: returns the number of elements in the array. 
+
+	Arrays and strings
+	==================
+	1. Any operation that can be achieved by array subscripting can be achieved with pointers. 
+	
+	2. If an array is defined like this 
+			int a[10]; 
+	   and a pointer to an int like this 
+			int *pa; 
+	   then the following assignment can be used to initialize the pointer 
+			pa = &a[0]; 
+
+	3. Once initialized, we can use the following to initialize the 1st array value 
+			*pa = 10; 
+
+	4. Other array elements can be accessed in two (identical) ways: 
+			a[4] = 7; 
+		or 
+			*(pa+4) = 7; 
+	
+	5. An array name a is NOT a variable, while a pointer pa IS. 
+		Hence, we can initialize a pointer with an array name, or increment the pointer to walk 
+		through the array elements. 
+			pa = a; 
+			pa++; 
+		But we cannot initialize an array with a pointer, nor increment the array: 
+			a = pa; 		// ILLEGAL 
+			a++; 			// ILLEGAL 
+
+	6. When an array name is passed to a function, what is passed is the address of 
+		the 1st element. Within the function, the address is a local (private) copy 
+		of the . 
+		
+	7. 
+	
+
+	Strings
+	=======
+	1. Define an array of characters: 
+			char string[] = "This is a string of characters"; 
+
+	2. Arrays are static in nature, i.e. they are allocated memory at the compile time.	
+
+	3. Initializing strings: 
+		char str[] = "GeeksforGeeks";
+		char str[50] = "GeeksforGeeks";
+
+	4. By definition, the name of a string is the location of its first element: 
+			string = &string[0]; 
+		Similarly 
+			string[i] = &string[i]; 
+
+	5. Declare a pointer to a character: 
+			char *pstr; 
+
+	6. As always, a pointer needs to be initialized, which can be done as: 
+			pstr = &string[0]; 
+		or, by using 2. 
+			pstr = string; 
+
+	7. C always converts string[i] to *(string+i) so the two can be interchanged 
+
+	8. This means that 
+			*(pstr+i) = *(string+i) = string[i] 	
+	
+*/
+
+/*
+The SECTION pragma is used to redefine one of the names of the predefined sections used by the compiler. 
+The default section names and their use are:
+	CODE - all program code
+	DATA - all initialized data
+	UDATA - all un-initialized data
+	KDATA - all initialized, non-modifiable data
+By default, the compiler only uses the first three. 
+
+1) Constant initialized data is treated as modifiable initialized data unless the -MU option has been specified. 
+This option places all initialized data that has been qualified as not being modifiable in the CONST section 
+which defaults to KDATA. 
+
+2) Strings are handled separately and by default are placed in the DATA section.
+If the -MV option is specified, then strings are placed in the STRING section which also defaults to the 
+KDATA section.
+
+References to const and string data in KDATA are made using short absolute or 16-bit addresses. 
+The -MK option changes all references to const data to be far references. 
+While the -MT option does the same for strings.
+
+*/
+
+
+/*
+Static variables: 
+-----------------
+- Static variables have the property of preserving their value even after they are out 
+	of their scope: static variable remains in memory while the program is running. 
+- Static variables are allocated memory in the data segment, not the stack segment.
+- Static variables (like global variables) are initialized as 0 if not initialized explicitly.
+- Static variables can only be initialized using constant literals. 
+
+CONST variables: 
+----------------
+- General format: "const data_type var_name = value;" 
+- So constants MUST be initialized at declaration, so "const int counter;" is illegal. 
+*/
+
+/* 
+	int fputs(char *s, FILE *iop) {
+		int c;
+		while (c = *s++)
+			putc(c, iop) ;
+		return ferror(iop) ? EOF : 0;
+	}
+
+	char *fgets(char *s, int n, FILE *iop) {
+		register int c;
+		register char *cs;
+		cs = s;
+		while (--n > 0 && (c = getc(iop) != EOF)
+			if ((*cs++ = c) == '\n')
+				break;
+		*cs = '\0';
+		return (c == EOF && cs -- s) ? NULL : s;
+	}
+
+*/ 
+
+
+
+/* 
+There are many tutorials available online that cover pointers in C programming language. 
+Here are a few recommendations:
+
+1. The C Programming Language by Brian Kernighan and Dennis Ritchie: 
+   -----------------------------------------------------------------
+	This book is often referred to as the definitive guide to C programming. 
+	It covers pointers extensively and provides clear explanations along with examples.
+
+2. C Programming - Pointers and Arrays by Stanford University (YouTube): 
+   ---------------------------------------------------------------------
+	This video lecture from Stanford University's CS Education Library covers pointers 
+	and arrays in C programming. It provides clear explanations and examples to help 
+	you understand how pointers work in C.
+
+3. Pointers in C Programming by GeeksforGeeks: 
+   -------------------------------------------
+	GeeksforGeeks is a popular platform for learning programming concepts. They have 
+	a comprehensive tutorial on pointers in C, which includes explanations, examples, 
+	and practice problems to help reinforce your understanding.
+
+4. C Pointers and Memory Management by Derek Banas (YouTube): 
+   ----------------------------------------------------------
+	Derek Banas' tutorial videos are known for being concise and informative. 
+	This video covers pointers and memory management in C programming, explaining 
+	concepts in a straightforward manner.
+
+5. C Programming: Pointer Tutorials by TutorialsPoint: 
+   ---------------------------------------------------
+	TutorialsPoint offers a series of tutorials on C programming, including a section 
+	dedicated to pointers. The tutorials cover basic pointer concepts, pointer 
+	arithmetic, arrays and pointers, and more.
+
+*/
+
+/* 
+Embedded C Programming resources
+--------------------------------
+Books:
+------
+"Embedded C Programming and the Microchip PIC" by Richard Barnett, Larry O'Cull, and Sarah Cox: 
+	This book provides a practical introduction to embedded C programming using Microchip PIC 
+	microcontrollers.
+
+"Programming Embedded Systems in C and C++" by Michael Barr: 
+	This book covers embedded systems programming concepts using C and C++ languages, focusing 
+	on real-time operating systems, device drivers, and embedded software development practices.
+	
+"Embedded Systems: Introduction to ARM Cortex-M Microcontrollers" by Jonathan Valvano: 
+	This book focuses on ARM Cortex-M microcontrollers and provides practical examples and 
+	exercises to learn embedded C programming.
+
+Online Courses:
+---------------
+edX and Coursera: 
+	Platforms like edX and Coursera offer courses on embedded systems and microcontroller 
+	programming, some of which include modules on embedded C programming.
+Udemy: 
+	Udemy hosts several courses specifically focused on embedded C programming and 
+	microcontroller development, catering to different skill levels.
+
+Websites and Tutorials:
+-----------------------
+Embedded.com: 
+	Embedded.com is a valuable resource for embedded systems engineers and developers. 
+	It hosts articles, tutorials, and forums covering various aspects of embedded systems 
+	development, including embedded C programming.
+Electronics For You: 
+	This website offers tutorials and articles on embedded systems and microcontroller 
+	programming, including tutorials on embedded C programming for beginners and advanced users.
+Tutorialspoint: 
+	Tutorialspoint provides a comprehensive tutorial on embedded C programming, covering topics 
+	such as data types, pointers, functions, and interfacing with hardware.
+
+Microcontroller Documentation:
+------------------------------
+	Many microcontroller manufacturers provide comprehensive documentation and application notes 
+	that cover embedded C programming for their microcontroller families. Examples include 
+	Microchip PIC, Atmel AVR, ARM Cortex-M, and Texas Instruments MSP430.
+
+Practice Projects and Examples:
+-------------------------------
+	Hands-on practice is crucial for mastering embedded C programming. Start with simple projects 
+	like LED blinking, sensor interfacing, and motor control, and gradually move on to more complex 
+	projects involving communication protocols and peripheral interfacing.
+
+*/
+
+/* 
+To practice C programming:
+
+1. Online Coding Platforms:
+---------------------------
+	Websites like LeetCode, HackerRank, CodeSignal, and CodeChef offer a variety of 
+	coding challenges and exercises, including those specific to C programming. 
+	Many of these platforms provide a wide range of difficulty levels and topics, 
+	allowing you to choose exercises that match your skill level and interests.
+
+2. Programming Books and Resources:
+-----------------------------------
+	Books on C programming often include exercises and case studies at the end of each 
+	chapter or in dedicated sections. Some popular C programming books, such as 
+	"The C Programming Language" by Brian Kernighan and Dennis Ritchie, contain exercises 
+	that cover a broad range of topics and concepts.
+
+3. Online Tutorials and Courses:
+--------------------------------
+	Online learning platforms like Coursera, edX, Udemy, and Khan Academy offer C programming 
+	courses that include practical exercises and case studies. These courses often provide 
+	guided instruction, interactive coding exercises, and projects to help you apply what 
+	you've learned.
+
+4. Open-Source Projects:
+------------------------
+	Contributing to open-source projects written in C is an excellent way to gain practical 
+	experience and work on real-world problems. Websites like GitHub provide a vast repository 
+	of open-source projects across various domains, including system software, utilities, 
+	libraries, and applications.
+
+5. University or College Resources:
+-----------------------------------
+	If you're a student or have access to educational resources, your university or college 
+	may offer C programming assignments, projects, and case studies as part of your coursework. 
+	These assignments are often designed to help you apply theoretical concepts to practical 
+	problems.
+
+6. Programming Communities and Forums:
+--------------------------------------
+	Online programming communities and forums, such as Stack Overflow and Reddit's r/C_Programming, 
+	can be valuable sources of information and resources. You can find discussions, code reviews, 
+	and project ideas that can inspire you to practice C programming.
+
+7. Personal Projects:
+---------------------
+	Consider working on personal projects or building small applications in C to apply your 
+	skills and explore different aspects of the language. Building projects allows you to set 
+	your own goals, experiment with new concepts, and gain hands-on experience.
+
+*/

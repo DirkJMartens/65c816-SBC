@@ -1,0 +1,63 @@
+#     -A Specify section address.
+#     -B Place bank info in .bnk file.
+#     -C Specify CODE address.
+#     -D Specify DATA address.
+#     -E Place errors in a .err file.
+#     -F Read arguments from the specified file.
+#     -G Generate source debug information.
+#     -H Specify the hex output format.
+#     -J Sort module info by name.
+#     -K Specify KDATA address.
+#     -L Specify a library name.
+#     -M Specify machine format.
+#     -N Discard .QCK symbols.
+#     -O Specify the name of the output file.
+#     -P Set the fill characters in the hex output file.
+#     -Q Tell the linker to be quiet.
+#     -S Specify the symbol file format to use.
+#     -T Generate a map file.
+#     -U Specify UDATA address.
+#     -V Display additional information.
+#     -W Disable warnings.
+#     -X Use EMM memory for symbol tables.
+#     -Z Set the spread for the section.
+
+# In WDC_Cstartup_816.asm, using "SECTION" allows mapping code the addresses below
+
+#	ROM: 
+#		FFF0 : 6502 emulation mode interrupt vectors (16 bytes) 
+#		FFE0 : 65816 native mode interrupt vectors (16 bytes) 
+#		FF00 : ISRs routines (RESET, IRQ, NMI, ABORT, BRK, etc) 
+#		FE00 : STARTUP section in .asm file 
+#		FA00 : WOZMON (if used) 
+#		F900 : Some strings (name, date, etc) 
+#		F000 : KDATA segment: constant data that never changes (strings/lookup table/...) 
+#		8000 : CODE segment: main program section: main.c, .h and .c includes, ... 
+#	RAM: 
+# 		7F00 : XCS0 
+# 		7F20 : XCS1 
+# 		7F40 : XCS2 
+# 		7F60 : XCS3 
+# 		7F80 : ACIA (used for console terminal) 
+# 		7FA0 : PIA 
+# 		7FC0 : VIA 
+# 		7FF0 : VIA2 
+#		7EE0 : Shadow (currently not used / commented out) 
+#		xxxx - 7DFF : main program stack 
+#		2000 : DATA segment: initialized and changing variables 
+#		1800 - 19FF : Wozmon data section 
+#		1000 : 256 bytes of circular keyboard input buffer 
+
+-AINPUT_BUFFER=1000 
+-D2000 
+-ASHADOW=7EE0 
+-C8000 
+-KF000 
+-ASTRINGS=F900
+#-AWOZMON=FA00 
+-ASTARTUP=FE00 
+-AISRS=FF00
+-AVECTORS=FFE0 
+-G  
+-T 
+-HI
