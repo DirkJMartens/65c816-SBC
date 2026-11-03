@@ -1,4 +1,4 @@
-  Mon Nov  2 2026  0:10                                                                                                    Page 1
+  Mon Nov  2 2026  9:15                                                                                                    Page 1
 
 
                                                ***************************************
@@ -59,7 +59,7 @@
     49             00000027   STH         EQU 	$27		;mem addr high 
     50             00000028   L           EQU		$28		;ASCII to HEX value low 
     51             00000029   H           EQU 	$29		;ASCII to HEX value high 
-  Mon Nov  2 2026  0:10                                                                                                    Page 2
+  Mon Nov  2 2026  9:15                                                                                                    Page 2
 
 
     52             0000002E   COUNTER     EQU 	$2E		;keeps track of # ASCII chars processed  
@@ -120,7 +120,7 @@
    106                        
    107                        E_RESET:
    108                        ; *******S		; execution jumps here when a hardware reset is performed 
-  Mon Nov  2 2026  0:10                                                                                                    Page 3
+  Mon Nov  2 2026  9:15                                                                                                    Page 3
 
 
    109                        ; mapped to $FE00 using "ASTARTUP=FE00" in hex_file.opt file 
@@ -181,7 +181,7 @@
                      to SKIP
    164 00:0017: 3A                   DEC   A            					; 3A: less one for MVN instruction
    165 00:0018: A2 xx xx             LDX   #<_ROM_BEG_DATA 				; A2 00 20: low 16 bits of source (ROM) addr
-  Mon Nov  2 2026  0:10                                                                                                    Page 4
+  Mon Nov  2 2026  9:15                                                                                                    Page 4
 
 
                      into X
@@ -242,7 +242,7 @@
    212                        ;interrupt processing routines
    213                        ; mapped at $FF00 using "ISRS=FF00" in .bat file 
    214                        ; *******S
-  Mon Nov  2 2026  0:10                                                                                                    Page 5
+  Mon Nov  2 2026  9:15                                                                                                    Page 5
 
 
    215                        ; Co-processor (not used) 
@@ -303,7 +303,7 @@
        00:003D: 0A 00 
    258 00:003F: 0D 0A 49 6E  CRCOK	DB 'CR', 'LF', "Intel HEX file loaded successfully.", 'CR', 'LF', 'NL' 
        00:0043: 74 65 6C 20 
-  Mon Nov  2 2026  0:10                                                                                                    Page 6
+  Mon Nov  2 2026  9:15                                                                                                    Page 6
 
 
        00:0047: 48 45 58 20 
@@ -338,8 +338,8 @@
        00:00B2: 4E 6F 76 20 
        00:00B6: 20 32 20 32 
        00:00BA: 30 32 36 20 
-       00:00BE: 20 30 3A 31 
-       00:00C2: 30 
+       00:00BE: 20 39 3A 31 
+       00:00C2: 35 
    265                        ; *******E
    266                        
    267                        ;shadow vector table 
@@ -364,7 +364,7 @@
    286                        	; dw	Undefined_IRQ	; $7FF8 - Abort(02Emulation)
    287                        	; dw	E_NMI			; $7FFA - NMI (ALL)
    288                        	; dw	E_RESET			; $7FFC - Reset (ALL)
-  Mon Nov  2 2026  0:10                                                                                                    Page 7
+  Mon Nov  2 2026  9:15                                                                                                    Page 7
 
 
    289                        	; dw	__IRQHandler	; $7FFE - IRQBRK (ALL)
@@ -425,7 +425,7 @@
    344                        ; time a new interrupt is generated and wrapping around after 256 chars received. 
    345                        ; The C main function reads the characters from the buffer and processes them. 
    346                        ; !!! If not processed on time, the WR_PTR could wrap around and overwrite unprocessed chars.
-  Mon Nov  2 2026  0:10                                                                                                    Page 8
+  Mon Nov  2 2026  9:15                                                                                                    Page 8
 
 
    347                        ; Modifies: CPU flags, A, X, Y 
@@ -486,7 +486,7 @@
    399                        			; BEQ ?WAIT		;loop until ACIA TX is ready 
    400                        			; INX 			;incr index ptr
    401                        			; BRA ?NEXT		;loop to get next char 
-  Mon Nov  2 2026  0:10                                                                                                    Page 9
+  Mon Nov  2 2026  9:15                                                                                                    Page 9
 
 
    402                        ; ?DONE:      RTS 
@@ -547,7 +547,7 @@
    457                        ; ?SENT
    458                        		; LDA ACIA_STAT		;get ACIA status 
    459                        		; CMP #$10			;test for TX buffer empty
-  Mon Nov  2 2026  0:10                                                                                                    Page 10
+  Mon Nov  2 2026  9:15                                                                                                    Page 10
 
 
    460                        		; BEQ	?SENT			;loop ifnot yet sent 
@@ -608,7 +608,7 @@
    514                        		; BCC DONEFIRST		;no, so char was 0..9 
    515                        		; ADC #$08			;yes, so char was A..H (0x7A..7F)
    516                        ; DONEFIRST					
-  Mon Nov  2 2026  0:10                                                                                                    Page 11
+  Mon Nov  2 2026  9:15                                                                                                    Page 11
 
 
    517                        		; ASL					;move from lower to upper nibble (0..9/A..F)

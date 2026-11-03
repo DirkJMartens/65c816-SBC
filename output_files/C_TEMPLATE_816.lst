@@ -1,4 +1,4 @@
-  Mon Nov  2 2026  0:10                                                                                                    Page 1
+  Mon Nov  2 2026  9:15                                                                                                    Page 1
 
 
                                                ***************************************
@@ -59,7 +59,7 @@
        00:0042: 5F 5F 5F 5F 
        00:0046: 7C 2F 
     37 00:0048: 20 5F 20 5C  	db	$20,$5F,$20,$5C,$2F,$5F,$20,$7C,$20,$2F
-  Mon Nov  2 2026  0:10                                                                                                    Page 2
+  Mon Nov  2 2026  9:15                                                                                                    Page 2
 
 
        00:004C: 2F 5F 20 7C 
@@ -120,7 +120,7 @@
        00:0104: 28 63 
     56 00:0106: 29 20 44 4D  	db	$29,$20,$44,$4D,$41,$20,$32,$30,$32,$34
        00:010A: 41 20 32 30 
-  Mon Nov  2 2026  0:10                                                                                                    Page 3
+  Mon Nov  2 2026  9:15                                                                                                    Page 3
 
 
        00:010E: 32 34 
@@ -181,7 +181,7 @@
     96                        	xdef	__payload
     97                        __payload:
     98 00:000D: 00           	db	$0
-  Mon Nov  2 2026  0:10                                                                                                    Page 4
+  Mon Nov  2 2026  9:15                                                                                                    Page 4
 
 
     99 00:000E:              	ds	48
@@ -242,7 +242,7 @@
        00:0204: 65 2F 
    125 00:0206: 74 69 6D 65  	db	$74,$69,$6D,$65,$D,$A,$57,$20,$2D,$20
        00:020A: 0D 0A 57 20 
-  Mon Nov  2 2026  0:10                                                                                                    Page 5
+  Mon Nov  2 2026  9:15                                                                                                    Page 5
 
 
        00:020E: 2D 20 
@@ -303,7 +303,7 @@
    157 00:028D: 20 78 78 78  	db	$20,$78,$78,$78,$78,$20,$79,$79,$22,$20
        00:0291: 78 20 79 79 
        00:0295: 22 20 
-  Mon Nov  2 2026  0:10                                                                                                    Page 6
+  Mon Nov  2 2026  9:15                                                                                                    Page 6
 
 
    158 00:0297: 77 69 74 68  	db	$77,$69,$74,$68,$20,$78,$78,$78,$78,$20
@@ -364,7 +364,7 @@
    189 00:0318:              	ends
    190                        	kdata
    191                        	xdef	__DISPMEMSYNTAX_MSG
-  Mon Nov  2 2026  0:10                                                                                                    Page 7
+  Mon Nov  2 2026  9:15                                                                                                    Page 7
 
 
    192                        __DISPMEMSYNTAX_MSG:
@@ -425,7 +425,7 @@
    225                        	xdef	__FILLMEM_MSG
    226                        __FILLMEM_MSG:
    227 00:0390: 46 69 6C 6C  	db	$46,$69,$6C,$6C,$69,$6E,$67,$20,$4D,$65
-  Mon Nov  2 2026  0:10                                                                                                    Page 8
+  Mon Nov  2 2026  9:15                                                                                                    Page 8
 
 
        00:0394: 69 6E 67 20 
@@ -486,7 +486,7 @@
    264 00:03F4: 30 78 00     	db	$30,$78,$0
    265 00:03F7:              	ends
    266                        	kdata
-  Mon Nov  2 2026  0:10                                                                                                    Page 9
+  Mon Nov  2 2026  9:15                                                                                                    Page 9
 
 
    267                        	xdef	__MEMHDR
@@ -547,7 +547,7 @@
    293                        __MSBASIC_MSG:
    294 00:0497: 4D 53 20 42  	db	$4D,$53,$20,$42,$41,$53,$49,$43,$20,$2D
        00:049B: 41 53 49 43 
-  Mon Nov  2 2026  0:10                                                                                                    Page 10
+  Mon Nov  2 2026  9:15                                                                                                    Page 10
 
 
        00:049F: 20 2D 
@@ -608,7 +608,7 @@
    321                        	xdef	__SELFTEST_MSG
    322                        __SELFTEST_MSG:
    323 00:0551: 53 65 6C 66  	db	$53,$65,$6C,$66,$2D,$74,$65,$73,$74,$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 11
+  Mon Nov  2 2026  9:15                                                                                                    Page 11
 
 
        00:0555: 2D 74 65 73 
@@ -669,7 +669,7 @@
    357 00:05C4:              	ends
    358                        	kdata
    359                        	xdef	__TRANSMEM_MSG
-  Mon Nov  2 2026  0:10                                                                                                    Page 12
+  Mon Nov  2 2026  9:15                                                                                                    Page 12
 
 
    360                        __TRANSMEM_MSG:
@@ -730,7 +730,7 @@
        00:063F: 63 68 
    391 00:0641: 61 72 73 2C  	db	$61,$72,$73,$2C,$20,$30,$2E,$2E,$39,$20
        00:0645: 20 30 2E 2E 
-  Mon Nov  2 2026  0:10                                                                                                    Page 13
+  Mon Nov  2 2026  9:15                                                                                                    Page 13
 
 
        00:0649: 39 20 
@@ -791,7 +791,7 @@
        00:06C9: 61 6E 64 20 
        00:06CD: 73 79 
    424 00:06CF: 6E 74 61 78  	db	$6E,$74,$61,$78,$20,$65,$72,$72,$6F,$72
-  Mon Nov  2 2026  0:10                                                                                                    Page 14
+  Mon Nov  2 2026  9:15                                                                                                    Page 14
 
 
        00:06D3: 20 65 72 72 
@@ -852,7 +852,7 @@
    474 00:0015: 8D E0 7F     	sta	|32736	; volatile
    475 00:0018: C2 20        	rep	#$20
    476                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 15
+  Mon Nov  2 2026  9:15                                                                                                    Page 15
 
 
    477                        	.line	16
@@ -913,7 +913,7 @@
    532 00:005D: E2 20        	sep	#$20
    533                        	longa	off
    534 00:005F: A9 FF        	lda	#$ff
-  Mon Nov  2 2026  0:10                                                                                                    Page 16
+  Mon Nov  2 2026  9:15                                                                                                    Page 16
 
 
    535 00:0061: 8D E2 7F     	sta	|32738	; volatile
@@ -974,7 +974,7 @@
    590                        	longa	off
    591 00:008D: 18           	clc
    592 00:008E: A9 10        	lda	#$10
-  Mon Nov  2 2026  0:10                                                                                                    Page 17
+  Mon Nov  2 2026  9:15                                                                                                    Page 17
 
 
    593 00:0090: 65 01        	adc	<R0
@@ -1035,7 +1035,7 @@
    648 00:00D5: A5 05        	lda	<R1
    649 00:00D7: 4A           	lsr	A
    650 00:00D8: 4A           	lsr	A
-  Mon Nov  2 2026  0:10                                                                                                    Page 18
+  Mon Nov  2 2026  9:15                                                                                                    Page 18
 
 
    651 00:00D9: 4A           	lsr	A
@@ -1096,7 +1096,7 @@
    706 00:011D: A5 05        	lda	<R1
    707 00:011F: 4A           	lsr	A
    708 00:0120: 4A           	lsr	A
-  Mon Nov  2 2026  0:10                                                                                                    Page 19
+  Mon Nov  2 2026  9:15                                                                                                    Page 19
 
 
    709 00:0121: 4A           	lsr	A
@@ -1157,7 +1157,7 @@
    764 00:0151: C2 20        	rep	#$20
    765                        	longa	on
    766                        	.line	53
-  Mon Nov  2 2026  0:10                                                                                                    Page 20
+  Mon Nov  2 2026  9:15                                                                                                    Page 20
 
 
    767 00:0153: E2 20        	sep	#$20
@@ -1218,7 +1218,7 @@
    822 00:0196: 4A           	lsr	A
    823 00:0197: 4A           	lsr	A
    824 00:0198: 4A           	lsr	A
-  Mon Nov  2 2026  0:10                                                                                                    Page 21
+  Mon Nov  2 2026  9:15                                                                                                    Page 21
 
 
    825 00:0199: 8D E0 7F     	sta	|32736	; volatile
@@ -1279,7 +1279,7 @@
    880                        	.line	60
    881                        L14:
    882 00:01DE: A5 09        	lda	<L11+1
-  Mon Nov  2 2026  0:10                                                                                                    Page 22
+  Mon Nov  2 2026  9:15                                                                                                    Page 22
 
 
    883 00:01E0: 85 0B        	sta	<L11+1+2
@@ -1340,7 +1340,7 @@
    938 00:0211: 8D E0 7F     	sta	|32736	; volatile
    939 00:0214: C2 20        	rep	#$20
    940                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 23
+  Mon Nov  2 2026  9:15                                                                                                    Page 23
 
 
    941                        	.line	80
@@ -1401,7 +1401,7 @@
    996                        L22:
    997                        	.line	95
    998 00:024E: A5 09        	lda	<L19+col_0
-  Mon Nov  2 2026  0:10                                                                                                    Page 24
+  Mon Nov  2 2026  9:15                                                                                                    Page 24
 
 
    999 00:0250: 29 FF 00     	and	#$ff
@@ -1462,7 +1462,7 @@
   1054                        	longa	off
   1055 00:0289: 64 05        	stz	<L25+cnt_1
   1056 00:028B: C2 20        	rep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 25
+  Mon Nov  2 2026  9:15                                                                                                    Page 25
 
 
   1057                        	longa	on
@@ -1523,7 +1523,7 @@
   1112 00:02E9: D0 03        	bne	L28
   1113 00:02EB: 82 21 00     	brl	L10009
   1114                        L28:
-  Mon Nov  2 2026  0:10                                                                                                    Page 26
+  Mon Nov  2 2026  9:15                                                                                                    Page 26
 
 
   1115                        	.line	110
@@ -1584,7 +1584,7 @@
   1169                        	.line	98
   1170                        	.file	"C:\Users\DM\Documents\Datasheets\Microcontroller\65816\VSCode\c_src\ACIA.c",2
   1171                        	.file	"C:\WDC\Tools\INCLUDE\string.h",0
-  Mon Nov  2 2026  0:10                                                                                                    Page 27
+  Mon Nov  2 2026  9:15                                                                                                    Page 27
 
 
   1172                        	.line	126
@@ -1645,7 +1645,7 @@
   1227                        	.line	17
   1228                        	code
   1229                        	xdef	__ACIA_echo
-  Mon Nov  2 2026  0:10                                                                                                    Page 28
+  Mon Nov  2 2026  9:15                                                                                                    Page 28
 
 
   1230                        	func
@@ -1706,7 +1706,7 @@
   1285                        L10012:
   1286                        	.line	29
   1287                        	.line	30
-  Mon Nov  2 2026  0:10                                                                                                    Page 29
+  Mon Nov  2 2026  9:15                                                                                                    Page 29
 
 
   1288 00:037E: E2 20        	sep	#$20
@@ -1767,7 +1767,7 @@
   1343 00:03B2: 20 xx xx     	jsr	__ACIA_echo
   1344                        	.line	42
   1345 00:03B5: F4 1B 00     	pea	#<$1b
-  Mon Nov  2 2026  0:10                                                                                                    Page 30
+  Mon Nov  2 2026  9:15                                                                                                    Page 30
 
 
   1346 00:03B8: 20 xx xx     	jsr	__ACIA_echo
@@ -1828,7 +1828,7 @@
   1401                        	.block	51
   1402                        	.line	52
   1403 00:03F6: F4 0D 00     	pea	#<$d
-  Mon Nov  2 2026  0:10                                                                                                    Page 31
+  Mon Nov  2 2026  9:15                                                                                                    Page 31
 
 
   1404 00:03F9: 20 xx xx     	jsr	__ACIA_echo
@@ -1889,7 +1889,7 @@
   1459 00:0430: E2 20        	sep	#$20
   1460                        	longa	off
   1461 00:0432: EE xx xx     	inc	|__RD_IDX	; volatile
-  Mon Nov  2 2026  0:10                                                                                                    Page 32
+  Mon Nov  2 2026  9:15                                                                                                    Page 32
 
 
   1462 00:0435: C2 20        	rep	#$20
@@ -1950,7 +1950,7 @@
   1517 00:0468: 20 xx xx     	jsr	__ACIA_echo
   1518                        	.line	74
   1519 00:046B: A9 01 00     	lda	#$1
-  Mon Nov  2 2026  0:10                                                                                                    Page 33
+  Mon Nov  2 2026  9:15                                                                                                    Page 33
 
 
   1520                        L57:
@@ -2011,7 +2011,7 @@
   1575 00:0499: E2 20        	sep	#$20
   1576                        	longa	off
   1577 00:049B: AD 81 7F     	lda	|32641	; volatile
-  Mon Nov  2 2026  0:10                                                                                                    Page 34
+  Mon Nov  2 2026  9:15                                                                                                    Page 34
 
 
   1578 00:049E: 29 10        	and	#<$10
@@ -2072,7 +2072,7 @@
   1633 00:04CD: B2 07        	lda	(<L64+s_0)
   1634 00:04CF: 29 FF 00     	and	#$ff
   1635 00:04D2: D0 03        	bne	L67
-  Mon Nov  2 2026  0:10                                                                                                    Page 35
+  Mon Nov  2 2026  9:15                                                                                                    Page 35
 
 
   1636 00:04D4: 82 0F 00     	brl	L10022
@@ -2133,7 +2133,7 @@
   1690                        	longa	on
   1691                        	longi	on
   1692 00:04F2: 3B           	tsc
-  Mon Nov  2 2026  0:10                                                                                                    Page 36
+  Mon Nov  2 2026  9:15                                                                                                    Page 36
 
 
   1693 00:04F3: 38           	sec
@@ -2194,7 +2194,7 @@
   1748 00:052E: 48           	pha
   1749 00:052F: D4 0C        	pei	<L69+s_0
   1750 00:0531: 20 xx xx     	jsr	__strtok
-  Mon Nov  2 2026  0:10                                                                                                    Page 37
+  Mon Nov  2 2026  9:15                                                                                                    Page 37
 
 
   1751 00:0534: 85 05        	sta	<L70+token_1
@@ -2255,7 +2255,7 @@
   1806                        L75:
   1807                        	.line	37
   1808                        	.line	38
-  Mon Nov  2 2026  0:10                                                                                                    Page 38
+  Mon Nov  2 2026  9:15                                                                                                    Page 38
 
 
   1809 00:0582: D4 05        	pei	<L70+token_1
@@ -2316,7 +2316,7 @@
   1864                        L10035:
   1865                        	.line	60
   1866 00:05C7: 20 xx xx     	jsr	__compare_memory
-  Mon Nov  2 2026  0:10                                                                                                    Page 39
+  Mon Nov  2 2026  9:15                                                                                                    Page 39
 
 
   1867                        	.line	61
@@ -2377,7 +2377,7 @@
   1922 00:05F1: 20 xx xx     	jsr	__display_memory
   1923                        	.line	89
   1924 00:05F4: 82 DF 00     	brl	L10029
-  Mon Nov  2 2026  0:10                                                                                                    Page 40
+  Mon Nov  2 2026  9:15                                                                                                    Page 40
 
 
   1925                        	.line	90
@@ -2438,7 +2438,7 @@
   1980                        	.line	117
   1981 00:0620: 82 B3 00     	brl	L10029
   1982                        	.line	118
-  Mon Nov  2 2026  0:10                                                                                                    Page 41
+  Mon Nov  2 2026  9:15                                                                                                    Page 41
 
 
   1983                        L10064:
@@ -2499,7 +2499,7 @@
   2038 00:0672: xx xx        	dw	L10049-1
   2039 00:0674: xx xx        	dw	L10051-1
   2040 00:0676: xx xx        	dw	L10068-1
-  Mon Nov  2 2026  0:10                                                                                                    Page 42
+  Mon Nov  2 2026  9:15                                                                                                    Page 42
 
 
   2041 00:0678: xx xx        	dw	L10068-1
@@ -2560,7 +2560,7 @@
   2096 00:06DD: 69 0B 00     	adc	#L69+2
   2097 00:06E0: 1B           	tcs
   2098 00:06E1: 60           	rts
-  Mon Nov  2 2026  0:10                                                                                                    Page 43
+  Mon Nov  2 2026  9:15                                                                                                    Page 43
 
 
   2099                        	.endblock	133
@@ -2621,7 +2621,7 @@
   2154                        L85:
   2155 00:06FA: 2B           	pld
   2156 00:06FB: 3B           	tsc
-  Mon Nov  2 2026  0:10                                                                                                    Page 44
+  Mon Nov  2 2026  9:15                                                                                                    Page 44
 
 
   2157 00:06FC: 18           	clc
@@ -2682,7 +2682,7 @@
   2212 00:0719: 38           	sec
   2213 00:071A: E9 00 00     	sbc	#L90
   2214 00:071D: 1B           	tcs
-  Mon Nov  2 2026  0:10                                                                                                    Page 45
+  Mon Nov  2 2026  9:15                                                                                                    Page 45
 
 
   2215 00:071E: 0B           	phd
@@ -2743,7 +2743,7 @@
   2270 00:0053:              	ds	79
   2271 00:00A2:              	ends
   2272             00000000   cnt_1	set	0
-  Mon Nov  2 2026  0:10                                                                                                    Page 46
+  Mon Nov  2 2026  9:15                                                                                                    Page 46
 
 
   2273             00000002   start_1	set	2
@@ -2804,7 +2804,7 @@
   2328 00:077E: 7B           	tdc
   2329 00:077F: 69 1D 00     	adc	#<L95+msg_1
   2330 00:0782: 85 01        	sta	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 47
+  Mon Nov  2 2026  9:15                                                                                                    Page 47
 
 
   2331 00:0784: D4 01        	pei	<R0
@@ -2865,7 +2865,7 @@
   2386 00:07DE: A5 05        	lda	<L95+cnt_1
   2387 00:07E0: 85 1B        	sta	<L95+Loc_1
   2388                        	.line	181
-  Mon Nov  2 2026  0:10                                                                                                    Page 48
+  Mon Nov  2 2026  9:15                                                                                                    Page 48
 
 
   2389 00:07E2: E2 20        	sep	#$20
@@ -2926,7 +2926,7 @@
   2444 00:083E: 20 xx xx     	jsr	__putchar
   2445                        L10072:
   2446                        	.line	191
-  Mon Nov  2 2026  0:10                                                                                                    Page 49
+  Mon Nov  2 2026  9:15                                                                                                    Page 49
 
 
   2447 00:0841: F4 xx xx     	pea	#<__operand3
@@ -2987,7 +2987,7 @@
   2502                        	.endfunc	200,5,108
   2503                        	.line	200
   2504                        	.line	202
-  Mon Nov  2 2026  0:10                                                                                                    Page 50
+  Mon Nov  2 2026  9:15                                                                                                    Page 50
 
 
   2505                        	.line	202
@@ -3048,7 +3048,7 @@
   2560 00:08B5: 1B           	tcs
   2561 00:08B6: 60           	rts
   2562                        	.endblock	211
-  Mon Nov  2 2026  0:10                                                                                                    Page 51
+  Mon Nov  2 2026  9:15                                                                                                    Page 51
 
 
   2563             00000000   L108	equ	0
@@ -3109,7 +3109,7 @@
   2618                        	.block	218
   2619             00000000   IntHexStr_1	set	0
   2620             00000002   cnt_1	set	2
-  Mon Nov  2 2026  0:10                                                                                                    Page 52
+  Mon Nov  2 2026  9:15                                                                                                    Page 52
 
 
   2621             00000003   loc_1	set	3
@@ -3170,7 +3170,7 @@
   2664                        	.line	324
   2665                        	code
   2666                        	xdef	__display_memory
-  Mon Nov  2 2026  0:10                                                                                                    Page 53
+  Mon Nov  2 2026  9:15                                                                                                    Page 53
 
 
   2667                        	func
@@ -3231,7 +3231,7 @@
   2722                        	.line	340
   2723 00:092C: F4 xx xx     	pea	#<__DISPMEMSYNTAX_MSG
   2724 00:092F: 20 xx xx     	jsr	__puts
-  Mon Nov  2 2026  0:10                                                                                                    Page 54
+  Mon Nov  2 2026  9:15                                                                                                    Page 54
 
 
   2725                        	.line	341
@@ -3292,7 +3292,7 @@
   2780 00:097F: 82 77 01     	brl	L10078
   2781                        L10077:
   2782                        	.line	355
-  Mon Nov  2 2026  0:10                                                                                                    Page 55
+  Mon Nov  2 2026  9:15                                                                                                    Page 55
 
 
   2783                        	.line	356
@@ -3353,7 +3353,7 @@
   2838 00:09CC: AD xx xx     	lda	|__operand1+1
   2839 00:09CF: 29 FF 00     	and	#$ff
   2840 00:09D2: 48           	pha
-  Mon Nov  2 2026  0:10                                                                                                    Page 56
+  Mon Nov  2 2026  9:15                                                                                                    Page 56
 
 
   2841 00:09D3: 20 xx xx     	jsr	__toupper
@@ -3414,7 +3414,7 @@
   2896                        	longa	off
   2897 00:0A2C: A9 46        	lda	#$46
   2898 00:0A2E: 8D xx xx     	sta	|__operand2+3
-  Mon Nov  2 2026  0:10                                                                                                    Page 57
+  Mon Nov  2 2026  9:15                                                                                                    Page 57
 
 
   2899 00:0A31: C2 20        	rep	#$20
@@ -3475,7 +3475,7 @@
   2954 00:0A8C: 82 0C 00     	brl	L10083
   2955                        L10082:
   2956                        	.line	391
-  Mon Nov  2 2026  0:10                                                                                                    Page 58
+  Mon Nov  2 2026  9:15                                                                                                    Page 58
 
 
   2957 00:0A8F: F4 xx xx     	pea	#<__operand1
@@ -3536,7 +3536,7 @@
   3012                        	.line	402
   3013                        L10087:
   3014                        	.line	403
-  Mon Nov  2 2026  0:10                                                                                                    Page 59
+  Mon Nov  2 2026  9:15                                                                                                    Page 59
 
 
   3015 00:0AE5: A5 0D        	lda	<L122+cnt_1
@@ -3597,7 +3597,7 @@
   3070                        	func
   3071                        	.function	412
   3072                        __numeric_conversion:
-  Mon Nov  2 2026  0:10                                                                                                    Page 60
+  Mon Nov  2 2026  9:15                                                                                                    Page 60
 
 
   3073                        	longa	on
@@ -3658,7 +3658,7 @@
   3128                        	.function	428
   3129                        __display_register:
   3130                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 61
+  Mon Nov  2 2026  9:15                                                                                                    Page 61
 
 
   3131                        	longi	on
@@ -3719,7 +3719,7 @@
   3186 00:0BA9: F4 20 00     	pea	#<$20
   3187 00:0BAC: 20 xx xx     	jsr	__putchar
   3188                        	.line	489
-  Mon Nov  2 2026  0:10                                                                                                    Page 62
+  Mon Nov  2 2026  9:15                                                                                                    Page 62
 
 
   3189 00:0BAF: AD 06 12     	lda	|4614
@@ -3780,7 +3780,7 @@
   3244                        __self_test:
   3245                        	longa	on
   3246                        	longi	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 63
+  Mon Nov  2 2026  9:15                                                                                                    Page 63
 
 
   3247 00:0BF8: 3B           	tsc
@@ -3841,7 +3841,7 @@
   3302                        	ends
   3303                        	efunc
   3304                        	.endfunc	543,1,0
-  Mon Nov  2 2026  0:10                                                                                                    Page 64
+  Mon Nov  2 2026  9:15                                                                                                    Page 64
 
 
   3305                        	.line	543
@@ -3902,7 +3902,7 @@
   3360                        	asmend
   3361                        	.line	552
   3362                        	.line	553
-  Mon Nov  2 2026  0:10                                                                                                    Page 65
+  Mon Nov  2 2026  9:15                                                                                                    Page 65
 
 
   3363                        L160:
@@ -3963,7 +3963,7 @@
   3418                        	longa	on
   3419                        	longi	on
   3420 00:0C63: 3B           	tsc
-  Mon Nov  2 2026  0:10                                                                                                    Page 66
+  Mon Nov  2 2026  9:15                                                                                                    Page 66
 
 
   3421 00:0C64: 38           	sec
@@ -4024,7 +4024,7 @@
   3476                        	.line	623
   3477                        	.line	625
   3478                        	.line	625
-  Mon Nov  2 2026  0:10                                                                                                    Page 67
+  Mon Nov  2 2026  9:15                                                                                                    Page 67
 
 
   3479                        	code
@@ -4085,7 +4085,7 @@
   3534 00:0CC5: 82 09 00     	brl	L10090
   3535                        L176:
   3536                        	.line	633
-  Mon Nov  2 2026  0:10                                                                                                    Page 68
+  Mon Nov  2 2026  9:15                                                                                                    Page 68
 
 
   3537 00:0CC8: F4 xx xx     	pea	#<__SYNTAX_ERR
@@ -4146,7 +4146,7 @@
   3592 00:0CFB: C5 01        	cmp	<R0
   3593 00:0CFD: 90 03        	bcc	L181
   3594 00:0CFF: 82 06 00     	brl	L10092
-  Mon Nov  2 2026  0:10                                                                                                    Page 69
+  Mon Nov  2 2026  9:15                                                                                                    Page 69
 
 
   3595                        L181:
@@ -4207,7 +4207,7 @@
   3650 00:0D4D: 20 xx xx     	jsr	__strlen
   3651 00:0D50: 85 01        	sta	<R0
   3652 00:0D52: A5 01        	lda	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 70
+  Mon Nov  2 2026  9:15                                                                                                    Page 70
 
 
   3653 00:0D54: C9 02 00     	cmp	#<$2
@@ -4268,7 +4268,7 @@
   3708 00:0DA3: 91 08        	sta	(<L178+addr_0),Y
   3709 00:0DA5: C2 20        	rep	#$20
   3710                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 71
+  Mon Nov  2 2026  9:15                                                                                                    Page 71
 
 
   3711                        	.line	663
@@ -4329,7 +4329,7 @@
   3766 00:0DF8: 29 FF 00     	and	#$ff
   3767 00:0DFB: D0 03        	bne	L188
   3768 00:0DFD: 82 11 00     	brl	L185
-  Mon Nov  2 2026  0:10                                                                                                    Page 72
+  Mon Nov  2 2026  9:15                                                                                                    Page 72
 
 
   3769                        L188:
@@ -4390,7 +4390,7 @@
   3824 00:0E33: 38           	sec
   3825 00:0E34: E9 05 00     	sbc	#L191
   3826 00:0E37: 1B           	tcs
-  Mon Nov  2 2026  0:10                                                                                                    Page 73
+  Mon Nov  2 2026  9:15                                                                                                    Page 73
 
 
   3827 00:0E38: 0B           	phd
@@ -4451,7 +4451,7 @@
   3882 00:0E7B: E2 20        	sep	#$20
   3883                        	longa	off
   3884 00:0E7D: A9 00        	lda	#$0
-  Mon Nov  2 2026  0:10                                                                                                    Page 74
+  Mon Nov  2 2026  9:15                                                                                                    Page 74
 
 
   3885 00:0E7F: A0 02 00     	ldy	#$2
@@ -4512,7 +4512,7 @@
   3940                        	.line	703
   3941                        	.line	705
   3942                        	.line	705
-  Mon Nov  2 2026  0:10                                                                                                    Page 75
+  Mon Nov  2 2026  9:15                                                                                                    Page 75
 
 
   3943                        	code
@@ -4573,7 +4573,7 @@
   3998 00:0EE6: 2B           	pld
   3999 00:0EE7: 3B           	tsc
   4000 00:0EE8: 18           	clc
-  Mon Nov  2 2026  0:10                                                                                                    Page 76
+  Mon Nov  2 2026  9:15                                                                                                    Page 76
 
 
   4001 00:0EE9: 69 02 00     	adc	#L204+2
@@ -4634,7 +4634,7 @@
   4056 00:0F03: 38           	sec
   4057 00:0F04: E9 05 00     	sbc	#L212
   4058 00:0F07: 1B           	tcs
-  Mon Nov  2 2026  0:10                                                                                                    Page 77
+  Mon Nov  2 2026  9:15                                                                                                    Page 77
 
 
   4059 00:0F08: 0B           	phd
@@ -4695,7 +4695,7 @@
   4114 00:0F53: C2 20        	rep	#$20
   4115                        	longa	on
   4116                        	.line	723
-  Mon Nov  2 2026  0:10                                                                                                    Page 78
+  Mon Nov  2 2026  9:15                                                                                                    Page 78
 
 
   4117 00:0F55: E2 20        	sep	#$20
@@ -4756,7 +4756,7 @@
   4172                        	longi	on
   4173 00:0F96: 3B           	tsc
   4174 00:0F97: 38           	sec
-  Mon Nov  2 2026  0:10                                                                                                    Page 79
+  Mon Nov  2 2026  9:15                                                                                                    Page 79
 
 
   4175 00:0F98: E9 09 00     	sbc	#L222
@@ -4817,7 +4817,7 @@
   4230 00:0FEA: 85 05        	sta	<R1
   4231 00:0FEC: A5 05        	lda	<R1
   4232 00:0FEE: EB           	xba
-  Mon Nov  2 2026  0:10                                                                                                    Page 80
+  Mon Nov  2 2026  9:15                                                                                                    Page 80
 
 
   4233 00:0FEF: 29 FF 00     	and	#$00ff
@@ -4878,7 +4878,7 @@
   4288                        	.line	737
   4289 00:1048: E2 20        	sep	#$20
   4290                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 81
+  Mon Nov  2 2026  9:15                                                                                                    Page 81
 
 
   4291 00:104A: A9 09        	lda	#$9
@@ -4939,7 +4939,7 @@
   4346 00:10A7: 20 xx xx     	jsr	__putchar
   4347 00:10AA: A5 01        	lda	<R0
   4348 00:10AC: 80 13        	bra	L236
-  Mon Nov  2 2026  0:10                                                                                                    Page 82
+  Mon Nov  2 2026  9:15                                                                                                    Page 82
 
 
   4349                        L234:
@@ -5000,7 +5000,7 @@
   4404 00:10DB: E2 20        	sep	#$20
   4405                        	longa	off
   4406 00:10DD: A9 80        	lda	#$80
-  Mon Nov  2 2026  0:10                                                                                                    Page 83
+  Mon Nov  2 2026  9:15                                                                                                    Page 83
 
 
   4407 00:10DF: 85 06        	sta	<L239+mask_1
@@ -5061,7 +5061,7 @@
   4462                        	.line	750
   4463                        L245:
   4464 00:1127: A5 07        	lda	<L238+1
-  Mon Nov  2 2026  0:10                                                                                                    Page 84
+  Mon Nov  2 2026  9:15                                                                                                    Page 84
 
 
   4465 00:1129: 85 09        	sta	<L238+1+2
@@ -5122,7 +5122,7 @@
   4520                        	longa	on
   4521                        L10106:
   4522 00:1155: E2 20        	sep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 85
+  Mon Nov  2 2026  9:15                                                                                                    Page 85
 
 
   4523                        	longa	off
@@ -5183,7 +5183,7 @@
   4578 00:118E: 3B           	tsc
   4579 00:118F: 38           	sec
   4580 00:1190: E9 0D 00     	sbc	#L254
-  Mon Nov  2 2026  0:10                                                                                                    Page 86
+  Mon Nov  2 2026  9:15                                                                                                    Page 86
 
 
   4581 00:1193: 1B           	tcs
@@ -5244,7 +5244,7 @@
   4636 00:11D3: B0 03        	bcs	L258
   4637 00:11D5: 82 3A 00     	brl	L10109
   4638                        L258:
-  Mon Nov  2 2026  0:10                                                                                                    Page 87
+  Mon Nov  2 2026  9:15                                                                                                    Page 87
 
 
   4639 00:11D8: E2 20        	sep	#$20
@@ -5305,7 +5305,7 @@
   4694                        L261:
   4695                        	.line	776
   4696 00:122C: B2 10        	lda	(<L254+s_0)
-  Mon Nov  2 2026  0:10                                                                                                    Page 88
+  Mon Nov  2 2026  9:15                                                                                                    Page 88
 
 
   4697 00:122E: 29 FF 00     	and	#$ff
@@ -5366,7 +5366,7 @@
   4752 00:1282: A5 0D        	lda	<L255+value_1
   4753 00:1284: 29 FF 00     	and	#$ff
   4754 00:1287: 85 05        	sta	<R1
-  Mon Nov  2 2026  0:10                                                                                                    Page 89
+  Mon Nov  2 2026  9:15                                                                                                    Page 89
 
 
   4755 00:1289: 18           	clc
@@ -5427,7 +5427,7 @@
   4810 00:12E4: 85 0D        	sta	<L255+value_1
   4811 00:12E6: C2 20        	rep	#$20
   4812                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 90
+  Mon Nov  2 2026  9:15                                                                                                    Page 90
 
 
   4813                        L10112:
@@ -5488,7 +5488,7 @@
   4868                        L268:
   4869 00:1340: E2 20        	sep	#$20
   4870                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 91
+  Mon Nov  2 2026  9:15                                                                                                    Page 91
 
 
   4871 00:1342: A9 66        	lda	#$66
@@ -5549,7 +5549,7 @@
   4926                        	code
   4927                        	xdef	__ConvertASCtoWord
   4928                        	func
-  Mon Nov  2 2026  0:10                                                                                                    Page 92
+  Mon Nov  2 2026  9:15                                                                                                    Page 92
 
 
   4929                        	.function	786
@@ -5610,7 +5610,7 @@
   4984 00:13CD: 82 29 00     	brl	L10116
   4985                        L276:
   4986 00:13D0: E2 20        	sep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 93
+  Mon Nov  2 2026  9:15                                                                                                    Page 93
 
 
   4987                        	longa	off
@@ -5671,7 +5671,7 @@
   5042 00:1428: A9 00 90     	lda	#$9000
   5043 00:142B: 65 05        	adc	<R1
   5044 00:142D: 85 09        	sta	<L272+value_1
-  Mon Nov  2 2026  0:10                                                                                                    Page 94
+  Mon Nov  2 2026  9:15                                                                                                    Page 94
 
 
   5045                        L10117:
@@ -5732,7 +5732,7 @@
   5100 00:1487: D1 0D        	cmp	(<L271+s_0),Y
   5101 00:1489: C2 20        	rep	#$20
   5102                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 95
+  Mon Nov  2 2026  9:15                                                                                                    Page 95
 
 
   5103 00:148B: B0 03        	bcs	L283
@@ -5793,7 +5793,7 @@
   5158 00:14EA: 18           	clc
   5159 00:14EB: A9 00 A9     	lda	#$a900
   5160 00:14EE: 65 05        	adc	<R1
-  Mon Nov  2 2026  0:10                                                                                                    Page 96
+  Mon Nov  2 2026  9:15                                                                                                    Page 96
 
 
   5161 00:14F0: 85 09        	sta	<L272+value_1
@@ -5854,7 +5854,7 @@
   5216                        	longa	off
   5217 00:1545: A9 46        	lda	#$46
   5218 00:1547: A0 02 00     	ldy	#$2
-  Mon Nov  2 2026  0:10                                                                                                    Page 97
+  Mon Nov  2 2026  9:15                                                                                                    Page 97
 
 
   5219 00:154A: D1 0D        	cmp	(<L271+s_0),Y
@@ -5915,7 +5915,7 @@
   5274 00:15A2: 0A           	asl	A
   5275 00:15A3: 0A           	asl	A
   5276 00:15A4: 85 01        	sta	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 98
+  Mon Nov  2 2026  9:15                                                                                                    Page 98
 
 
   5277 00:15A6: 18           	clc
@@ -5976,7 +5976,7 @@
   5332 00:15FE: E2 20        	sep	#$20
   5333                        	longa	off
   5334 00:1600: A9 46        	lda	#$46
-  Mon Nov  2 2026  0:10                                                                                                    Page 99
+  Mon Nov  2 2026  9:15                                                                                                    Page 99
 
 
   5335 00:1602: A0 03 00     	ldy	#$3
@@ -6037,7 +6037,7 @@
   5390                        L10126:
   5391                        	.line	809
   5392 00:1660: A5 09        	lda	<L272+value_1
-  Mon Nov  2 2026  0:10                                                                                                    Page 100
+  Mon Nov  2 2026  9:15                                                                                                    Page 100
 
 
   5393                        L298:
@@ -6098,7 +6098,7 @@
   5448 00:1686: F4 30 00     	pea	#<$30
   5449 00:1689: 20 xx xx     	jsr	__putchar
   5450                        	.line	821
-  Mon Nov  2 2026  0:10                                                                                                    Page 101
+  Mon Nov  2 2026  9:15                                                                                                    Page 101
 
 
   5451 00:168C: F4 30 00     	pea	#<$30
@@ -6159,7 +6159,7 @@
   5506 00:16E7: 20 xx xx     	jsr	__putchar
   5507                        	.line	835
   5508 00:16EA: F4 20 00     	pea	#<$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 102
+  Mon Nov  2 2026  9:15                                                                                                    Page 102
 
 
   5509 00:16ED: 20 xx xx     	jsr	__putchar
@@ -6220,7 +6220,7 @@
   5564 00:1739: D4 07        	pei	<L300+cont_1
   5565 00:173B: 20 xx xx     	jsr	__putchar
   5566 00:173E: 82 06 00     	brl	L10135
-  Mon Nov  2 2026  0:10                                                                                                    Page 103
+  Mon Nov  2 2026  9:15                                                                                                    Page 103
 
 
   5567                        L10134:
@@ -6281,7 +6281,7 @@
   5622 00:1772: C2 20        	rep	#$20
   5623                        	longa	on
   5624 00:1774: B0 03        	bcs	L314
-  Mon Nov  2 2026  0:10                                                                                                    Page 104
+  Mon Nov  2 2026  9:15                                                                                                    Page 104
 
 
   5625 00:1776: 82 0D 00     	brl	L313
@@ -6342,7 +6342,7 @@
   5680 00:17C1: A8           	tay
   5681 00:17C2: A5 05        	lda	<L308+1
   5682 00:17C4: 85 07        	sta	<L308+1+2
-  Mon Nov  2 2026  0:10                                                                                                    Page 105
+  Mon Nov  2 2026  9:15                                                                                                    Page 105
 
 
   5683 00:17C6: 2B           	pld
@@ -6403,7 +6403,7 @@
   5733 00:0740: 20 20 20 4A  	db	$20,$20,$20,$4A,$61,$6E,$46,$65,$62,$4D
        00:0744: 61 6E 46 65 
        00:0748: 62 4D 
-  Mon Nov  2 2026  0:10                                                                                                    Page 106
+  Mon Nov  2 2026  9:15                                                                                                    Page 106
 
 
   5734 00:074A: 61 72 41 70  	db	$61,$72,$41,$70,$72,$4D,$61,$79,$4A,$75
@@ -6464,7 +6464,7 @@
   5783                        	.line	13
   5784 00:1805: A9 xx xx     	lda	#<L120+61
   5785 00:1808: 85 01        	sta	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 107
+  Mon Nov  2 2026  9:15                                                                                                    Page 107
 
 
   5786 00:180A: E2 20        	sep	#$20
@@ -6525,7 +6525,7 @@
   5841 00:1869: 85 05        	sta	<R1
   5842 00:186B: 18           	clc
   5843 00:186C: A5 05        	lda	<R1
-  Mon Nov  2 2026  0:10                                                                                                    Page 108
+  Mon Nov  2 2026  9:15                                                                                                    Page 108
 
 
   5844 00:186E: 65 01        	adc	<R0
@@ -6586,7 +6586,7 @@
   5899 00:18D0: A5 05        	lda	<R1
   5900 00:18D2: 85 1F        	sta	<L323+dom_1
   5901 00:18D4: C2 20        	rep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 109
+  Mon Nov  2 2026  9:15                                                                                                    Page 109
 
 
   5902                        	longa	on
@@ -6647,7 +6647,7 @@
   5957 00:1935: 0A           	asl	A
   5958 00:1936: 0A           	asl	A
   5959 00:1937: 65 05        	adc	<R1
-  Mon Nov  2 2026  0:10                                                                                                    Page 110
+  Mon Nov  2 2026  9:15                                                                                                    Page 110
 
 
   5960 00:1939: 0A           	asl	A
@@ -6708,7 +6708,7 @@
   6015 00:198D: E2 20        	sep	#$20
   6016                        	longa	off
   6017 00:198F: A5 19        	lda	<L323+ctr_1
-  Mon Nov  2 2026  0:10                                                                                                    Page 111
+  Mon Nov  2 2026  9:15                                                                                                    Page 111
 
 
   6018 00:1991: 85 1E        	sta	<L323+mon_1
@@ -6769,7 +6769,7 @@
   6073 00:19EA: A5 11        	lda	<17
   6074 00:19EC: 65 20        	adc	<L323+year_1
   6075 00:19EE: 85 15        	sta	<21
-  Mon Nov  2 2026  0:10                                                                                                    Page 112
+  Mon Nov  2 2026  9:15                                                                                                    Page 112
 
 
   6076 00:19F0: 38           	sec
@@ -6830,7 +6830,7 @@
   6131                        	longa	on
   6132                        	.line	35
   6133 00:1A4A: E2 20        	sep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 113
+  Mon Nov  2 2026  9:15                                                                                                    Page 113
 
 
   6134                        	longa	off
@@ -6891,7 +6891,7 @@
   6189 00:1A92: E2 20        	sep	#$20
   6190                        	longa	off
   6191 00:1A94: A9 00        	lda	#$0
-  Mon Nov  2 2026  0:10                                                                                                    Page 114
+  Mon Nov  2 2026  9:15                                                                                                    Page 114
 
 
   6192 00:1A96: 8D 10 7F     	sta	|32528	; volatile
@@ -6940,27 +6940,27 @@
        00:0789: 67 00 53 65 
        00:078D: 70 00 4F 63 
        00:0791: 74 00 4E 
-  6229 00:0794: 6F 76 00 44  	db	$6F,$76,$00,$44,$65,$63,$00,$20,$30,$3A,$31,$30,$3A,$35,$36
+  6229 00:0794: 6F 76 00 44  	db	$6F,$76,$00,$44,$65,$63,$00,$20,$39,$3A,$31,$35,$3A,$34,$36
        00:0798: 65 63 00 20 
-       00:079C: 30 3A 31 30 
-       00:07A0: 3A 35 36 
-  6230 00:07A3: 00 20 30 3A  	db	$00,$20,$30,$3A,$31,$30,$3A,$35,$36,$00,$20,$30,$3A,$31,$30
-       00:07A7: 31 30 3A 35 
-       00:07AB: 36 00 20 30 
-       00:07AF: 3A 31 30 
-  6231 00:07B2: 3A 35 36 00  	db	$3A,$35,$36,$00,$20,$30,$3A,$31,$30,$3A,$35,$36,$00,$20,$30
-       00:07B6: 20 30 3A 31 
-       00:07BA: 30 3A 35 36 
-       00:07BE: 00 20 30 
-  Mon Nov  2 2026  0:10                                                                                                    Page 115
+       00:079C: 39 3A 31 35 
+       00:07A0: 3A 34 36 
+  6230 00:07A3: 00 20 39 3A  	db	$00,$20,$39,$3A,$31,$35,$3A,$34,$36,$00,$20,$39,$3A,$31,$35
+       00:07A7: 31 35 3A 34 
+       00:07AB: 36 00 20 39 
+       00:07AF: 3A 31 35 
+  6231 00:07B2: 3A 34 36 00  	db	$3A,$34,$36,$00,$20,$39,$3A,$31,$35,$3A,$34,$36,$00,$20,$39
+       00:07B6: 20 39 3A 31 
+       00:07BA: 35 3A 34 36 
+       00:07BE: 00 20 39 
+  Mon Nov  2 2026  9:15                                                                                                    Page 115
 
 
-  6232 00:07C1: 3A 31 30 3A  	db	$3A,$31,$30,$3A,$35,$36,$00,$20,$30,$3A,$31,$30,$3A,$35,$36
-       00:07C5: 35 36 00 20 
-       00:07C9: 30 3A 31 30 
-       00:07CD: 3A 35 36 
-  6233 00:07D0: 00 20 30 3A  	db	$00,$20,$30,$3A,$31,$30,$3A,$35,$36,$00,$4E,$6F,$76,$20,$20
-       00:07D4: 31 30 3A 35 
+  6232 00:07C1: 3A 31 35 3A  	db	$3A,$31,$35,$3A,$34,$36,$00,$20,$39,$3A,$31,$35,$3A,$34,$36
+       00:07C5: 34 36 00 20 
+       00:07C9: 39 3A 31 35 
+       00:07CD: 3A 34 36 
+  6233 00:07D0: 00 20 39 3A  	db	$00,$20,$39,$3A,$31,$35,$3A,$34,$36,$00,$4E,$6F,$76,$20,$20
+       00:07D4: 31 35 3A 34 
        00:07D8: 36 00 4E 6F 
        00:07DC: 76 20 20 
   6234 00:07DF: 32 20 32 30  	db	$32,$20,$32,$30,$32,$36,$00,$4E,$6F,$76,$20,$20,$32,$20,$32
@@ -7013,7 +7013,7 @@
   6264             00000002   min_1	set	2
   6265             00000003   sec_1	set	3
   6266             00000004   mon_1	set	4
-  Mon Nov  2 2026  0:10                                                                                                    Page 116
+  Mon Nov  2 2026  9:15                                                                                                    Page 116
 
 
   6267             00000005   dom_1	set	5
@@ -7074,7 +7074,7 @@
   6322 00:1AF3: E2 20        	sep	#$20
   6323                        	longa	off
   6324 00:1AF5: AD 06 7F     	lda	|32518	; volatile
-  Mon Nov  2 2026  0:10                                                                                                    Page 117
+  Mon Nov  2 2026  9:15                                                                                                    Page 117
 
 
   6325 00:1AF8: 85 0B        	sta	<L339+year_1
@@ -7135,7 +7135,7 @@
   6380                        L10146:
   6381                        	.line	72
   6382 00:1B52: F4 54 00     	pea	#<$54
-  Mon Nov  2 2026  0:10                                                                                                    Page 118
+  Mon Nov  2 2026  9:15                                                                                                    Page 118
 
 
   6383 00:1B55: 20 xx xx     	jsr	__char_to_lcd
@@ -7196,7 +7196,7 @@
   6438                        	.line	81
   6439 00:1BB5: F4 20 00     	pea	#<$20
   6440 00:1BB8: 20 xx xx     	jsr	__char_to_lcd
-  Mon Nov  2 2026  0:10                                                                                                    Page 119
+  Mon Nov  2 2026  9:15                                                                                                    Page 119
 
 
   6441                        	.line	82
@@ -7257,7 +7257,7 @@
   6496 00:1C1A: 85 01        	sta	<R0
   6497 00:1C1C: 18           	clc
   6498 00:1C1D: A9 30 00     	lda	#$30
-  Mon Nov  2 2026  0:10                                                                                                    Page 120
+  Mon Nov  2 2026  9:15                                                                                                    Page 120
 
 
   6499 00:1C20: 65 01        	adc	<R0
@@ -7318,7 +7318,7 @@
   6554 00:1C8A: A5 01        	lda	<R0
   6555 00:1C8C: A2 0A 00     	ldx	#<$a
   6556                        	xref	__~mod
-  Mon Nov  2 2026  0:10                                                                                                    Page 121
+  Mon Nov  2 2026  9:15                                                                                                    Page 121
 
 
   6557 00:1C8F: 20 xx xx     	jsr	__~mod
@@ -7379,7 +7379,7 @@
   6612 00:1CEE: 20 xx xx     	jsr	__char_to_lcd
   6613                        	.line	100
   6614 00:1CF1: F4 62 00     	pea	#<$62
-  Mon Nov  2 2026  0:10                                                                                                    Page 122
+  Mon Nov  2 2026  9:15                                                                                                    Page 122
 
 
   6615 00:1CF4: 20 xx xx     	jsr	__char_to_lcd
@@ -7440,7 +7440,7 @@
   6670                        L10159:
   6671                        	.line	112
   6672 00:1D51: F4 4A 00     	pea	#<$4a
-  Mon Nov  2 2026  0:10                                                                                                    Page 123
+  Mon Nov  2 2026  9:15                                                                                                    Page 123
 
 
   6673 00:1D54: 20 xx xx     	jsr	__char_to_lcd
@@ -7501,7 +7501,7 @@
   6728                        	.line	121
   6729 00:1DB4: F4 20 00     	pea	#<$20
   6730 00:1DB7: 20 xx xx     	jsr	__char_to_lcd
-  Mon Nov  2 2026  0:10                                                                                                    Page 124
+  Mon Nov  2 2026  9:15                                                                                                    Page 124
 
 
   6731                        	.line	122
@@ -7562,7 +7562,7 @@
   6786 00:1E13: 0D 00        	dw	13
   6787 00:1E15: xx xx        	dw	L10152-1
   6788 00:1E17: xx xx        	dw	L10153-1
-  Mon Nov  2 2026  0:10                                                                                                    Page 125
+  Mon Nov  2 2026  9:15                                                                                                    Page 125
 
 
   6789 00:1E19: xx xx        	dw	L10154-1
@@ -7623,7 +7623,7 @@
   6844 00:1E81: 29 FF 00     	and	#$ff
   6845 00:1E84: 85 01        	sta	<R0
   6846 00:1E86: A5 01        	lda	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 126
+  Mon Nov  2 2026  9:15                                                                                                    Page 126
 
 
   6847 00:1E88: A2 0A 00     	ldx	#<$a
@@ -7684,7 +7684,7 @@
   6896                        __RTC_Time_On_Serial:
   6897                        	longa	on
   6898                        	longi	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 127
+  Mon Nov  2 2026  9:15                                                                                                    Page 127
 
 
   6899 00:1EBD: 3B           	tsc
@@ -7745,7 +7745,7 @@
   6950                        	.line	145
   6951 00:1EE0: E2 20        	sep	#$20
   6952                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 128
+  Mon Nov  2 2026  9:15                                                                                                    Page 128
 
 
   6953 00:1EE2: AD 03 7F     	lda	|32515	; volatile
@@ -7806,7 +7806,7 @@
   7008 00:1F2A: 20 xx xx     	jsr	__putstring
   7009                        	.line	162
   7010 00:1F2D: 82 3B 00     	brl	L10167
-  Mon Nov  2 2026  0:10                                                                                                    Page 129
+  Mon Nov  2 2026  9:15                                                                                                    Page 129
 
 
   7011                        	.line	163
@@ -7867,7 +7867,7 @@
   7066 00:1F7F: 85 01        	sta	<R0
   7067 00:1F81: 18           	clc
   7068 00:1F82: A9 30 00     	lda	#$30
-  Mon Nov  2 2026  0:10                                                                                                    Page 130
+  Mon Nov  2 2026  9:15                                                                                                    Page 130
 
 
   7069 00:1F85: 65 01        	adc	<R0
@@ -7928,7 +7928,7 @@
   7124 00:1FE7: 18           	clc
   7125 00:1FE8: A9 30 00     	lda	#$30
   7126 00:1FEB: 65 01        	adc	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 131
+  Mon Nov  2 2026  9:15                                                                                                    Page 131
 
 
   7127 00:1FED: 48           	pha
@@ -7989,7 +7989,7 @@
   7182 00:204B: 82 84 00     	brl	L10176
   7183                        	.line	183
   7184                        L10178:
-  Mon Nov  2 2026  0:10                                                                                                    Page 132
+  Mon Nov  2 2026  9:15                                                                                                    Page 132
 
 
   7185                        	.line	184
@@ -8050,7 +8050,7 @@
   7240                        L10186:
   7241                        	.line	208
   7242 00:2096: F4 xx xx     	pea	#<L343+108
-  Mon Nov  2 2026  0:10                                                                                                    Page 133
+  Mon Nov  2 2026  9:15                                                                                                    Page 133
 
 
   7243 00:2099: 20 xx xx     	jsr	__putstring
@@ -8111,7 +8111,7 @@
   7298                        	.line	217
   7299 00:20F2: E2 20        	sep	#$20
   7300                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 134
+  Mon Nov  2 2026  9:15                                                                                                    Page 134
 
 
   7301 00:20F4: AD 05 7F     	lda	|32517	; volatile
@@ -8172,7 +8172,7 @@
   7356                        	xref	__~mod
   7357 00:215B: 20 xx xx     	jsr	__~mod
   7358 00:215E: 85 01        	sta	<R0
-  Mon Nov  2 2026  0:10                                                                                                    Page 135
+  Mon Nov  2 2026  9:15                                                                                                    Page 135
 
 
   7359 00:2160: 18           	clc
@@ -8233,7 +8233,7 @@
        00:08CE: 00 53 65 
   7394 00:08D1: 70 20 00 4F  	db	$70,$20,$00,$4F,$63,$74,$20,$00,$4E,$6F,$76,$20,$00,$44,$65
        00:08D5: 63 74 20 00 
-  Mon Nov  2 2026  0:10                                                                                                    Page 136
+  Mon Nov  2 2026  9:15                                                                                                    Page 136
 
 
        00:08D9: 4E 6F 76 20 
@@ -8294,7 +8294,7 @@
   7448 00:219D: 0B           	phd
   7449 00:219E: 5B           	tcd
   7450                        	.block	229
-  Mon Nov  2 2026  0:10                                                                                                    Page 137
+  Mon Nov  2 2026  9:15                                                                                                    Page 137
 
 
   7451                        	.line	231
@@ -8355,7 +8355,7 @@
   7506             00000001   L359	equ	1
   7507                        	ends
   7508                        	efunc
-  Mon Nov  2 2026  0:10                                                                                                    Page 138
+  Mon Nov  2 2026  9:15                                                                                                    Page 138
 
 
   7509                        	.endfunc	237,1,0
@@ -8416,7 +8416,7 @@
   7564                        	.block	244
   7565                        	.line	246
   7566 00:21EA: E2 20        	sep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 139
+  Mon Nov  2 2026  9:15                                                                                                    Page 139
 
 
   7567                        	longa	off
@@ -8477,7 +8477,7 @@
   7622                        	efunc
   7623                        	.endfunc	252,1,0
   7624                        	.line	252
-  Mon Nov  2 2026  0:10                                                                                                    Page 140
+  Mon Nov  2 2026  9:15                                                                                                    Page 140
 
 
   7625                        	.line	254
@@ -8538,7 +8538,7 @@
   7680 00:2235: E2 20        	sep	#$20
   7681                        	longa	off
   7682 00:2237: A9 00        	lda	#$0
-  Mon Nov  2 2026  0:10                                                                                                    Page 141
+  Mon Nov  2 2026  9:15                                                                                                    Page 141
 
 
   7683 00:2239: 8D 11 7F     	sta	|32529	; volatile
@@ -8599,7 +8599,7 @@
   7738 00:00B1: 00           	db	$0
   7739 00:00B2:              	ends
   7740                        ;
-  Mon Nov  2 2026  0:10                                                                                                    Page 142
+  Mon Nov  2 2026  9:15                                                                                                    Page 142
 
 
   7741                        ;// 3 strings to store cmd line parameters, situated in DATA section of RAM 
@@ -8660,7 +8660,7 @@
   7796 00:224E: 20 xx xx     	jsr	__setup
   7797                        ;
   7798                        ;	for (;;)  
-  Mon Nov  2 2026  0:10                                                                                                    Page 143
+  Mon Nov  2 2026  9:15                                                                                                    Page 143
 
 
   7799                        	.line	60
@@ -8721,7 +8721,7 @@
   7854 00:01D0:              	ends
   7855                        ;	asm {sei; }; 				// disable interrupts ("set interrupt disable") 
   7856             00000000   strng_1	set	0
-  Mon Nov  2 2026  0:10                                                                                                    Page 144
+  Mon Nov  2 2026  9:15                                                                                                    Page 144
 
 
   7857                        	.sym	strng,0,110,1,0,15
@@ -8782,7 +8782,7 @@
   7912 00:22A7: 8D EE 7F     	sta	|32750	; volatile
   7913 00:22AA: C2 20        	rep	#$20
   7914                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 145
+  Mon Nov  2 2026  9:15                                                                                                    Page 145
 
 
   7915                        ;						// init LCD - LCD can be used for debugging or as display 
@@ -8843,7 +8843,7 @@
   7967                        	longa	on
   7968                        ;	asm {cli; }; 				// enable interrupts ("CLear Interrupt disable") 
   7969                        	.line	101
-  Mon Nov  2 2026  0:10                                                                                                    Page 146
+  Mon Nov  2 2026  9:15                                                                                                    Page 146
 
 
   7970                        	asmstart
@@ -8904,7 +8904,7 @@
   8025 00:22FC: D0 03        	bne	L394
   8026 00:22FE: 82 F4 00     	brl	L10191
   8027                        L394:
-  Mon Nov  2 2026  0:10                                                                                                    Page 147
+  Mon Nov  2 2026  9:15                                                                                                    Page 147
 
 
   8028                        	.line	111
@@ -8965,7 +8965,7 @@
   8082                        	.line	127
   8083 00:2331: 20 xx xx     	jsr	__RTC_Minus_1Min
   8084                        ;				putchar(cmd); 			// echo the char 
-  Mon Nov  2 2026  0:10                                                                                                    Page 148
+  Mon Nov  2 2026  9:15                                                                                                    Page 148
 
 
   8085                        	.line	128
@@ -9026,7 +9026,7 @@
   8140                        	.line	144
   8141 00:236D: E2 20        	sep	#$20
   8142                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 149
+  Mon Nov  2 2026  9:15                                                                                                    Page 149
 
 
   8143 00:236F: 9C xx xx     	stz	|__RD_IDX	; volatile
@@ -9087,7 +9087,7 @@
   8197                        	longa	on
   8198                        ;				RD_IDX = 0; 
   8199                        	.line	153
-  Mon Nov  2 2026  0:10                                                                                                    Page 150
+  Mon Nov  2 2026  9:15                                                                                                    Page 150
 
 
   8200 00:23B7: E2 20        	sep	#$20
@@ -9148,7 +9148,7 @@
   8254 00:23F7: 18           	clc
   8255 00:23F8: 69 0C 00     	adc	#L391
   8256 00:23FB: 1B           	tcs
-  Mon Nov  2 2026  0:10                                                                                                    Page 151
+  Mon Nov  2 2026  9:15                                                                                                    Page 151
 
 
   8257 00:23FC: 60           	rts
@@ -9209,7 +9209,7 @@
   8311                        	.sym	x,0,14,1,8
   8312                        	.line	174
   8313 00:2418: E2 20        	sep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 152
+  Mon Nov  2 2026  9:15                                                                                                    Page 152
 
 
   8314                        	longa	off
@@ -9270,7 +9270,7 @@
   8367                        	.endblock	185
   8368             00000009   L396	equ	9
   8369             00000009   L397	equ	9
-  Mon Nov  2 2026  0:10                                                                                                    Page 153
+  Mon Nov  2 2026  9:15                                                                                                    Page 153
 
 
   8370                        	ends
@@ -9331,7 +9331,7 @@
   8424                        	.line	195
   8425 00:2476: D4 07        	pei	<L403+ticks_1+2
   8426 00:2478: D4 05        	pei	<L403+ticks_1
-  Mon Nov  2 2026  0:10                                                                                                    Page 154
+  Mon Nov  2 2026  9:15                                                                                                    Page 154
 
 
   8427 00:247A: A9 10 00     	lda	#$10
@@ -9392,7 +9392,7 @@
   8481 00:24BA: C6 09        	dec	<L403+wraps_1
   8482                        ;			VIA2[T2CHI] = 0xff;
   8483                        	.line	204
-  Mon Nov  2 2026  0:10                                                                                                    Page 155
+  Mon Nov  2 2026  9:15                                                                                                    Page 155
 
 
   8484 00:24BC: E2 20        	sep	#$20
@@ -9453,7 +9453,7 @@
   8539                        ;	char temp; 
   8540                        ;	temp = RTC[RTC_SEC100]; 
   8541             00000000   hrs_1	set	0
-  Mon Nov  2 2026  0:10                                                                                                    Page 156
+  Mon Nov  2 2026  9:15                                                                                                    Page 156
 
 
   8542             00000001   mins_1	set	1
@@ -9514,7 +9514,7 @@
   8597                        	.line	217
   8598 00:2510: E2 20        	sep	#$20
   8599                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 157
+  Mon Nov  2 2026  9:15                                                                                                    Page 157
 
 
   8600 00:2512: E6 03        	inc	<L409+secs_1
@@ -9575,7 +9575,7 @@
   8655                        	longa	on
   8656                        ;	dom  = RTC[RTC_DoMS];         			// 1..31
   8657                        	.line	225
-  Mon Nov  2 2026  0:10                                                                                                    Page 158
+  Mon Nov  2 2026  9:15                                                                                                    Page 158
 
 
   8658 00:254A: E2 20        	sep	#$20
@@ -9636,7 +9636,7 @@
   8713                        	.line	233
   8714                        	code
   8715                        	xdef	__RTC_Plus_1Min
-  Mon Nov  2 2026  0:10                                                                                                    Page 159
+  Mon Nov  2 2026  9:15                                                                                                    Page 159
 
 
   8716                        	func
@@ -9697,7 +9697,7 @@
   8771                        	.line	239
   8772 00:259F: E2 20        	sep	#$20
   8773                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 160
+  Mon Nov  2 2026  9:15                                                                                                    Page 160
 
 
   8774 00:25A1: AD 02 7F     	lda	|32514	; volatile
@@ -9758,7 +9758,7 @@
   8829 00:25DD: AD 07 7F     	lda	|32519	; volatile
   8830 00:25E0: 85 04        	sta	<L414+dow_1
   8831 00:25E2: C2 20        	rep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 161
+  Mon Nov  2 2026  9:15                                                                                                    Page 161
 
 
   8832                        	longa	on
@@ -9819,7 +9819,7 @@
   8887             00000003   dow_1	set	3
   8888             00000004   dom_1	set	4
   8889             00000005   mon_1	set	5
-  Mon Nov  2 2026  0:10                                                                                                    Page 162
+  Mon Nov  2 2026  9:15                                                                                                    Page 162
 
 
   8890             00000006   yr_1	set	6
@@ -9880,7 +9880,7 @@
   8945                        	longa	on
   8946                        ;	RTC[RTC_HRS] = hrs;   					// 0..23
   8947                        	.line	261
-  Mon Nov  2 2026  0:10                                                                                                    Page 163
+  Mon Nov  2 2026  9:15                                                                                                    Page 163
 
 
   8948 00:2636: E2 20        	sep	#$20
@@ -9941,7 +9941,7 @@
   9003 00:2672: 2B           	pld
   9004 00:2673: 3B           	tsc
   9005 00:2674: 18           	clc
-  Mon Nov  2 2026  0:10                                                                                                    Page 164
+  Mon Nov  2 2026  9:15                                                                                                    Page 164
 
 
   9006 00:2675: 69 08 00     	adc	#L417
@@ -10002,7 +10002,7 @@
   9061                        	.line	275
   9062 00:268B: E2 20        	sep	#$20
   9063                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 165
+  Mon Nov  2 2026  9:15                                                                                                    Page 165
 
 
   9064 00:268D: A9 05        	lda	#$5
@@ -10063,7 +10063,7 @@
   9119 00:26C9: C6 02        	dec	<L422+mins_1
   9120 00:26CB: C2 20        	rep	#$20
   9121                        	longa	on
-  Mon Nov  2 2026  0:10                                                                                                    Page 166
+  Mon Nov  2 2026  9:15                                                                                                    Page 166
 
 
   9122                        ;	}
@@ -10124,7 +10124,7 @@
   9177 00:2705: A9 1D        	lda	#$1d
   9178 00:2707: 8D 11 7F     	sta	|32529	; volatile
   9179 00:270A: C2 20        	rep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 167
+  Mon Nov  2 2026  9:15                                                                                                    Page 167
 
 
   9180                        	longa	on
@@ -10185,7 +10185,7 @@
   9235                        	.sym	dow,3,14,1,8
   9236                        	.sym	dom,4,14,1,8
   9237                        	.sym	mon,5,14,1,8
-  Mon Nov  2 2026  0:10                                                                                                    Page 168
+  Mon Nov  2 2026  9:15                                                                                                    Page 168
 
 
   9238                        	.sym	yr,6,14,1,8
@@ -10246,7 +10246,7 @@
   9293                        	longa	on
   9294                        ;	mon  = RTC[RTC_MTHS];         			// 1..12
   9295                        	.line	305
-  Mon Nov  2 2026  0:10                                                                                                    Page 169
+  Mon Nov  2 2026  9:15                                                                                                    Page 169
 
 
   9296 00:275E: E2 20        	sep	#$20
@@ -10307,7 +10307,7 @@
   9351             00000001   L427	equ	1
   9352                        	ends
   9353                        	efunc
-  Mon Nov  2 2026  0:10                                                                                                    Page 170
+  Mon Nov  2 2026  9:15                                                                                                    Page 170
 
 
   9354                        	.endfunc	312,1,8
@@ -10368,7 +10368,7 @@
   9409                        	.line	319
   9410 00:27B3: E2 20        	sep	#$20
   9411                        	longa	off
-  Mon Nov  2 2026  0:10                                                                                                    Page 171
+  Mon Nov  2 2026  9:15                                                                                                    Page 171
 
 
   9412 00:27B5: AD 01 7F     	lda	|32513	; volatile
@@ -10429,7 +10429,7 @@
   9467 00:27F1: AD 06 7F     	lda	|32518	; volatile
   9468 00:27F4: 85 07        	sta	<L431+yr_1
   9469 00:27F6: C2 20        	rep	#$20
-  Mon Nov  2 2026  0:10                                                                                                    Page 172
+  Mon Nov  2 2026  9:15                                                                                                    Page 172
 
 
   9470                        	longa	on
@@ -10490,7 +10490,7 @@
   9524                        ;// end of file C_TEMPLATE_816.C 
   9525                        ;
   9526                        	.line	347
-  Mon Nov  2 2026  0:10                                                                                                    Page 173
+  Mon Nov  2 2026  9:15                                                                                                    Page 173
 
 
   9527                        	xref	__toupper
@@ -10551,7 +10551,7 @@
   9582                        	.sym	__jump_to_sub,__jump_to_sub,65,2,0
   9583                        	.sym	__load_record,__load_record,65,2,0
   9584                        	.sym	__hunt,__hunt,65,2,0
-  Mon Nov  2 2026  0:10                                                                                                    Page 174
+  Mon Nov  2 2026  9:15                                                                                                    Page 174
 
 
   9585                        	.sym	__go,__go,65,2,0
@@ -10612,7 +10612,7 @@
   9640                        	.sym	__LOAD_PRG,__LOAD_PRG,110,2,0,16
   9641                        	.sym	__JUMP_MSG,__JUMP_MSG,110,2,0,12
   9642                        	.sym	__HUNT_MSG,__HUNT_MSG,110,2,0,12
-  Mon Nov  2 2026  0:10                                                                                                    Page 175
+  Mon Nov  2 2026  9:15                                                                                                    Page 175
 
 
   9643                        	.sym	__GO_MSG,__GO_MSG,110,2,0,10

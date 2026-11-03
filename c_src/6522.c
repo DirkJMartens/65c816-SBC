@@ -1,5 +1,6 @@
 // Define a pointer to the VIA at a specific base address
 // Example: If your VIA is mapped to base address 0xA000
+#include "6522.h" 
 #define VIA_BASE_ADDRESS 0xA000 
 
 struct mos6522_regs * const VIA = (struct mos6522_regs *)VIA_BASE_ADDRESS;
@@ -22,5 +23,5 @@ void main_loop(void) {
     VIA->orb_irb = 0x55;
 
     // Read a value from Input Register A
-    uint8_t input_a = VIA->ora_ira;
+    char input_a = VIA->ora_ira;
 }
