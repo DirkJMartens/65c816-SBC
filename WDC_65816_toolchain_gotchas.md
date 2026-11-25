@@ -3,7 +3,7 @@ Here are the key issues and idiosyncrasies to watch for in your project.
 
 # 1. WDC C Compiler ('wdc816cc') Quirks & Bugs
 - **Strict C89 / Pre-C99 Syntax Only:**
-        - You _cannot_ declare variables in the middle of a block or inside for ('int i = 0; ...') loops—all local variables must be declared at the very top of a function or '{ ... }' block.
+	- You _cannot_ declare variables in the middle of a block or inside for ('int i = 0; ...') loops—all local variables must be declared at the very top of a function or '{ ... }' block.
 	- Standard modern headers like '<stdint.h>' and '<stdbool.h>' do not exist, nor do '0b...' binary literals. Stick to 'unsigned char' (8-bit), 'unsigned int' (16-bit), 'unsigned long' (32-bit, though pointers are 24-bit in large model), and '0x' hex constants.
 - **Optimizer ('-SO') Bugs on 'volatile' & Bitwise Operations:**
 	- The WDC optimizer is notorious for occasionally eliminating or reordering reads/writes to hardware I/O registers—even when marked 'volatile'—or miscompiling complex compound bit-shift expressions.
@@ -18,11 +18,11 @@ Here are the key issues and idiosyncrasies to watch for in your project.
 - **Assembler Width Directives vs. Runtime CPU State:**
 	- 'wdc816as' does not automatically track 'SEP' and 'REP' instructions at assembly time. If you execute 'REP #$20' (16-bit accumulator) without explicitly writing 'LONGA ON' right after it, 'LDA #$1234' will assemble as a 2-byte instruction instead of 3 bytes, corrupting the instruction stream and crashing the CPU.
 	- Always pair 'REP #$20 / SEP #$20' with 'LONGA ON / LONGA OFF', and 'REP #$10 / SEP #$10' with 'LONGI ON / LONGI OFF'.
-- **24-Bit vs. 16-Bit Address Mode Ambiguity:**
+ - **24-Bit vs. 16-Bit Address Mode Ambiguity:**
 	- If a label is defined *after* it is referenced (a forward reference), `wdc816as` may default to 16-bit absolute addressing (`LDA label`) rather than 24-bit long addressing (`LDA >label`), or fail if the label is in another bank. Use explicit size prefixes (`<` for Direct Page, `| or !` for 16-bit absolute, `>` for 24-bit long) whenever bank crossing matters.
-- **Case Sensitivity & Directive Quirks:**
+ - **Case Sensitivity & Directive Quirks:**
 	- By default, `wdc816as` is case-sensitive for labels unless `-C` (ignore case) is passed, and C functions exported to assembly usually carry a leading underscore (`_load_record`) or `~~` prefix depending on compiler flags. Check your `.lst` or `.map` file to see exact mangled symbol names.
-- **Emulation Mode vs. Native Mode Reset State:**
+ - **Emulation Mode vs. Native Mode Reset State:**
 	- The W65C816S always powers on in 6502 Emulation mode (E=1, 8-bit M/X) at $00:FFFC. Your startup assembly file must explicitly execute `CLC + XCE` and `REP #$30` (plus `LONGA ON / LONGI ON`) before jumping into compiled C code, because `wdc816cc` assumes native 16-bit mode.
 
 # 3. WDC Linker (wdcln) Quirks & Bugs
