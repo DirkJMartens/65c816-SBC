@@ -24,10 +24,9 @@ Here are the key issues and idiosyncrasies to watch for in your project.
 	- By default, `wdc816as` is case-sensitive for labels unless `-C` (ignore case) is passed, and C functions exported to assembly usually carry a leading underscore (`_load_record`) or `~~` prefix depending on compiler flags. Check your `.lst` or `.map` file to see exact mangled symbol names.
 - **Emulation Mode vs. Native Mode Reset State:**
 	- The W65C816S always powers on in 6502 Emulation mode (E=1, 8-bit M/X) at $00:FFFC. Your startup assembly file must explicitly execute `CLC + XCE` and `REP #$30` (plus `LONGA ON / LONGI ON`) before jumping into compiled C code, because `wdc816cc` assumes native 16-bit mode.
-- **EQU should not have spaces before or after a '+'**
- 	- This means you should not use 'STAT EQU BASE + 1' but use 'STAT EQU BASE+1' instead 
-- **Do not use REPT macro**
-	- Do not use te "REPT" macro to include repeating opcodes (e.g. "REPT NOP") 
+- **Be careful when using spaces in EQU, conditional equations**
+  - No spaces within the EQU: using 'STAT EQU BASE + 1' will crash the assembler during compilation without error. Using 'STAT EQU BASE+1' instead works fine.
+  - In conditional equations such as "IF SIZE>2", no spaces are allowed. 
 
 # 3. WDC Linker (wdcln) Quirks & Bugs
 - **Strict Command-Line Flag Order & Comma Syntax:**
