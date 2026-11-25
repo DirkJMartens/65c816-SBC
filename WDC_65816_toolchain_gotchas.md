@@ -4,7 +4,7 @@ Here are the key issues and idiosyncrasies to watch for in your project.
 # 1. WDC C Compiler ('wdc816cc') Quirks & Bugs
 - **Strict C89 / Pre-C99 Syntax Only:**
 	- You _cannot_ declare variables in the middle of a block or inside for ('int i = 0; ...') loops—all local variables must be declared at the very top of a function or '{ ... }' block.
-	- Standard modern headers like '<stdint.h>' and '<stdbool.h>' do not exist, nor do '0b...' binary literals. Stick to 'unsigned char' (8-bit), 'unsigned int' (16-bit), 'unsigned long' (32-bit, though pointers are 24-bit in large model), and '0x' hex constants.
+	- Standard modern headers like '<stdint.h>' and '<stdbool.h>' do not exist, nor do '0b...' binary literals (only hex, octal and decimal literals can be used). Stick to 'unsigned char' (8-bit), 'unsigned int' (16-bit), 'unsigned long' (32-bit, though pointers are 24-bit in large model), and '0x' hex constants.
 - **Optimizer ('-SO') Bugs on 'volatile' & Bitwise Operations:**
 	- The WDC optimizer is notorious for occasionally eliminating or reordering reads/writes to hardware I/O registers—even when marked 'volatile'—or miscompiling complex compound bit-shift expressions.
 	- Rule of thumb: Always compile without '-SO' first when debugging hardware drivers (like your ACIA or VIA2 LCD routines). If an optimized build breaks I/O timing, inspect the generated '.asm' output ('-BS flag') to verify the compiler actually emitted the 'LDA/STA' instructions.
@@ -25,8 +25,8 @@ Here are the key issues and idiosyncrasies to watch for in your project.
 - **Emulation Mode vs. Native Mode Reset State:**
 	- The W65C816S always powers on in 6502 Emulation mode (E=1, 8-bit M/X) at $00:FFFC. Your startup assembly file must explicitly execute `CLC + XCE` and `REP #$30` (plus `LONGA ON / LONGI ON`) before jumping into compiled C code, because `wdc816cc` assumes native 16-bit mode.
 - **EQU should not have spaces before or after a '+'**
- 	- This means you should not use 'STAT EQU BASE + 1' but use 'STAT EQU BASE+1'
-- ** Do not use REPT macro**
+ 	- This means you should not use 'STAT EQU BASE + 1' but use 'STAT EQU BASE+1' instead 
+- **Do not use REPT macro**
 	- Do not use te "REPT" macro to include repeating opcodes (e.g. "REPT NOP") 
 
 # 3. WDC Linker (wdcln) Quirks & Bugs
