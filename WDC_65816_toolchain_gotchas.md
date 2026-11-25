@@ -18,12 +18,16 @@ Here are the key issues and idiosyncrasies to watch for in your project.
 - **Assembler Width Directives vs. Runtime CPU State:**
 	- 'wdc816as' does not automatically track 'SEP' and 'REP' instructions at assembly time. If you execute 'REP #$20' (16-bit accumulator) without explicitly writing 'LONGA ON' right after it, 'LDA #$1234' will assemble as a 2-byte instruction instead of 3 bytes, corrupting the instruction stream and crashing the CPU.
 	- Always pair 'REP #$20 / SEP #$20' with 'LONGA ON / LONGA OFF', and 'REP #$10 / SEP #$10' with 'LONGI ON / LONGI OFF'.
- - **24-Bit vs. 16-Bit Address Mode Ambiguity:**
+- **24-Bit vs. 16-Bit Address Mode Ambiguity:**
 	- If a label is defined *after* it is referenced (a forward reference), `wdc816as` may default to 16-bit absolute addressing (`LDA label`) rather than 24-bit long addressing (`LDA >label`), or fail if the label is in another bank. Use explicit size prefixes (`<` for Direct Page, `| or !` for 16-bit absolute, `>` for 24-bit long) whenever bank crossing matters.
- - **Case Sensitivity & Directive Quirks:**
+- **Case Sensitivity & Directive Quirks:**
 	- By default, `wdc816as` is case-sensitive for labels unless `-C` (ignore case) is passed, and C functions exported to assembly usually carry a leading underscore (`_load_record`) or `~~` prefix depending on compiler flags. Check your `.lst` or `.map` file to see exact mangled symbol names.
- - **Emulation Mode vs. Native Mode Reset State:**
+- **Emulation Mode vs. Native Mode Reset State:**
 	- The W65C816S always powers on in 6502 Emulation mode (E=1, 8-bit M/X) at $00:FFFC. Your startup assembly file must explicitly execute `CLC + XCE` and `REP #$30` (plus `LONGA ON / LONGI ON`) before jumping into compiled C code, because `wdc816cc` assumes native 16-bit mode.
+- **EQU should not have spaces before or after a '+'**
+ 	- This means you should not use 'STAT EQU BASE + 1' but use 'STAT EQU BASE+1'
+- ** Do not use REPT macro**
+	- Do not use te "REPT" macro to include repeating opcodes (e.g. "REPT NOP") 
 
 # 3. WDC Linker (wdcln) Quirks & Bugs
 - **Strict Command-Line Flag Order & Comma Syntax:**
